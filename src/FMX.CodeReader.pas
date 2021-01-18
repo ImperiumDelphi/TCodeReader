@@ -219,7 +219,7 @@ FScan            := TScanManager .Create(TBarcodeFormat.Auto, Nil);
 FCodeType        := TCodeType.Codes1D;
 FCodeOrientation := TCodeOrientation.CodeVertical;
 TMessageManager.DefaultManager.SubscribeToMessage(TApplicationEventMessage, AppEventMessage);
-SetSize(100, 240);
+SetSize(100, 100);
 end;
 
 destructor TCodeReader.Destroy;
