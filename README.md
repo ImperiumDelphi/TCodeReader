@@ -23,7 +23,9 @@ Overload do método Scan, para receber um stream com a luminância, evitando a c
 Intructions:
 
 -Use the method Start for open the camera, start preview and find the code in image samples.
+
 -On the event OnScanCodeReader the text of code is ready.
+
 -Use de method Stop for  close the camera and stop preview.
 
 
