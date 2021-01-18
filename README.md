@@ -18,7 +18,7 @@ The YUV_422_888 image format was used on image caputure to utilize the luminance
 
 Customizations on ZXing library:
 
-Overload on Scan method, to get a luminance stream, avoinding the conversion to TBitmap to GrayScale
+Overload Scan method, to get a luminance stream, avoinding the conversion to TBitmap to GrayScale
 
 Intructions:
 
