@@ -3,17 +3,23 @@
 	<Transactions>
     <Transaction>2021/01/18 14:29:28.000.991,=rtl.dcp</Transaction>
     <Transaction>2021/01/18 14:29:58.000.023,=D:\Carnival\TCodeReader\scr\FMX.ISCodeReader.pas</Transaction>
-    <Transaction>2021/01/18 14:34:00.000.142,D:\Carnival\TCodeReader\pkg\ImperiumDelphi.dproj=C:\Users\Dell\Documents\Embarcadero\Studio\Projects\Package1.dproj</Transaction>
+    <Transaction>2021/01/18 14:34:00.000.142,C:\Users\Dell\Documents\Embarcadero\Studio\Projects\Package1.dproj=D:\Carnival\TCodeReader\pkg\ImperiumDelphi.dproj</Transaction>
     <Transaction>2021/01/18 14:34:28.000.780,=D:\Carnival\TCodeReader\scr\FMX.Android.Permissions.pas</Transaction>
-    <Transaction>2021/01/18 14:34:35.000.783,D:\Carnival\TCodeReader\scr\FMX.ISCodeReader.pas=D:\Carnival\TCodeReader\scr\FMX.CodeReader.pas</Transaction>
-    <Transaction>2021/01/18 14:34:35.000.776,D:\Carnival\TCodeReader\scr\FMX.CodeReader.pas=D:\Carnival\TCodeReader\scr\FMX.ISCodeReader.pas</Transaction>
+    <Transaction>2021/01/18 14:34:35.000.783,D:\Carnival\TCodeReader\scr\FMX.CodeReader.pas=D:\Carnival\TCodeReader\scr\FMX.ISCodeReader.pas</Transaction>
+    <Transaction>2021/01/18 14:34:35.000.776,D:\Carnival\TCodeReader\scr\FMX.ISCodeReader.pas=D:\Carnival\TCodeReader\scr\FMX.CodeReader.pas</Transaction>
     <Transaction>2021/01/18 14:34:44.000.929,D:\Carnival\TCodeReader\scr\FMX.ISCodeReader.pas=</Transaction>
     <Transaction>2021/01/18 14:34:55.000.965,=D:\Carnival\TCodeReader\scr\FMX.CodeReader.pas</Transaction>
-    <Transaction>2021/01/18 14:42:10.000.491,=fmx.dcp</Transaction>
     <Transaction>2021/01/18 14:42:10.000.487,=dbrtl.dcp</Transaction>
+    <Transaction>2021/01/18 14:42:10.000.491,=fmx.dcp</Transaction>
     <Transaction>2021/01/18 14:57:47.000.597,=D:\Carnival\TCodeReader\res\FMX.ISIcons.rc</Transaction>
-    <Transaction>2021/01/18 14:58:02.000.987,D:\Carnival\TCodeReader\res\FMX.Resources.rc=D:\Carnival\TCodeReader\res\FMX.ISIcons.rc</Transaction>
+    <Transaction>2021/01/18 14:58:02.000.987,D:\Carnival\TCodeReader\res\FMX.ISIcons.rc=D:\Carnival\TCodeReader\res\FMX.Resources.rc</Transaction>
     <Transaction>2021/01/18 15:00:56.000.014,=D:\Carnival\TCodeReader\pkg\Unit1.pas</Transaction>
-    <Transaction>2021/01/18 15:01:15.000.576,D:\Carnival\TCodeReader\scr\FMX.Register.pas=D:\Carnival\TCodeReader\pkg\Unit1.pas</Transaction>
+    <Transaction>2021/01/18 15:01:15.000.576,D:\Carnival\TCodeReader\pkg\Unit1.pas=D:\Carnival\TCodeReader\scr\FMX.Register.pas</Transaction>
+    <Transaction>2021/01/18 15:28:10.741,D:\Carnival\TCodeReader\scr\FMX.Android.Permissions.pas=</Transaction>
+    <Transaction>2021/01/18 15:28:15.418,D:\Carnival\TCodeReader\scr\FMX.CodeReader.pas=</Transaction>
+    <Transaction>2021/01/18 15:28:24.627,D:\Carnival\TCodeReader\scr\FMX.Register.pas=</Transaction>
+    <Transaction>2021/01/18 15:28:57.531,=D:\Carnival\TCodeReader\src\FMX.Android.Permissions.pas</Transaction>
+    <Transaction>2021/01/18 15:28:57.556,=D:\Carnival\TCodeReader\src\FMX.CodeReader.pas</Transaction>
+    <Transaction>2021/01/18 15:28:57.582,=D:\Carnival\TCodeReader\src\FMX.Register.pas</Transaction>
   </Transactions>
 </BorlandProject>
