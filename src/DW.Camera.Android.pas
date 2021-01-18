@@ -587,13 +587,14 @@ end;
 
 procedure TCameraCaptureSession.UpdateFlashMode;
 begin
-FRequestHelper.setIntegerValue(TJCaptureRequest.JavaClass.CONTROL_SCENE_MODE, TJCameraMetadata.JavaClass.CONTROL_SCENE_MODE_BARCODE);
-FRequestHelper.setIntegerValue(TJCaptureRequest.JavaClass.CONTROL_MODE,       TJCameraMetadata.JavaClass.CONTROL_MODE_USE_SCENE_MODE);
+//FRequestHelper.setIntegerValue(TJCaptureRequest.JavaClass.CONTROL_SCENE_MODE, TJCameraMetadata.JavaClass.CONTROL_SCENE_MODE_BARCODE);
+//FRequestHelper.setIntegerValue(TJCaptureRequest.JavaClass.CONTROL_MODE,       TJCameraMetadata.JavaClass.CONTROL_MODE_USE_SCENE_MODE);
 
 //FRequestHelper.setIntegerValue(TJCaptureRequest.JavaClass.CONTROL_AWB_MODE,   TJCameraMetadata.JavaClass.CONTROL_AWB_MODE_FLUORESCENT);
-//FRequestHelper.setIntegerValue(TJCaptureRequest.JavaClass.CONTROL_AF_MODE,     TJCameraMetadata.JavaClass.CONTROL_AF_MODE_'OFF);
 
-//FRequestHelper.setIntegerValue(TJCaptureRequest.JavaClass.CONTROL_MODE, TJCameraMetadata.JavaClass.CONTROL_MODE_AUTO);
+FRequestHelper.setIntegerValue(TJCaptureRequest.JavaClass.CONTROL_MODE,    TJCameraMetadata.JavaClass.CONTROL_MODE_AUTO);
+FRequestHelper.setIntegerValue(TJCaptureRequest.JavaClass.CONTROL_AF_MODE, TJCameraMetadata.JavaClass.CONTROL_AF_MODE_AUTO);
+
 case FPlatformCamera.FlashMode of
    TFlashMode.FlashOff  : FRequestHelper.setIntegerValue(TJCaptureRequest.JavaClass.FLASH_MODE, TJCaptureRequest.JavaClass.FLASH_MODE_OFF);
    TFlashMode.FlashOn   : FRequestHelper.setIntegerValue(TJCaptureRequest.JavaClass.CONTROL_AE_MODE, TJCameraMetadata.JavaClass.CONTROL_AE_MODE_ON_ALWAYS_FLASH);
