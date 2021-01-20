@@ -24,7 +24,7 @@ Intructions:
 
 -Use the method Start to open the camera, start preview and find the code in image samples.
 
--On the event OnScanCodeReady the text of code.
+-On the event OnScanCodeReady get the text of code.
 
 -Use the method Stop to close the camera and stop preview.
 
@@ -34,6 +34,6 @@ Screenshots:
 
 ![Alt text](./Screenshot_1.jpg?raw=true "")
 ![Alt text](./Screenshot_2.jpg?raw=true "")
-![Alt text](./Screenshot_3.jpg?raw=true "SSSS")
+![Alt text](./Screenshot_3.jpg?raw=true "")
 
 
