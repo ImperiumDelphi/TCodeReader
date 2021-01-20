@@ -9,10 +9,9 @@ Uses
   FMX.Android.Permissions,
   FMX.CodeReader;
 
+Procedure Register;
 
 implementation
-
-{$R FMX.Resources.res }
 
 Procedure Register;
 Begin

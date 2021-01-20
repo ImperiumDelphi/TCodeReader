@@ -39,6 +39,7 @@ type
     FCaptureSessionStateCallbackDelegate: JDWCameraCaptureSessionStateCallbackDelegate;
     FIsCapturing: Boolean;
     FIsStarting: Boolean;
+    FDoFocus : Boolean;
     FHandler: JHandler;
     FPlatformCamera: TPlatformCamera;
     FPreview: TCameraPreview;
@@ -82,6 +83,7 @@ type
     procedure StopSession;
     procedure SurfaceTextureAvailable(surface: JSurfaceTexture; width: Integer; height: Integer);
     procedure SurfaceTextureDestroyed(surface: JSurfaceTexture);
+    Procedure DoFocus;
     property IsCapturing: Boolean read FIsCapturing;
     property PreviewControl: TControl read GetPreviewControl;
     property Handler: JHandler read FHandler;
@@ -134,6 +136,7 @@ type
     procedure RequestPermission; override;
     procedure StartCapture; override;
     procedure StopCapture; override;
+    Procedure DoFocus;
     procedure StillCaptureFailed;
     function SizeFitsInPreview(const ASize: Jutil_Size): Boolean;
     property CameraDevice: JCameraDevice read FCameraDevice;
@@ -360,6 +363,7 @@ end;
 constructor TCameraCaptureSession.Create(const APlatformCamera: TPlatformCamera);
 begin
 inherited Create;
+FDoFocus := False;
 FMaxImageWidth  := 0;
 FPlatformCamera := APlatformCamera;
 FRequestHelper  := TJDWCaptureRequestBuilderHelper.JavaClass.init;
@@ -579,10 +583,15 @@ LBuilder        := FPlatformCamera.CameraDevice.createCaptureRequest(TJCameraDev
 LBuilder.addTarget(FStillImageReader.getSurface);
 FRequestHelper.setCaptureRequestBuilder(LBuilder);
 //Aqui Rotação
-//FRequestedOrientation := GetOrientation(TAndroidHelper.Activity.getWindowManager.getDefaultDisplay.getRotation);
 //FRequestedOrientation := GetOrientation(0);
+FRequestedOrientation := GetOrientation(TAndroidHelper.Activity.getWindowManager.getDefaultDisplay.getRotation);
 UpdateFlashMode;
 FSession.capture(LBuilder.build, FCaptureSessionCaptureCallback, FHandler);
+end;
+
+procedure TCameraCaptureSession.DoFocus;
+begin
+FDoFocus := True;
 end;
 
 procedure TCameraCaptureSession.UpdateFlashMode;
@@ -592,8 +601,17 @@ begin
 
 //FRequestHelper.setIntegerValue(TJCaptureRequest.JavaClass.CONTROL_AWB_MODE,   TJCameraMetadata.JavaClass.CONTROL_AWB_MODE_FLUORESCENT);
 
+
+//if FDoFocus then
+//   Begin
+//   FRequestHelper.setIntegerValue(TJCaptureRequest.JavaClass.CONTROL_MODE,    TJCameraMetadata.JavaClass.CONTROL_MODE_AUTO);
+//   FRequestHelper.setIntegerValue(TJCaptureRequest.JavaClass.CONTROL_AF_MODE, TJCameraMetadata.JavaClass.CONTROL_AF_MODE_AUTO);
+//   Sleep(100);
+//   FDoFocus := False;
+//   End;
+//
 FRequestHelper.setIntegerValue(TJCaptureRequest.JavaClass.CONTROL_MODE,    TJCameraMetadata.JavaClass.CONTROL_MODE_AUTO);
-FRequestHelper.setIntegerValue(TJCaptureRequest.JavaClass.CONTROL_AF_MODE, TJCameraMetadata.JavaClass.CONTROL_AF_MODE_AUTO);
+FRequestHelper.setIntegerValue(TJCaptureRequest.JavaClass.CONTROL_AF_MODE, TJCameraMetadata.JavaClass.CONTROL_AF_MODE_CONTINUOUS_PICTURE);
 
 case FPlatformCamera.FlashMode of
    TFlashMode.FlashOff  : FRequestHelper.setIntegerValue(TJCaptureRequest.JavaClass.FLASH_MODE, TJCaptureRequest.JavaClass.FLASH_MODE_OFF);
@@ -766,6 +784,11 @@ end;
 procedure TPlatformCamera.DoCaptureImage;
 begin
   FCaptureSession.CaptureImage(TCaptureMode.Still);
+end;
+
+procedure TPlatformCamera.DoFocus;
+begin
+FCaptureSession.DoFocus;
 end;
 
 procedure TPlatformCamera.StillCaptureFailed;

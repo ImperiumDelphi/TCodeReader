@@ -17,7 +17,6 @@ uses
   Androidapi.JNI.GraphicsContentViewText,
   Androidapi.JNIBridge,
   Androidapi.Helpers,
-  FMX.ISFileProvider,
   {$ENDIF} {$ENDIF}
   TypInfo;
 
@@ -625,6 +624,32 @@ Type
           Property WRITE_VOICEMAIL : String Read fWRITE_VOICEMAIL Write fWRITE_VOICEMAIL;
        End;
 
+   {$IFDEF ANDROID}
+
+    JFileProvider = interface;
+
+    JFileProviderClass = interface(JContentProviderClass)
+       ['{33A87969-5731-4791-90F6-3AD22F2BB822}']
+       {class} function getUriForFile(context: JContext; authority: JString; _file: JFile): Jnet_Uri; cdecl;
+       {class} function init: JFileProvider; cdecl;
+       end;
+
+    [JavaSignature('android/support/v4/content/FileProvider')]
+    JFileProvider = interface(JContentProvider)
+       ['{12F5DD38-A3CE-4D2E-9F68-24933C9D221B}']
+       procedure attachInfo(context: JContext; info: JProviderInfo); cdecl;
+       function delete(uri: Jnet_Uri; selection: JString; selectionArgs: TJavaObjectArray<JString>): Integer; cdecl;
+       function getType(uri: Jnet_Uri): JString; cdecl;
+       function insert(uri: Jnet_Uri; values: JContentValues): Jnet_Uri; cdecl;
+       function onCreate: Boolean; cdecl;
+       function openFile(uri: Jnet_Uri; mode: JString): JParcelFileDescriptor; cdecl;
+       function query(uri: Jnet_Uri; projection: TJavaObjectArray<JString>; selection: JString; selectionArgs: TJavaObjectArray<JString>; sortOrder: JString): JCursor; cdecl;
+       function update(uri: Jnet_Uri; values: JContentValues; selection: JString; selectionArgs: TJavaObjectArray<JString>): Integer; cdecl;
+       end;
+
+    TJFileProvider = class(TJavaGenericImport<JFileProviderClass, JFileProvider>) end;
+    {$ENDIF}
+
     {$IF DEFINED(VER330) OR DEFINED(VER340)}
     [ComponentPlatformsAttribute (pidAndroid32Arm Or pidAndroid64Arm)]
     {$ELSE}
@@ -702,8 +727,8 @@ FPermissionsGranted    := TAndroidPermissionsNames.Create;
 FPermissionsDenied     := TAndroidPermissionsNames.Create;
 FPermissionsMessages   := TAndroidPermissionsMessages.Create;
 {$IFDEF ANDROID}
-FPropListCount         := GetPropList(TypeInfo(TAndroidPermissions), FPropList);
-FMsg                   := TISMessageDlg.Create(Self);
+FPropListCount         := GetPropList(TypeInfo(TAndroidPermissionsNames), FPropList);
+//FMsg                   := TISMessageDlg.Create(Self);
 For I := 0 to FPropListCount-1 do
    begin
    FPropInfo := FPropList^[I];
@@ -734,7 +759,7 @@ Var
    Auth         : JString;
    PackageName  : String;
 begin
-PackageName := JStringToString(SharedActivityContext.getPackageName);
+PackageName := JStringToString(TAndroidHelper.Context.getPackageName);
 FileAtt     := TJFile.JavaClass.init(StringToJString(aFile));
 Auth        := StringToJString(Packagename+'.fileprovider');
 Result      := TJFileProvider.JavaClass.getUriForFile(TAndroidHelper.Context, Auth, FileAtt);

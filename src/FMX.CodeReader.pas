@@ -23,8 +23,7 @@ uses
 
 Type
 
-   TCodeType        = (Codes1D, Codes2D, CodesAll);
-   TCodeOrientation = (CodeVertical, CodeHorizontal);
+   TCodeType        = (Code1DVertical, Code1DHorizontal, Code2D);
    TCodeResult      = Procedure (aCode : String) Of Object;
 
    [ComponentPlatformsAttribute (pidAllPlatforms)]
@@ -38,7 +37,6 @@ Type
          FTimer           : TTimer;
          FImageStream     : TMemoryStream;
          FCodeType        : TCodeType;
-         FCodeOrientation : TCodeOrientation;
          FOnCodeReady     : TCodeResult;
          FAudio           : TMediaPlayer;
          FIconColor       : TAlphaColor;
@@ -58,12 +56,13 @@ Type
          FImageWidth      : Integer;
          FTimerThread     : Cardinal;
          FOnImageCaptured : TNotifyEvent;
-         function GetIsActive      : Boolean;
-         function GetSoundVolume   : Single;
-         procedure SetCodeOrientation (const Value: TCodeOrientation);
+         FOnStop          : TNotifyEvent;
+         FOnStart         : TNotifyEvent;
+         function GetIsActive   : Boolean;
+         function GetBeepVolume : Single;
          procedure SetCodeType        (const Value: TCodeType);
          procedure SetIconColor       (const Value: TAlphaColor);
-         procedure SetSoundVolume     (const Value: Single);
+         procedure SetBeepVolume      (const Value: Single);
          procedure AppEventMessage    (const Sender: TObject; const M: TMessage);
          procedure CameraImageCaptured(Sender: TObject; const AImageStream: TStream);
          procedure TimerSampling      (Sender: TObject);
@@ -75,6 +74,7 @@ Type
          Procedure Resize; Override;
          Procedure DoCodeReady; Virtual;
          Procedure Click; Override;
+         PRocedure Paint; Override;
       Public
          Constructor Create(aOwner : TComponent); Override;
          Destructor Destroy; Override;
@@ -83,12 +83,11 @@ Type
          Property IsActive        : Boolean            Read GetIsActive;
       Published
          Property CodeType        : TCodeType          Read FCodeType         Write SetCodeType;
-         Property CodeOrientation : TCodeOrientation   Read FCodeOrientation  Write SetCodeOrientation;
          Property ShowMask        : Boolean            Read FShowMask         Write FShowMask;
          Property ShowIconTypes   : Boolean            Read FShowIconTypes    Write FShowIconTypes;
          Property InProcess       : Boolean            Read FInProcess;
          Property PlaySound       : Boolean            Read FPlaySound        Write FPlaySound;
-         Property SoundVolume     : Single             Read GetSoundVolume    Write SetSoundVolume;
+         Property BeepVolume      : Single             Read GetBeepVolume     Write SetBeepVolume;
          Property Text            : String             Read FText;
          Property IConColor       : TAlphaColor        Read FIconColor        Write SetIconColor;
          Property MaxImageWidth   : Integer            Read FMaxImageWidth    Write FmaxImageWidth;
@@ -98,6 +97,8 @@ Type
          Property ImageStream     : TMemoryStream      Read FImageStream;
          Property OnCodeReady     : TCodeResult        Read FOnCodeReady      Write FOnCodeReady;
          Property OnImageCaptured : TNotifyEvent       Read FOnImageCaptured  Write FOnImageCaptured;
+         Property OnStart         : TNotifyEvent       Read FOnStart          Write FOnStart;
+         Property OnStop          : TNotifyEvent       Read FOnStop           Write FOnStop;
          Property HitTest;
          Property Width;
          Property Height;
@@ -112,6 +113,8 @@ Type
       End;
 
 implementation
+
+{$R ..\pkg\FMX.Resources.res }
 
 { TCodeReader }
 
@@ -207,17 +210,17 @@ CreateTimer;
 CreateBeep;
 CreateIcons;
 FCamera          := Nil;
+ClipChildren     := True;
 FPlaySound       := True;
 FShowMask        := True;
 FShowIconTypes   := True;
-FMaxImageWidth   := 1000;
+FMaxImageWidth   := 2100;
 FValidSamples    := 2;
 FValidCount      := 0;
 IconColor        := TAlphaColors.White;
 FImageStream     := TMemoryStream.Create;
 FScan            := TScanManager .Create(TBarcodeFormat.Auto, Nil);
-FCodeType        := TCodeType.Codes1D;
-FCodeOrientation := TCodeOrientation.CodeVertical;
+FCodeType        := TCodeType.Code1DVertical;
 TMessageManager.DefaultManager.SubscribeToMessage(TApplicationEventMessage, AppEventMessage);
 SetSize(100, 100);
 end;
@@ -226,7 +229,11 @@ destructor TCodeReader.Destroy;
 begin
 If FCamera <> Nil Then
    Begin
-   if FCamera.IsActive then FCamera.IsActive := False;
+   if FCamera.IsActive then
+      Begin
+      While FInProcess do Sleep(50);
+      FCamera.IsActive := False;
+      End;
    FCamera.DisposeOf;
    End;
 FPreview     .DisposeOf;
@@ -260,10 +267,16 @@ TTHread.Queue(Nil,
 end;
 
 procedure TCodeReader.CameraImageCaptured(Sender: TObject; const AImageStream: TStream);
-{$IFDEF IOS}
 Var
+   {$IFDEF IOS}
    LSurf : TBitmapSurface;
-{$ENDIF}
+   {$ENDIF}
+   T    : Cardinal;
+   W, H : Integer;
+   X, Y : Integer;
+   Off  : Integer;
+   Buf  : TArray<Byte>;
+   Lums : TArray<Byte>;
 begin
 if FInProcess then Exit;
 FInProcess   := True;
@@ -271,9 +284,54 @@ FText        := '';
 FTimerThread := TThread.GetTickCount;
 FImageWidth  := FCamera.CapturedWidth;
 FImageHeight := FCamera.CapturedHeight;
+
+{$IFDEF ANDROID}
+If FCamera.CameraOrientation = 90 Then
+   Begin
+   T := AImageStream.Size;
+   H := FCamera.CapturedHeight;
+   AImageStream.Position := 0;
+   SetLength(Buf,  AImageStream.Size);
+   AImageStream.Read(Buf, AImageStream.Size);
+   case Self.CodeType of
+      Code1DVertical:
+         Begin
+         W := Trunc(FCamera.CapturedWidth);
+         H := Trunc(FCamera.CapturedHeight/4);
+         SetLength(Lums, W*H);
+         for Y := Trunc(H*1.5) to Trunc(H*1.5)+H-1 do System.Move(Buf[W*Y], Lums[W*(Y-Trunc(H*1.5))], W);
+         End;
+      Code1DHorizontal:
+         Begin
+         W   := Trunc(FCamera.CapturedWidth/4);
+         Off := Trunc(W *1.5);
+         SetLength(Lums, W*H);
+         for Y := 0 to H-1 do System.Move(Buf[FCamera.CapturedWidth*Y+Off], Lums[W*Y], W);
+         End;
+      Code2D:
+         Begin
+         W   := Trunc(FCamera.CapturedWidth/2);
+         Off := Trunc(FCamera.CapturedWidth/4);
+         SetLength(Lums, W*H);
+         for Y := 0 to H-1 do System.Move(Buf[FCamera.CapturedWidth*Y+Off], Lums[W*Y], W);
+         End;
+      end;
+   FImageWidth  := W;
+   FImageHeight := H;
+   FImageStream.Clear;
+   FImageStream.WriteData(Lums, W*H);
+   End
+Else
+   Begin
+   FImageStream.Clear;
+   FImageStream.LoadFromStream(AImageStream);
+   End;
+{$ELSE}
 FImageStream.Clear;
 FImageStream.LoadFromStream(AImageStream);
+{$ENDIF}
 FImageStream.Position := 0;
+
 if Assigned(FOnImageCaptured) then OnImageCaptured(Self);
 TThread.CreateAnonymousThread(
    Procedure
@@ -283,12 +341,12 @@ TThread.CreateAnonymousThread(
    Try
       {$IFDEF IOS}
       LSurf := TBitmapSurface.Create;
-      LSurf.SetSize(Trunc(FCamera.CapturedWidth), Trunc(FCamera.CapturedHeight));
+      LSurf.SetSize(FImageWidth, FImageHeight);
       TBitmapCodecManager.LoadFromStream(FImageStream, LSurf, 0);
       Code := FScan.Scan(LSurf);
       LSurf.DisposeOf;
       {$ELSE}
-      Code := FScan.Scan(FImageStream, FCamera.CapturedWidth, FCamera.CapturedHeight);
+      Code := FScan.Scan(FImageStream, FImageWidth, FImageHeight);
       {$ENDIF}
       if Code <> Nil then
          Begin
@@ -304,24 +362,21 @@ TThread.CreateAnonymousThread(
       End;
    FInProcess := False;
    if Not(FText.IsEmpty) And Assigned(OnCodeReady) then DoCodeReady;
-   if TThread.GetTickCount - FTimerThread > 400 then
-      FTimer.Interval := 25
-   Else
-      FTimer.Interval := 250;
-   FTimer.Enabled := True;
+   FTimer.Interval := 25;
+   FTimer.Enabled  := True;
    End).Start;
 end;
 
 procedure TCodeReader.Click;
 begin
 inherited;
-//If FCamera.IsActive Then FCamera.DoFocus;
+If FCamera.IsActive Then FCamera.DoFocus;
 end;
 
 procedure TCodeReader.TimerSampling(Sender: TObject);
 begin
 FTimer.Enabled      := False;
-FScan .EnableQRCode := (FCodeType = TCodeType.Codes2D) or (FCodeType = TCodeType.CodesAll);
+FScan .EnableQRCode := FCodeType = TCodeType.Code2D;
 if Assigned(FCamera) And FCamera.IsActive Then
    If  Not(FInProcess) then
       Begin
@@ -357,17 +412,11 @@ if FShowMask then
    LBitmap.SetSize(Trunc(W), Trunc(H));
    LBitmap.Clear(TalphaColors.Null);
    LBitmap.Canvas.BeginScene;
-   if FCodeType = TCodeType.Codes1d then
-      Begin
-      case FCodeOrientation of
-         CodeVertical   : LRect := TRectF.Create(W/2 - (50*S), 10*S, W/2+(50*S), H-(10*S));
-         CodeHorizontal : LRect := TRectF.Create((10*S), H/2 - (50*S), W-(10*S), H/2+(50*S));
-         end;
-      End
-   Else
-      Begin
-      LRect := TRectF.Create(W/2-(150*S), H/2-(150*S), W/2+(150*S), H/2+(150*S));
-      End;
+   case FCodeType of
+      Code1DVertical   : LRect := TRectF.Create(W/2 - (50*S), 10*S, W/2+(50*S), H-(10*S));
+      Code1DHorizontal : LRect := TRectF.Create((10*S), H/2 - (50*S), W-(10*S), H/2+(50*S));
+      Code2D           : LRect := TRectF.Create(W/2-(150*S), H/2-(150*S), W/2+(150*S), H/2+(150*S));
+      end;
    LBitmap.Canvas.Fill.Color := TAlphaColors.Black;
    LBitmap.Canvas.FillRect(TRectF.Create(0, 0, W, H), 0, 0, [], 0.6);
    LBitmap.Canvas.Fill.Color := TAlphaColors.White;
@@ -401,13 +450,11 @@ if FShowIconTypes then
    FIcon.Height     := 40;
    FIcon.Position.X := Width - 48;
    FIcon.Position.Y := 8;
-   if FCodeType = TCodeType.Codes2D then
-      FIcon.LoadFromBitmap(FIcoQRCode)
-   Else
-      case FCodeOrientation of
-         CodeVertical   : FIcon.LoadFromBitmap(FIcoBarCode90);
-         CodeHorizontal : FIcon.LoadFromBitmap(FIcoBarCode);
-         end;
+   case FCodeType of
+      Code1DVertical   : FIcon.LoadFromBitmap(FIcoBarCode90);
+      Code1DHorizontal : FIcon.LoadFromBitmap(FIcoBarCode);
+      Code2D           : FIcon.LoadFromBitmap(FIcoQRCode);
+      end;
    FIcon.BringToFront;
    End;
 end;
@@ -420,28 +467,11 @@ T := FIcon.Tag;
 Inc(T);
 if T > 2 then T := 0;
 case T of
-   0 : Begin
-       SetCodeType(TCodeType.Codes1D);
-       SetCodeOrientation(TCodeOrientation.CodeVertical);
-       End;
-   1 : Begin
-       SetCodeType(TCodeType.Codes1D);
-       SetCodeOrientation(TCodeOrientation.CodeHorizontal);
-       End;
-   2 : Begin
-       SetCodeType(TCodeType.Codes2D);
-       End;
+   0 : SetCodeType(TCodeType.Code1DHorizontal);
+   1 : SetCodeType(TCodeType.Code1DVertical);
+   2 : SetCodeType(TCodeType.Code2D);
    end;
 FIcon.Tag := T;
-end;
-
-procedure TCodeReader.SetCodeOrientation(const Value: TCodeOrientation);
-begin
-If FCodeOrientation <> Value Then
-   Begin
-   FCodeOrientation := Value;
-   CreateMask;
-   End;
 end;
 
 procedure TCodeReader.SetCodeType(const Value: TCodeType);
@@ -472,12 +502,18 @@ begin
 Result := (FCamera <> Nil) And FCamera.IsActive;
 end;
 
-function TCodeReader.GetSoundVolume: Single;
+function TCodeReader.GetBeepVolume: Single;
 begin
 Result := FAudio.Volume;
 end;
 
-procedure TCodeReader.SetSoundVolume(const Value: Single);
+procedure TCodeReader.Paint;
+begin
+inherited;
+if (csDesigning in ComponentState) And Not Locked then DrawDesignBorder;
+end;
+
+procedure TCodeReader.SetBeepVolume(const Value: Single);
 begin
 FAudio.Volume := Value;
 end;
@@ -493,6 +529,7 @@ FCamera .IsActive := True;
 FTimer  .Interval := 800;
 FTimer  .Enabled  := True;
 FInProcess        := False;
+if Assigned(FOnStart) then FOnStart(Self);
 end;
 
 procedure TCodeReader.Stop;
@@ -506,6 +543,7 @@ if FCamera <> Nil then
    FMask   .Visible  := False;
    FIcon   .Visible  := False;
    FInProcess        := False;
+   if Assigned(FOnStop) then FOnStop(Self);
    End;
 end;
 
@@ -513,3 +551,4 @@ Initialization
 RegisterFMXClasses([TCodeReader]);
 
 end.
+
