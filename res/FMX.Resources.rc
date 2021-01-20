@@ -1,4 +1,4 @@
 is_Beep RCDATA "..\\sounds\beep.wav"
-is_BarCode RCDATA "..\\images\\ICBarCodeScan.png"
+is_BarCodeScan RCDATA "..\\images\\ICBarCodeScan.png"
 is_QRCodeScan RCDATA "..\\images\\ICQRCodeScan.png"
 
