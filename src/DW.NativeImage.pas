@@ -21,8 +21,7 @@ uses
   // FMX
   FMX.Graphics,
   FMX.Controls.Presentation,
-  FMX.Controls.Model,
-  FMX.ISBase;
+  FMX.Controls.Model;
 
 const
   MM_NATIVEIMAGE_LOADFROMFILE = MM_USER + 1;
