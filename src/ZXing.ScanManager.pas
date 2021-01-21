@@ -244,12 +244,21 @@ InvLuminanceSource := Nil;
 HybridBinarizer    := Nil;
 BinaryBitmap       := Nil;
 try
-
    FMultiformatReader.EnableQRCode := Self.EnableQRCode;
    LuminanceSource := TRGBLuminanceSource.CreateFromStream(aLuminance, aWidth, aHeight);
    HybridBinarizer := THybridBinarizer.Create(LuminanceSource);
    BinaryBitmap    := TBinaryBitmap.Create(HybridBinarizer);
    Result          := FMultiFormatReader.Decode(BinaryBitmap, true);
+   if (Result = nil) then
+      begin
+      if (BinaryBitmap    <> nil) then FreeAndNil(BinaryBitmap);
+      if (HybridBinarizer <> nil) then FreeAndNil(HybridBinarizer);
+      LuminanceSource.RotateCounterClockwise();
+      HybridBinarizer    := THybridBinarizer.Create(LuminanceSource);
+      BinaryBitmap       := TBinaryBitmap.Create(HybridBinarizer);
+      Result             := FMultiFormatReader.Decode(BinaryBitmap, true);
+      end;
+   {$IFNDEF ANDROID}
    if (Result = nil) then
       begin
       if (FEnableInversion) then
@@ -262,15 +271,7 @@ try
          Result             := FMultiFormatReader.Decode(BinaryBitmap, true);
          end;
       end;
-   if (Result = nil) then
-      begin
-      if (BinaryBitmap    <> nil) then FreeAndNil(BinaryBitmap);
-      if (HybridBinarizer <> nil) then FreeAndNil(HybridBinarizer);
-      LuminanceSource.rotateCounterClockwise();
-      HybridBinarizer    := THybridBinarizer.Create(LuminanceSource);
-      BinaryBitmap       := TBinaryBitmap.Create(HybridBinarizer);
-      Result             := FMultiFormatReader.Decode(BinaryBitmap, true);
-      end;
+   {$ENDIF}
 
 finally
    BinaryBitmap      .Free;

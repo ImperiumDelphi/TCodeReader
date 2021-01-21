@@ -146,7 +146,7 @@ end;
 /// Only callable if <see cref="RotateSupported"/> is true.
 /// </summary>
 /// <returns>A rotated version of this object.</returns>
-function TLuminanceSource.rotateCounterClockwise(): TLuminanceSource;
+function TLuminanceSource.RotateCounterClockwise(): TLuminanceSource;
 begin
   raise ENotImplemented.Create
     ('This luminance source does not support rotation.');
