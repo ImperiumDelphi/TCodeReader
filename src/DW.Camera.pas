@@ -98,6 +98,7 @@ type
   public
     constructor Create(const ACamera: TCamera); virtual;
     destructor Destroy; override;
+    Procedure DoFocus; Virtual; Abstract;
     property PreviewControl: TControl read GetPreviewControl;
     property MaxImageWidth : Integer Read FMaxImageWidth Write SetMaxImageWidth;
     Property CameraOrientation : Integer Read GetCameraOrientation;
@@ -140,6 +141,7 @@ type
     procedure DoStatusChange;
   public
     constructor Create;
+    Procedure DoFocus;
     destructor Destroy; override;
     /// <summary>
     ///   Captures a still image, returned in OnImageCaptured
@@ -517,6 +519,11 @@ procedure TCamera.DoDetectedFaces(const AImageStream: TStream; const AFaces: TFa
 begin
   if Assigned(FOnDetectedFaces) then
     FOnDetectedFaces(Self, AImageStream, AFaces);
+end;
+
+procedure TCamera.DoFocus;
+begin
+FPlatformCamera.DoFocus;
 end;
 
 procedure TCamera.DoStatusChange;
