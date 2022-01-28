@@ -367,8 +367,7 @@ end;
 /// <returns> true iff all bits are set or not set in range, according to value argument
 /// </returns>
 /// <throws>  EIllegalArgumentException if end is less than or equal to start </throws>
-function TBitArrayImplementation.isRange(start, ending: Integer;
-  const value: Boolean): Boolean;
+function TBitArrayImplementation.isRange(start, ending: Integer; const value: Boolean): Boolean;
 var
   firstInt,
   lastInt,
@@ -378,13 +377,6 @@ var
   i, j,
   temp: Integer;
 begin
-  if (ending < start) then
-  begin
-    Result := False; // there is a bug here some how. We just exits with false
-    //exit;
-    //raise EArgumentException.Create('End is greater then start');
-  end;
-
   if (ending = start) then
   begin
     Result := true; // empty range matches

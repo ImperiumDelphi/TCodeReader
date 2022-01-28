@@ -52,7 +52,7 @@ type
     property Model: TCustomNativeImageModel read GetModel;
   end;
 
-  [ComponentPlatformsAttribute(pfidiOS or pidAndroid or pidWin32 or pidWin64)]
+  [ComponentPlatformsAttribute(pfidiOS or pidAndroidArm32 or pidWin32 or pidWin64)]
   TNativeImage = class(TCustomNativeImage)
   published
     property Align;

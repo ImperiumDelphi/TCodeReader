@@ -1,4 +1,4 @@
-unit CodeReader.CodeReader.DW.CameraPreview.Android;
+unit CodeReader.DW.CameraPreview.Android;
 
 {*******************************************************}
 {                                                       }

@@ -22,7 +22,7 @@ uses
   // FMX
   FMX.Controls, FMX.Graphics, FMX.Types,
   // DW
-  CodeReader.DW.Camera, CodeReader.DW.Androidapi.JNI.Os, CodeReader.DW.Androidapi.JNI.Hardware.Camera2, CodeReader.DW.Androidapi.JNI.DWCameraHelpers, CodeReader.DW.Androidapi.JNI.View, CodeReader.DW.CameraPreview;
+  CodeReader.DW.Permissions.Helpers, CodeReader.DW.Camera, CodeReader.DW.Androidapi.JNI.Os, CodeReader.DW.Androidapi.JNI.Hardware.Camera2, CodeReader.DW.Androidapi.JNI.DWCameraHelpers, CodeReader.DW.Androidapi.JNI.View, CodeReader.DW.CameraPreview;
 
 type
   TPlatformCamera = class;
@@ -158,7 +158,7 @@ uses
   // FMX
   FMX.Forms, FMX.Media,
   // DW
-  CodeReader.CodeReader.DW.CameraPreview.Android, CodeReader.DW.Android.Helpers, CodeReader.DW.Consts.Android, CodeReader.DW.UIHelper, CodeReader.DW.Types;
+  CodeReader.DW.CameraPreview.Android, CodeReader.DW.Android.Helpers, CodeReader.DW.Consts.Android, CodeReader.DW.UIHelper, CodeReader.DW.Types;
 
 const
   cCaptureModeCaptions: array[TCaptureMode] of string = ('None', 'Still', 'Faces');
@@ -937,11 +937,12 @@ procedure TPlatformCamera.RequestPermission;
 const
   cStatus: array[Boolean] of TAuthorizationStatus = (TAuthorizationStatus.Denied, TAuthorizationStatus.Authorized);
 begin
-PermissionsService.RequestPermissions([cPermissionCamera],
-   procedure(const APermissions: TArray<string>; const AGrantResults: TArray<TPermissionStatus>)
-   begin
-   QueueAuthorizationStatus(cStatus[AGrantResults[0] = TPermissionStatus.Granted]);
-   end);
+  PermissionsService.RequestPermissions([cPermissionCamera],
+    procedure(const APermissions: TPermissionArray; const AGrantResults: TPermissionStatusArray)
+    begin
+      QueueAuthorizationStatus(cStatus[AGrantResults[0] = TPermissionStatus.Granted]);
+    end
+  );
 end;
 
 procedure TPlatformCamera.CloseCamera;

@@ -46,10 +46,10 @@ uses
   FMX.Types, FMX.Forms,
   // DW
   {$IF Defined(ANDROID)}
-  CodeReader.CodeReader.DW.CameraPreview.Android;
+  CodeReader.DW.CameraPreview.Android;
   {$ENDIF}
   {$IF Defined(IOS)}
-  CodeReader.CodeReader.DW.CameraPreview.iOS;
+  CodeReader.DW.CameraPreview.iOS;
   {$ENDIF}
 
 { TCameraPreview }

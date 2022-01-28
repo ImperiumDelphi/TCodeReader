@@ -142,7 +142,6 @@
         <DCCReference Include="designide.dcp"/>
         <DCCReference Include="dbrtl.dcp"/>
         <DCCReference Include="fmx.dcp"/>
-        <DCCReference Include="..\src\FMX.Android.Permissions.pas"/>
         <DCCReference Include="..\src\FMX.CodeReader.pas"/>
         <DCCReference Include="..\src\FMX.Register.pas"/>
         <RcCompile Include="..\res\FMX.Resources.rc">

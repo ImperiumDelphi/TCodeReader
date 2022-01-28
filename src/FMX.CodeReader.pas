@@ -17,8 +17,7 @@ uses
   CodeReader.DW.NativeImage,
   CodeReader.ZXing.ScanManager,
   CodeReader.ZXing.BarcodeFormat,
-  CodeReader.ZXing.ReadResult,
-  FMX.Android.Permissions;
+  CodeReader.ZXing.ReadResult;
 
 Type
 
@@ -266,16 +265,19 @@ TTHread.Queue(Nil,
 end;
 
 procedure TCodeReader.CameraImageCaptured(Sender: TObject; const AImageStream: TStream);
-Var
-   {$IFDEF IOS}
-   LSurf : TBitmapSurface;
-   {$ENDIF}
-   T    : Cardinal;
-   W, H : Integer;
-   X, Y : Integer;
-   Off  : Integer;
-   Buf  : TArray<Byte>;
-   Lums : TArray<Byte>;
+{$IFDEF IOS}
+var
+  LSurf : TBitmapSurface;
+{$ENDIF}
+{$IFDEF ANDROID}
+var
+  T    : Cardinal;
+  W, H : Integer;
+  X, Y : Integer;
+  Off  : Integer;
+  Buf  : TArray<Byte>;
+  Lums : TArray<Byte>;
+{$ENDIF}
 begin
 if FInProcess then Exit;
 FInProcess   := True;
