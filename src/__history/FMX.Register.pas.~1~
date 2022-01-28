@@ -1,0 +1,21 @@
+unit CodeReader.FMX.Register;
+
+interface
+
+Uses
+  System.classes,
+  System.Types,
+  DesignIntF,
+  CodeReader.FMX.Android.Permissions,
+  CodeReader.FMX.CodeReader;
+
+Procedure Register;
+
+implementation
+
+Procedure Register;
+Begin
+RegisterComponents('Imperium Delphi', [TAndroidPermissions, TCodeReader]);
+End;
+
+end.

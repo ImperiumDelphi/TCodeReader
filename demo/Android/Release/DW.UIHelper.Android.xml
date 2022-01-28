@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<namespace name="DW.UIHelper.Android" platform="Android">
+  <struct name="TPlatformUIHelper" size="0">
+    <devnotes>
+       <summary>
+         Helper functions specific to UI
+       </summary>
+    </devnotes>
+    <function name="GetOffsetRect" visibility="public" procflags="static overload">
+      <devnotes>
+         <summary>
+           Special function for handling of &quot;notch&quot; based devices
+         </summary>
+      </devnotes>
+      <parameters>
+        <retval type="TRectF" />
+      </parameters>
+    </function>
+    <function name="GetOffsetRect" visibility="public" procflags="static overload">
+      <parameters>
+        <parameter name="AHandle" type="TWindowHandle" paramflags="const" />
+        <retval type="TRectF" />
+      </parameters>
+    </function>
+    <function name="GetScreenOrientation" visibility="public" procflags="static">
+      <parameters>
+        <retval type="TScreenOrientation" />
+      </parameters>
+    </function>
+    <function name="GetStatusBarOffset" visibility="public" procflags="static">
+      <parameters>
+        <retval type="Single" />
+      </parameters>
+    </function>
+    <function name="GetUserInterfaceStyle" visibility="public" procflags="static">
+      <parameters>
+        <retval type="TUserInterfaceStyle" />
+      </parameters>
+    </function>
+    <procedure name="Render" visibility="public" procflags="static">
+      <parameters>
+        <parameter name="AForm" type="TForm" paramflags="const" />
+      </parameters>
+    </procedure>
+  </struct>
+</namespace>

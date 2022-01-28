@@ -3,7 +3,7 @@ unit FMX.Register;
 interface
 
 Uses
-  System.Classes,
+  System.classes,
   System.Types,
   DesignIntF,
   FMX.Android.Permissions,

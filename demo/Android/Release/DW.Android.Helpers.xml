@@ -1,0 +1,422 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<namespace name="DW.Android.Helpers" platform="Android">
+  <const name="cMultiBroadcastReceiverClassName" type="string">
+    <value>
+      DWMultiBroadcastReceiver
+    </value>
+  </const>
+  <const name="cMultiBroadcastReceiverName" type="string">
+    <value>
+      com.delphiworlds.kastri.DWMultiBroadcastReceiver
+    </value>
+  </const>
+  <struct name="TAndroidHelperEx" size="0">
+    <field name="FKeyguardManager" type="JKeyguardManager" visibility="private" varflags="class" />
+    <field name="FNotificationManager" type="JNotificationManager" visibility="private" varflags="class" />
+    <field name="FPowerManager" type="JPowerManager" visibility="private" varflags="class" />
+    <field name="FWakeLock" type="JPowerManager_WakeLock" visibility="private" varflags="class" />
+    <const name="ICE_CREAM_SANDWICH" visibility="public" type="Integer">
+      <value>
+        $E
+      </value>
+    </const>
+    <const name="ICE_CREAM_SANDWICH_MR1" visibility="public" type="Integer">
+      <value>
+        $F
+      </value>
+    </const>
+    <const name="JELLY_BEAN" visibility="public" type="Integer">
+      <value>
+        $10
+      </value>
+    </const>
+    <const name="JELLY_BEAN_MR1" visibility="public" type="Integer">
+      <value>
+        $11
+      </value>
+    </const>
+    <const name="JELLY_BEAN_MR2" visibility="public" type="Integer">
+      <value>
+        $12
+      </value>
+    </const>
+    <const name="KITKAT" visibility="public" type="Integer">
+      <value>
+        $13
+      </value>
+    </const>
+    <const name="KITKAT_MR1" visibility="public" type="Integer">
+      <value>
+        $14
+      </value>
+    </const>
+    <const name="LOLLIPOP" visibility="public" type="Integer">
+      <value>
+        $15
+      </value>
+    </const>
+    <const name="LOLLIPOP_MR1" visibility="public" type="Integer">
+      <value>
+        $16
+      </value>
+    </const>
+    <const name="MARSHMALLOW" visibility="public" type="Integer">
+      <value>
+        $17
+      </value>
+    </const>
+    <const name="NOUGAT" visibility="public" type="Integer">
+      <value>
+        $18
+      </value>
+    </const>
+    <const name="NOUGAT_MR1" visibility="public" type="Integer">
+      <value>
+        $19
+      </value>
+    </const>
+    <const name="OREO" visibility="public" type="Integer">
+      <value>
+        $1A
+      </value>
+    </const>
+    <const name="OREO_MR1" visibility="public" type="Integer">
+      <value>
+        $1B
+      </value>
+    </const>
+    <const name="PIE" visibility="public" type="Integer">
+      <value>
+        $1C
+      </value>
+    </const>
+    <const name="Q" visibility="public" type="Integer">
+      <value>
+        $1D
+      </value>
+    </const>
+    <function name="CheckBuildAndTarget" visibility="public" procflags="static">
+      <devnotes>
+         <summary>
+           Checks if both build and target are greater or equal to the tested value
+         </summary>
+      </devnotes>
+      <parameters>
+        <parameter name="AValue" type="Integer" paramflags="const" />
+        <retval type="Boolean" />
+      </parameters>
+    </function>
+    <procedure name="EnableWakeLock" visibility="public" procflags="static">
+      <devnotes>
+         <summary>
+           Enables/disables the Wake Lock. Needs Wake Lock checked in the Permissions section of the Project Options
+         </summary>
+      </devnotes>
+      <parameters>
+        <parameter name="AEnable" type="Boolean" paramflags="const" />
+      </parameters>
+    </procedure>
+    <function name="GetClass" visibility="public" procflags="static">
+      <devnotes>
+         <summary>
+           Returns the equivalent of &quot;AndroidClass.class&quot;
+         </summary>
+      </devnotes>
+      <parameters>
+        <parameter name="APackageClassName" type="string" paramflags="const" />
+        <retval type="Jlang_Class">
+          <attributes>
+            <attribute name="JavaSignatureAttribute" />
+          </attributes>
+        </retval>
+      </parameters>
+    </function>
+    <function name="GetDefaultIconID" visibility="public" procflags="static">
+      <devnotes>
+         <summary>
+           Returns the application default icon ID
+         </summary>
+      </devnotes>
+      <parameters>
+        <retval type="Integer" />
+      </parameters>
+    </function>
+    <function name="GetDefaultNotificationSound" visibility="public" procflags="static">
+      <devnotes>
+         <summary>
+           Returns a URI to the notification sound
+         </summary>
+      </devnotes>
+      <parameters>
+        <retval type="Jnet_Uri">
+          <attributes>
+            <attribute name="JavaSignatureAttribute" />
+          </attributes>
+        </retval>
+      </parameters>
+    </function>
+    <function name="GetTargetSdkVersion" visibility="public" procflags="static">
+      <devnotes>
+         <summary>
+           Returns target Sdk version
+         </summary>
+      </devnotes>
+      <parameters>
+        <retval type="Integer" />
+      </parameters>
+    </function>
+    <function name="GetTimeFromNowInMillis" visibility="public" procflags="static">
+      <devnotes>
+         <summary>
+           Returns the time from now, plus the ASecondsFromNow
+         </summary>
+      </devnotes>
+      <parameters>
+        <parameter name="ASecondsFromNow" type="Int64" paramflags="const" />
+        <retval type="Int64" />
+      </parameters>
+    </function>
+    <function name="GetBuildSdkVersion" visibility="public" procflags="static">
+      <devnotes>
+         <summary>
+           Returns installed Sdk version
+         </summary>
+      </devnotes>
+      <parameters>
+        <retval type="Integer" />
+      </parameters>
+    </function>
+    <function name="GetRunningServiceInfo" visibility="public" procflags="static">
+      <devnotes>
+         <summary>
+           Returns information about a running service, if the service is running
+         </summary>
+      </devnotes>
+      <parameters>
+        <parameter name="AServiceName" type="string" paramflags="const" />
+        <retval type="JActivityManager_RunningServiceInfo">
+          <attributes>
+            <attribute name="JavaSignatureAttribute" />
+          </attributes>
+        </retval>
+      </parameters>
+    </function>
+    <function name="IsActivityForeground" visibility="public" procflags="static">
+      <devnotes>
+         <summary>
+           Returns whether the activity is running foreground
+         </summary>
+         <remarks>
+           Useful from within a service to determine whether or not the service needs to run in foreground mode
+         </remarks>
+      </devnotes>
+      <parameters>
+        <retval type="Boolean" />
+      </parameters>
+    </function>
+    <function name="IsIgnoringBatteryOptimizations" visibility="public" procflags="static">
+      <devnotes>
+         <summary>
+           Returns whether or not battery optimizations are being ignored
+         </summary>
+      </devnotes>
+      <parameters>
+        <retval type="Boolean" />
+      </parameters>
+    </function>
+    <function name="IsServiceForeground" visibility="public" procflags="static">
+      <devnotes>
+         <summary>
+           Returns whether a service is running foreground
+         </summary>
+      </devnotes>
+      <parameters>
+        <parameter name="AServiceName" type="string" paramflags="const" />
+        <retval type="Boolean" />
+      </parameters>
+    </function>
+    <function name="IsServiceRunning" visibility="public" procflags="static">
+      <devnotes>
+         <summary>
+           Returns whether or not a service is running
+         </summary>
+      </devnotes>
+      <parameters>
+        <parameter name="AServiceName" type="string" paramflags="const" />
+        <retval type="Boolean" />
+      </parameters>
+    </function>
+    <function name="KeyguardManager" visibility="public" procflags="static">
+      <devnotes>
+         <summary>
+           Returns the keyguard manager
+         </summary>
+      </devnotes>
+      <parameters>
+        <retval type="JKeyguardManager">
+          <attributes>
+            <attribute name="JavaSignatureAttribute" />
+          </attributes>
+        </retval>
+      </parameters>
+    </function>
+    <function name="NotificationManager" visibility="public" procflags="static">
+      <devnotes>
+         <summary>
+           Returns the notification manager
+         </summary>
+      </devnotes>
+      <parameters>
+        <retval type="JNotificationManager">
+          <attributes>
+            <attribute name="JavaSignatureAttribute" />
+          </attributes>
+        </retval>
+      </parameters>
+    </function>
+    <function name="PowerManager" visibility="public" procflags="static">
+      <devnotes>
+         <summary>
+           Returns the power manager
+         </summary>
+      </devnotes>
+      <parameters>
+        <retval type="JPowerManager">
+          <attributes>
+            <attribute name="JavaSignatureAttribute" />
+          </attributes>
+        </retval>
+      </parameters>
+    </function>
+    <procedure name="RestartIfNotIgnoringBatteryOptimizations" visibility="public" procflags="static">
+      <devnotes>
+         <summary>
+           Restarts the app if it is not ignoring battery optimizations.
+         </summary>
+         <remarks>
+           Needs this in the manifest: &lt;uses-permission android:name=&quot;android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS&quot;/&gt;
+         </remarks>
+      </devnotes>
+    </procedure>
+    <procedure name="SetStartAlarm" visibility="public" procflags="static">
+      <devnotes>
+         <summary>
+           Call this to start an activity from an alarm
+         </summary>
+         <remarks>
+           Used in conjunction with dw-multireceiver.jar
+         </remarks>
+      </devnotes>
+      <parameters>
+        <parameter name="AAlarm" type="TDateTime" paramflags="const" />
+        <parameter name="AStartFromLock" type="Boolean" paramflags="const" />
+      </parameters>
+    </procedure>
+    <function name="UriFromFile" visibility="public" procflags="static">
+      <devnotes>
+         <summary>
+           Converts file to uri, using FileProvider if target API &gt;= 24
+         </summary>
+         <remarks>
+           Use this only when accessing files with an &quot;external&quot; URI
+         </remarks>
+      </devnotes>
+      <parameters>
+        <parameter name="AFile" type="JFile" paramflags="const" />
+        <retval type="Jnet_Uri">
+          <attributes>
+            <attribute name="JavaSignatureAttribute" />
+          </attributes>
+        </retval>
+      </parameters>
+    </function>
+    <function name="UriFromFileName" visibility="public" procflags="static">
+      <devnotes>
+         <summary>
+           Converts filename to uri, using FileProvider if target API &gt;= 24
+         </summary>
+         <remarks>
+           Use this only when accessing files with an &quot;external&quot; URI
+         </remarks>
+      </devnotes>
+      <parameters>
+        <parameter name="AFileName" type="string" paramflags="const" />
+        <retval type="Jnet_Uri">
+          <attributes>
+            <attribute name="JavaSignatureAttribute" />
+          </attributes>
+        </retval>
+      </parameters>
+    </function>
+    <procedure name="Create@" visibility="class private" procflags="class constructor noself" generated="true">
+    </procedure>
+    <procedure name="Destroy@" visibility="class private" procflags="class destructor noself" generated="true">
+    </procedure>
+  </struct>
+  <struct name="TJImageHelper" size="0">
+    <function name="RotateBytes" visibility="private" procflags="static">
+      <parameters>
+        <parameter name="ABytes" type="TJavaArray&lt;System.Byte&gt;" paramflags="const" />
+        <parameter name="ARotation" type="Integer" paramflags="const" />
+        <retval type="TJavaArray&lt;System.Byte&gt;" />
+      </parameters>
+    </function>
+    <function name="JImageToByteArray" visibility="private" procflags="static">
+      <parameters>
+        <parameter name="AImage" type="JImage" paramflags="const" />
+        <retval type="TJavaArray&lt;System.Byte&gt;" />
+      </parameters>
+    </function>
+    <function name="NV21ToJPEG" visibility="private" procflags="static">
+      <parameters>
+        <parameter name="ABytes" type="TJavaArray&lt;System.Byte&gt;" paramflags="const" />
+        <parameter name="AWidth" type="Integer" paramflags="const" />
+        <parameter name="AHeight" type="Integer" paramflags="const" />
+        <retval type="TJavaArray&lt;System.Byte&gt;" />
+      </parameters>
+    </function>
+    <function name="YUV_420_888ToNV21" visibility="private" procflags="static">
+      <parameters>
+        <parameter name="AImage" type="JImage" paramflags="const" />
+        <retval type="TJavaArray&lt;System.Byte&gt;" />
+      </parameters>
+    </function>
+    <function name="JImageToJBitmap" visibility="public" procflags="static">
+      <devnotes>
+         <summary>
+           Converts a JImage to a JBitmap
+         </summary>
+         <remarks>
+           Uses the private JImageToByteArray method to convert from the appropriate image format
+         </remarks>
+      </devnotes>
+      <parameters>
+        <parameter name="AImage" type="JImage" paramflags="const" />
+        <retval type="JBitmap">
+          <attributes>
+            <attribute name="JavaSignatureAttribute" />
+          </attributes>
+        </retval>
+      </parameters>
+    </function>
+    <function name="JImageToStream" visibility="public" procflags="static">
+      <devnotes>
+         <summary>
+           Converts a JImage to a JStream, applying rotation (if any)
+         </summary>
+         <remarks>
+           Used by the Camera support to orient the captured image
+         </remarks>
+      </devnotes>
+      <parameters>
+        <parameter name="AImage" type="JImage" paramflags="const" />
+        <parameter name="ARotation" type="Integer" paramflags="const">
+          <value>
+            $0
+          </value>
+        </parameter>
+        <retval type="TStream" />
+      </parameters>
+    </function>
+  </struct>
+</namespace>

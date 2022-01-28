@@ -1,0 +1,390 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<namespace name="DW.Androidapi.JNI.App" platform="Android">
+  <interface name="JKeyguardManagerClass" GUID="{44F9A483-0683-4391-94D1-F0BB6DB7340B}" ancestor="JObjectClass">
+  </interface>
+  <interface name="JKeyguardManager" GUID="{6AECC681-2C45-48B7-87D9-5A255840BDFA}" ancestor="JObject">
+    <attributes>
+      <attribute name="JavaSignatureAttribute" />
+    </attributes>
+    <function name="createConfirmDeviceCredentialIntent" visibility="public" procflags="abstract virtual" callconv="cdecl">
+      <parameters>
+        <parameter name="title" type="JCharSequence" />
+        <parameter name="description" type="JCharSequence" />
+        <retval type="JIntent">
+          <attributes>
+            <attribute name="JavaSignatureAttribute" />
+          </attributes>
+        </retval>
+      </parameters>
+    </function>
+    <procedure name="exitKeyguardSecurely" visibility="public" procflags="abstract virtual" callconv="cdecl">
+      <parameters>
+        <parameter name="callback" type="JKeyguardManager_OnKeyguardExitResult" />
+      </parameters>
+    </procedure>
+    <function name="inKeyguardRestrictedInputMode" visibility="public" procflags="abstract virtual" callconv="cdecl">
+      <parameters>
+        <retval type="Boolean" />
+      </parameters>
+    </function>
+    <function name="isDeviceLocked" visibility="public" procflags="abstract virtual" callconv="cdecl">
+      <parameters>
+        <retval type="Boolean" />
+      </parameters>
+    </function>
+    <function name="isDeviceSecure" visibility="public" procflags="abstract virtual" callconv="cdecl">
+      <parameters>
+        <retval type="Boolean" />
+      </parameters>
+    </function>
+    <function name="isKeyguardLocked" visibility="public" procflags="abstract virtual" callconv="cdecl">
+      <parameters>
+        <retval type="Boolean" />
+      </parameters>
+    </function>
+    <function name="isKeyguardSecure" visibility="public" procflags="abstract virtual" callconv="cdecl">
+      <parameters>
+        <retval type="Boolean" />
+      </parameters>
+    </function>
+    <function name="newKeyguardLock" visibility="public" procflags="abstract virtual" callconv="cdecl">
+      <parameters>
+        <parameter name="tag" type="JString" />
+        <retval type="JKeyguardManager_KeyguardLock">
+          <attributes>
+            <attribute name="JavaSignatureAttribute" />
+          </attributes>
+        </retval>
+      </parameters>
+    </function>
+  </interface>
+  <class name="TJKeyguardManager">
+    <ancestor name="{Androidapi.JNIBridge}TJavaGenericImport&lt;DW.Androidapi.JNI.App.JKeyguardManagerClass,DW.Androidapi.JNI.App.JKeyguardManager&gt;" namespace="DW.Androidapi.JNI.App">
+      <methodref name="GetJavaClass" visibility="class private" procflags="static">
+      </methodref>
+      <methodref name="Alloc" visibility="class private" procflags="static overload">
+      </methodref>
+      <methodref name="Destroy@" visibility="class private" procflags="class destructor noself">
+      </methodref>
+      <methodref name="Wrap" visibility="public" procflags="static overload">
+      </methodref>
+      <methodref name="Wrap" visibility="public" procflags="static overload">
+      </methodref>
+      <propertyref name="JavaClass" visibility="public">
+      </propertyref>
+      <methodref name="Create" visibility="public" procflags="static">
+      </methodref>
+      <methodref name="GetClsID" visibility="public" procflags="static">
+      </methodref>
+      <ancestor name="TObject" namespace="System">
+        <methodref name="Create" visibility="public" procflags="constructor">
+        </methodref>
+        <methodref name="Free" visibility="public">
+        </methodref>
+        <methodref name="DisposeOf" visibility="public" procflags="inline">
+        </methodref>
+        <methodref name="InitInstance" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="CleanupInstance" visibility="public">
+        </methodref>
+        <methodref name="ClassType" visibility="public" procflags="inline">
+        </methodref>
+        <methodref name="ClassName" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="ClassNameIs" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="ClassParent" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="ClassInfo" visibility="public" procflags="class inline">
+        </methodref>
+        <methodref name="InstanceSize" visibility="public" procflags="class inline">
+        </methodref>
+        <methodref name="InheritsFrom" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="MethodAddress" visibility="public" procflags="class overload">
+        </methodref>
+        <methodref name="MethodAddress" visibility="public" procflags="class overload">
+        </methodref>
+        <methodref name="MethodName" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="QualifiedClassName" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="FieldAddress" visibility="public" procflags="overload">
+        </methodref>
+        <methodref name="FieldAddress" visibility="public" procflags="overload">
+        </methodref>
+        <methodref name="GetInterface" visibility="public">
+        </methodref>
+        <methodref name="GetInterfaceEntry" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="GetInterfaceTable" visibility="public" procflags="class inline">
+        </methodref>
+        <methodref name="UnitName" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="UnitScope" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="Equals" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="GetHashCode" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="ToString" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="SafeCallException" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="AfterConstruction" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="BeforeDestruction" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="Dispatch" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="DefaultHandler" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="NewInstance" visibility="public" procflags="class virtual">
+        </methodref>
+        <methodref name="FreeInstance" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="Destroy" visibility="public" procflags="destructor virtual">
+        </methodref>
+        <methodref name="CPP_ABI_1" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="CPP_ABI_2" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="CPP_ABI_3" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="GetDisposed" visibility="protected" procflags="inline">
+        </methodref>
+        <methodref name="CheckDisposed" visibility="protected" procflags="inline">
+        </methodref>
+        <propertyref name="Disposed" visibility="protected">
+        </propertyref>
+      </ancestor>
+    </ancestor>
+  </class>
+  <interface name="JKeyguardManager_KeyguardLockClass" GUID="{98306533-81FC-4498-91E6-19F58EA32BD7}" ancestor="JObjectClass">
+    <procedure name="disableKeyguard" visibility="public" procflags="abstract virtual" callconv="cdecl">
+    </procedure>
+    <procedure name="reenableKeyguard" visibility="public" procflags="abstract virtual" callconv="cdecl">
+    </procedure>
+  </interface>
+  <interface name="JKeyguardManager_KeyguardLock" GUID="{6061FAD3-A869-40A5-BEAB-CFC481B8EC0B}" ancestor="JObject">
+    <attributes>
+      <attribute name="JavaSignatureAttribute" />
+    </attributes>
+  </interface>
+  <class name="TJKeyguardManager_KeyguardLock">
+    <ancestor name="{Androidapi.JNIBridge}TJavaGenericImport&lt;DW.Androidapi.JNI.App.JKeyguardManager_KeyguardLockClass,DW.Androidapi.JNI.App.JKeyguardManager_KeyguardLock&gt;" namespace="DW.Androidapi.JNI.App">
+      <methodref name="GetJavaClass" visibility="class private" procflags="static">
+      </methodref>
+      <methodref name="Alloc" visibility="class private" procflags="static overload">
+      </methodref>
+      <methodref name="Destroy@" visibility="class private" procflags="class destructor noself">
+      </methodref>
+      <methodref name="Wrap" visibility="public" procflags="static overload">
+      </methodref>
+      <methodref name="Wrap" visibility="public" procflags="static overload">
+      </methodref>
+      <propertyref name="JavaClass" visibility="public">
+      </propertyref>
+      <methodref name="Create" visibility="public" procflags="static">
+      </methodref>
+      <methodref name="GetClsID" visibility="public" procflags="static">
+      </methodref>
+      <ancestor name="TObject" namespace="System">
+        <methodref name="Create" visibility="public" procflags="constructor">
+        </methodref>
+        <methodref name="Free" visibility="public">
+        </methodref>
+        <methodref name="DisposeOf" visibility="public" procflags="inline">
+        </methodref>
+        <methodref name="InitInstance" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="CleanupInstance" visibility="public">
+        </methodref>
+        <methodref name="ClassType" visibility="public" procflags="inline">
+        </methodref>
+        <methodref name="ClassName" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="ClassNameIs" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="ClassParent" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="ClassInfo" visibility="public" procflags="class inline">
+        </methodref>
+        <methodref name="InstanceSize" visibility="public" procflags="class inline">
+        </methodref>
+        <methodref name="InheritsFrom" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="MethodAddress" visibility="public" procflags="class overload">
+        </methodref>
+        <methodref name="MethodAddress" visibility="public" procflags="class overload">
+        </methodref>
+        <methodref name="MethodName" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="QualifiedClassName" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="FieldAddress" visibility="public" procflags="overload">
+        </methodref>
+        <methodref name="FieldAddress" visibility="public" procflags="overload">
+        </methodref>
+        <methodref name="GetInterface" visibility="public">
+        </methodref>
+        <methodref name="GetInterfaceEntry" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="GetInterfaceTable" visibility="public" procflags="class inline">
+        </methodref>
+        <methodref name="UnitName" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="UnitScope" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="Equals" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="GetHashCode" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="ToString" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="SafeCallException" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="AfterConstruction" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="BeforeDestruction" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="Dispatch" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="DefaultHandler" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="NewInstance" visibility="public" procflags="class virtual">
+        </methodref>
+        <methodref name="FreeInstance" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="Destroy" visibility="public" procflags="destructor virtual">
+        </methodref>
+        <methodref name="CPP_ABI_1" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="CPP_ABI_2" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="CPP_ABI_3" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="GetDisposed" visibility="protected" procflags="inline">
+        </methodref>
+        <methodref name="CheckDisposed" visibility="protected" procflags="inline">
+        </methodref>
+        <propertyref name="Disposed" visibility="protected">
+        </propertyref>
+      </ancestor>
+    </ancestor>
+  </class>
+  <interface name="JKeyguardManager_OnKeyguardExitResultClass" GUID="{40CF0367-E275-475B-8566-A6337DD56217}" ancestor="IJavaClass">
+  </interface>
+  <interface name="JKeyguardManager_OnKeyguardExitResult" GUID="{A2E86C9B-0384-4A3A-8E4B-823923FBD083}" ancestor="IJavaInstance">
+    <attributes>
+      <attribute name="JavaSignatureAttribute" />
+    </attributes>
+    <procedure name="onKeyguardExitResult" visibility="public" procflags="abstract virtual" callconv="cdecl">
+      <parameters>
+        <parameter name="success" type="Boolean" />
+      </parameters>
+    </procedure>
+  </interface>
+  <class name="TJKeyguardManager_OnKeyguardExitResult">
+    <ancestor name="{Androidapi.JNIBridge}TJavaGenericImport&lt;DW.Androidapi.JNI.App.JKeyguardManager_OnKeyguardExitResultClass,DW.Androidapi.JNI.App.JKeyguardManager_OnKeyguardExitResult&gt;" namespace="DW.Androidapi.JNI.App">
+      <methodref name="GetJavaClass" visibility="class private" procflags="static">
+      </methodref>
+      <methodref name="Alloc" visibility="class private" procflags="static overload">
+      </methodref>
+      <methodref name="Destroy@" visibility="class private" procflags="class destructor noself">
+      </methodref>
+      <methodref name="Wrap" visibility="public" procflags="static overload">
+      </methodref>
+      <methodref name="Wrap" visibility="public" procflags="static overload">
+      </methodref>
+      <propertyref name="JavaClass" visibility="public">
+      </propertyref>
+      <methodref name="Create" visibility="public" procflags="static">
+      </methodref>
+      <methodref name="GetClsID" visibility="public" procflags="static">
+      </methodref>
+      <ancestor name="TObject" namespace="System">
+        <methodref name="Create" visibility="public" procflags="constructor">
+        </methodref>
+        <methodref name="Free" visibility="public">
+        </methodref>
+        <methodref name="DisposeOf" visibility="public" procflags="inline">
+        </methodref>
+        <methodref name="InitInstance" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="CleanupInstance" visibility="public">
+        </methodref>
+        <methodref name="ClassType" visibility="public" procflags="inline">
+        </methodref>
+        <methodref name="ClassName" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="ClassNameIs" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="ClassParent" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="ClassInfo" visibility="public" procflags="class inline">
+        </methodref>
+        <methodref name="InstanceSize" visibility="public" procflags="class inline">
+        </methodref>
+        <methodref name="InheritsFrom" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="MethodAddress" visibility="public" procflags="class overload">
+        </methodref>
+        <methodref name="MethodAddress" visibility="public" procflags="class overload">
+        </methodref>
+        <methodref name="MethodName" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="QualifiedClassName" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="FieldAddress" visibility="public" procflags="overload">
+        </methodref>
+        <methodref name="FieldAddress" visibility="public" procflags="overload">
+        </methodref>
+        <methodref name="GetInterface" visibility="public">
+        </methodref>
+        <methodref name="GetInterfaceEntry" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="GetInterfaceTable" visibility="public" procflags="class inline">
+        </methodref>
+        <methodref name="UnitName" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="UnitScope" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="Equals" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="GetHashCode" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="ToString" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="SafeCallException" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="AfterConstruction" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="BeforeDestruction" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="Dispatch" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="DefaultHandler" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="NewInstance" visibility="public" procflags="class virtual">
+        </methodref>
+        <methodref name="FreeInstance" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="Destroy" visibility="public" procflags="destructor virtual">
+        </methodref>
+        <methodref name="CPP_ABI_1" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="CPP_ABI_2" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="CPP_ABI_3" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="GetDisposed" visibility="protected" procflags="inline">
+        </methodref>
+        <methodref name="CheckDisposed" visibility="protected" procflags="inline">
+        </methodref>
+        <propertyref name="Disposed" visibility="protected">
+        </propertyref>
+      </ancestor>
+    </ancestor>
+  </class>
+</namespace>

@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<namespace name="DW.UIHelper" platform="Android">
+  <enum name="TUserInterfaceStyle">
+    <element value="0" name="Light" />
+    <element value="1" name="Dark" />
+  </enum>
+  <struct name="TUIHelper" size="0">
+    <devnotes>
+       <summary>
+         Helper functions specific to UI
+       </summary>
+    </devnotes>
+    <procedure name="CopyImageToClipboard" visibility="public" procflags="static">
+      <parameters>
+        <parameter name="AImage" type="TStream" paramflags="const" />
+      </parameters>
+    </procedure>
+    <function name="GetStatusBarOffset" visibility="public" procflags="static">
+      <parameters>
+        <retval type="Single" />
+      </parameters>
+    </function>
+    <function name="GetOffsetRect" visibility="public" procflags="static overload">
+      <devnotes>
+         <summary>
+           Special function for handling of &quot;notch&quot; based devices
+         </summary>
+      </devnotes>
+      <parameters>
+        <retval type="TRectF" />
+      </parameters>
+    </function>
+    <function name="GetOffsetRect" visibility="public" procflags="static overload">
+      <parameters>
+        <parameter name="AHandle" type="TWindowHandle" paramflags="const" />
+        <retval type="TRectF" />
+      </parameters>
+    </function>
+    <function name="GetTextColor" visibility="public" procflags="static">
+      <devnotes>
+         <summary>
+           Returns Black or White, depending on the background color supplied
+         </summary>
+      </devnotes>
+      <parameters>
+        <parameter name="ABackgroundColor" type="TAlphaColor" paramflags="const" />
+        <retval type="TAlphaColor" />
+      </parameters>
+    </function>
+    <function name="GetScreenOrientation" visibility="public" procflags="static">
+      <parameters>
+        <retval type="TScreenOrientation" />
+      </parameters>
+    </function>
+    <function name="GetUserInterfaceStyle" visibility="public" procflags="static">
+      <parameters>
+        <retval type="TUserInterfaceStyle" />
+      </parameters>
+    </function>
+    <procedure name="OpenSettings" visibility="public" procflags="static">
+    </procedure>
+    <procedure name="Render" visibility="public" procflags="static">
+      <devnotes>
+         <summary>
+           Force a repaint of the form
+         </summary>
+      </devnotes>
+      <parameters>
+        <parameter name="AForm" type="TForm" paramflags="const" />
+      </parameters>
+    </procedure>
+  </struct>
+</namespace>

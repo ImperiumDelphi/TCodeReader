@@ -4,12 +4,13 @@
     <Transaction>2021/01/19 17:49:58.000.151,=C:\Users\Dell\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
     <Transaction>2021/01/19 17:51:42.000.508,=C:\Users\Dell\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
     <Transaction>2021/01/19 18:00:41.000.987,=D:\Carnival\TCodeReader\lib\dw-camera.jar</Transaction>
-    <Transaction>2021/01/19 18:01:27.000.683,C:\Users\Dell\Documents\Embarcadero\Studio\Projects\Unit1.pas=D:\Carnival\TCodeReader\demo\uDemoCodeReader.pas</Transaction>
-    <Transaction>2021/01/19 18:01:27.000.684,C:\Users\Dell\Documents\Embarcadero\Studio\Projects\Unit1.fmx=D:\Carnival\TCodeReader\demo\uDemoCodeReader.fmx</Transaction>
-    <Transaction>2021/01/19 18:01:38.000.380,C:\Users\Dell\Documents\Embarcadero\Studio\Projects\Project1.dproj=D:\Carnival\TCodeReader\demo\DemoCodeReader.dproj</Transaction>
+    <Transaction>2021/01/19 18:01:27.000.684,D:\Carnival\TCodeReader\demo\uDemoCodeReader.fmx=C:\Users\Dell\Documents\Embarcadero\Studio\Projects\Unit1.fmx</Transaction>
+    <Transaction>2021/01/19 18:01:27.000.683,D:\Carnival\TCodeReader\demo\uDemoCodeReader.pas=C:\Users\Dell\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2021/01/19 18:01:38.000.380,D:\Carnival\TCodeReader\demo\DemoCodeReader.dproj=C:\Users\Dell\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
   </Transactions>
 	<ActiveMobileDevice>
 		<PHackIntosh iOSSimulator="iPhone5"/>
-		<NoProfile Android="7fc8f2f8" Android64="7fc8f2f8"/>
+		<NoProfile Android="R9XMC05FLBE" Android64="R9XMC05FLBE"/>
+		<PMacBookFiorilli iOSSimulator="iPhone5"/>
 	</ActiveMobileDevice>
 </BorlandProject>

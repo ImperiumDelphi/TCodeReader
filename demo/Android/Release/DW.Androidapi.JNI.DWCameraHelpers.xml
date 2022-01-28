@@ -1,0 +1,1486 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<namespace name="DW.Androidapi.JNI.DWCameraHelpers" platform="Android">
+  <interface name="JDWCameraCharacteristicsHelperClass" GUID="{546D0D05-92AF-4D33-8AC5-0EC46022E85D}" ancestor="JObjectClass">
+    <function name="init" visibility="public" procflags="abstract virtual" callconv="cdecl">
+      <parameters>
+        <retval type="JDWCameraCharacteristicsHelper">
+          <attributes>
+            <attribute name="JavaSignatureAttribute" />
+          </attributes>
+        </retval>
+      </parameters>
+    </function>
+  </interface>
+  <interface name="JDWCameraCharacteristicsHelper" GUID="{66872D0B-17E3-4AF1-8B27-1D1731A40DE9}" ancestor="JObject">
+    <attributes>
+      <attribute name="JavaSignatureAttribute" />
+    </attributes>
+    <function name="getFaceDetectModes" visibility="public" procflags="abstract virtual" callconv="cdecl">
+      <parameters>
+        <retval type="TJavaArray&lt;System.Integer&gt;" />
+      </parameters>
+    </function>
+    <function name="getLensFacing" visibility="public" procflags="abstract virtual" callconv="cdecl">
+      <parameters>
+        <retval type="Integer" />
+      </parameters>
+    </function>
+    <function name="getMap" visibility="public" procflags="abstract virtual" callconv="cdecl">
+      <parameters>
+        <retval type="JStreamConfigurationMap">
+          <attributes>
+            <attribute name="JavaSignatureAttribute" />
+          </attributes>
+        </retval>
+      </parameters>
+    </function>
+    <function name="getSensorOrientation" visibility="public" procflags="abstract virtual" callconv="cdecl">
+      <parameters>
+        <retval type="Integer" />
+      </parameters>
+    </function>
+    <procedure name="setCameraCharacteristics" visibility="public" procflags="abstract virtual" callconv="cdecl">
+      <parameters>
+        <parameter name="characteristics" type="JCameraCharacteristics" />
+      </parameters>
+    </procedure>
+  </interface>
+  <class name="TJDWCameraCharacteristicsHelper">
+    <ancestor name="{Androidapi.JNIBridge}TJavaGenericImport&lt;DW.Androidapi.JNI.DWCameraHelpers.JDWCameraCharacteristicsHelperClass,DW.Androidapi.JNI.DWCameraHelpers.JDWCameraCharacteristicsHelper&gt;" namespace="DW.Androidapi.JNI.DWCameraHelpers">
+      <methodref name="GetJavaClass" visibility="class private" procflags="static">
+      </methodref>
+      <methodref name="Alloc" visibility="class private" procflags="static overload">
+      </methodref>
+      <methodref name="Destroy@" visibility="class private" procflags="class destructor noself">
+      </methodref>
+      <methodref name="Wrap" visibility="public" procflags="static overload">
+      </methodref>
+      <methodref name="Wrap" visibility="public" procflags="static overload">
+      </methodref>
+      <propertyref name="JavaClass" visibility="public">
+      </propertyref>
+      <methodref name="Create" visibility="public" procflags="static">
+      </methodref>
+      <methodref name="GetClsID" visibility="public" procflags="static">
+      </methodref>
+      <ancestor name="TObject" namespace="System">
+        <methodref name="Create" visibility="public" procflags="constructor">
+        </methodref>
+        <methodref name="Free" visibility="public">
+        </methodref>
+        <methodref name="DisposeOf" visibility="public" procflags="inline">
+        </methodref>
+        <methodref name="InitInstance" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="CleanupInstance" visibility="public">
+        </methodref>
+        <methodref name="ClassType" visibility="public" procflags="inline">
+        </methodref>
+        <methodref name="ClassName" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="ClassNameIs" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="ClassParent" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="ClassInfo" visibility="public" procflags="class inline">
+        </methodref>
+        <methodref name="InstanceSize" visibility="public" procflags="class inline">
+        </methodref>
+        <methodref name="InheritsFrom" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="MethodAddress" visibility="public" procflags="class overload">
+        </methodref>
+        <methodref name="MethodAddress" visibility="public" procflags="class overload">
+        </methodref>
+        <methodref name="MethodName" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="QualifiedClassName" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="FieldAddress" visibility="public" procflags="overload">
+        </methodref>
+        <methodref name="FieldAddress" visibility="public" procflags="overload">
+        </methodref>
+        <methodref name="GetInterface" visibility="public">
+        </methodref>
+        <methodref name="GetInterfaceEntry" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="GetInterfaceTable" visibility="public" procflags="class inline">
+        </methodref>
+        <methodref name="UnitName" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="UnitScope" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="Equals" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="GetHashCode" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="ToString" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="SafeCallException" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="AfterConstruction" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="BeforeDestruction" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="Dispatch" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="DefaultHandler" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="NewInstance" visibility="public" procflags="class virtual">
+        </methodref>
+        <methodref name="FreeInstance" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="Destroy" visibility="public" procflags="destructor virtual">
+        </methodref>
+        <methodref name="CPP_ABI_1" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="CPP_ABI_2" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="CPP_ABI_3" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="GetDisposed" visibility="protected" procflags="inline">
+        </methodref>
+        <methodref name="CheckDisposed" visibility="protected" procflags="inline">
+        </methodref>
+        <propertyref name="Disposed" visibility="protected">
+        </propertyref>
+      </ancestor>
+    </ancestor>
+  </class>
+  <interface name="JDWCaptureRequestBuilderHelperClass" GUID="{2A88D2A3-036C-4F46-88DF-297241184A70}" ancestor="JObjectClass">
+    <function name="init" visibility="public" procflags="abstract virtual" callconv="cdecl">
+      <parameters>
+        <retval type="JDWCaptureRequestBuilderHelper">
+          <attributes>
+            <attribute name="JavaSignatureAttribute" />
+          </attributes>
+        </retval>
+      </parameters>
+    </function>
+  </interface>
+  <interface name="JDWCaptureRequestBuilderHelper" GUID="{ECDB6573-589C-4C0E-B8B9-D68F43425D98}" ancestor="JObject">
+    <attributes>
+      <attribute name="JavaSignatureAttribute" />
+    </attributes>
+    <function name="getIntegerValue" visibility="public" procflags="abstract virtual" callconv="cdecl">
+      <parameters>
+        <parameter name="key" type="JCaptureRequest_Key" />
+        <retval type="Integer" />
+      </parameters>
+    </function>
+    <procedure name="setCaptureRequestBuilder" visibility="public" procflags="abstract virtual" callconv="cdecl">
+      <parameters>
+        <parameter name="builder" type="JCaptureRequest_Builder" />
+      </parameters>
+    </procedure>
+    <procedure name="setFaceDetectMode" visibility="public" procflags="abstract virtual" callconv="cdecl">
+      <parameters>
+        <parameter name="mode" type="Integer" />
+      </parameters>
+    </procedure>
+    <procedure name="setIntegerValue" visibility="public" procflags="abstract virtual" callconv="cdecl">
+      <parameters>
+        <parameter name="key" type="JCaptureRequest_Key" />
+        <parameter name="value" type="Integer" />
+      </parameters>
+    </procedure>
+    <procedure name="setBooleanValue" visibility="public" procflags="abstract virtual" callconv="cdecl">
+      <parameters>
+        <parameter name="key" type="JCaptureRequest_Key" />
+        <parameter name="value" type="Boolean" />
+      </parameters>
+    </procedure>
+    <procedure name="setFloatValue" visibility="public" procflags="abstract virtual" callconv="cdecl">
+      <parameters>
+        <parameter name="key" type="JCaptureRequest_Key" />
+        <parameter name="value" type="Single" />
+      </parameters>
+    </procedure>
+  </interface>
+  <class name="TJDWCaptureRequestBuilderHelper">
+    <ancestor name="{Androidapi.JNIBridge}TJavaGenericImport&lt;DW.Androidapi.JNI.DWCameraHelpers.JDWCaptureRequestBuilderHelperClass,DW.Androidapi.JNI.DWCameraHelpers.JDWCaptureRequestBuilderHelper&gt;" namespace="DW.Androidapi.JNI.DWCameraHelpers">
+      <methodref name="GetJavaClass" visibility="class private" procflags="static">
+      </methodref>
+      <methodref name="Alloc" visibility="class private" procflags="static overload">
+      </methodref>
+      <methodref name="Destroy@" visibility="class private" procflags="class destructor noself">
+      </methodref>
+      <methodref name="Wrap" visibility="public" procflags="static overload">
+      </methodref>
+      <methodref name="Wrap" visibility="public" procflags="static overload">
+      </methodref>
+      <propertyref name="JavaClass" visibility="public">
+      </propertyref>
+      <methodref name="Create" visibility="public" procflags="static">
+      </methodref>
+      <methodref name="GetClsID" visibility="public" procflags="static">
+      </methodref>
+      <ancestor name="TObject" namespace="System">
+        <methodref name="Create" visibility="public" procflags="constructor">
+        </methodref>
+        <methodref name="Free" visibility="public">
+        </methodref>
+        <methodref name="DisposeOf" visibility="public" procflags="inline">
+        </methodref>
+        <methodref name="InitInstance" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="CleanupInstance" visibility="public">
+        </methodref>
+        <methodref name="ClassType" visibility="public" procflags="inline">
+        </methodref>
+        <methodref name="ClassName" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="ClassNameIs" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="ClassParent" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="ClassInfo" visibility="public" procflags="class inline">
+        </methodref>
+        <methodref name="InstanceSize" visibility="public" procflags="class inline">
+        </methodref>
+        <methodref name="InheritsFrom" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="MethodAddress" visibility="public" procflags="class overload">
+        </methodref>
+        <methodref name="MethodAddress" visibility="public" procflags="class overload">
+        </methodref>
+        <methodref name="MethodName" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="QualifiedClassName" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="FieldAddress" visibility="public" procflags="overload">
+        </methodref>
+        <methodref name="FieldAddress" visibility="public" procflags="overload">
+        </methodref>
+        <methodref name="GetInterface" visibility="public">
+        </methodref>
+        <methodref name="GetInterfaceEntry" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="GetInterfaceTable" visibility="public" procflags="class inline">
+        </methodref>
+        <methodref name="UnitName" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="UnitScope" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="Equals" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="GetHashCode" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="ToString" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="SafeCallException" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="AfterConstruction" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="BeforeDestruction" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="Dispatch" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="DefaultHandler" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="NewInstance" visibility="public" procflags="class virtual">
+        </methodref>
+        <methodref name="FreeInstance" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="Destroy" visibility="public" procflags="destructor virtual">
+        </methodref>
+        <methodref name="CPP_ABI_1" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="CPP_ABI_2" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="CPP_ABI_3" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="GetDisposed" visibility="protected" procflags="inline">
+        </methodref>
+        <methodref name="CheckDisposed" visibility="protected" procflags="inline">
+        </methodref>
+        <propertyref name="Disposed" visibility="protected">
+        </propertyref>
+      </ancestor>
+    </ancestor>
+  </class>
+  <interface name="JDWCaptureResultHelperClass" GUID="{D6B024D2-1244-4BEF-A2F9-DE5FC1171E95}" ancestor="JObjectClass">
+    <function name="init" visibility="public" procflags="abstract virtual" callconv="cdecl">
+      <parameters>
+        <retval type="JDWCaptureResultHelper">
+          <attributes>
+            <attribute name="JavaSignatureAttribute" />
+          </attributes>
+        </retval>
+      </parameters>
+    </function>
+  </interface>
+  <interface name="JDWCaptureResultHelper" GUID="{88F9C12C-DB60-4E77-A511-F7BB25DCB38B}" ancestor="JObject">
+    <attributes>
+      <attribute name="JavaSignatureAttribute" />
+    </attributes>
+    <function name="getFaceDetectMode" visibility="public" procflags="abstract virtual" callconv="cdecl">
+      <parameters>
+        <retval type="Integer" />
+      </parameters>
+    </function>
+    <function name="getFaces" visibility="public" procflags="abstract virtual" callconv="cdecl">
+      <parameters>
+        <retval type="TJavaObjectArray&lt;DW.Androidapi.JNI.Hardware.Camera2.JFace&gt;" />
+      </parameters>
+    </function>
+    <procedure name="setCaptureResult" visibility="public" procflags="abstract virtual" callconv="cdecl">
+      <parameters>
+        <parameter name="captureResult" type="JCaptureResult" />
+      </parameters>
+    </procedure>
+  </interface>
+  <class name="TJDWCaptureResultHelper">
+    <ancestor name="{Androidapi.JNIBridge}TJavaGenericImport&lt;DW.Androidapi.JNI.DWCameraHelpers.JDWCaptureResultHelperClass,DW.Androidapi.JNI.DWCameraHelpers.JDWCaptureResultHelper&gt;" namespace="DW.Androidapi.JNI.DWCameraHelpers">
+      <methodref name="GetJavaClass" visibility="class private" procflags="static">
+      </methodref>
+      <methodref name="Alloc" visibility="class private" procflags="static overload">
+      </methodref>
+      <methodref name="Destroy@" visibility="class private" procflags="class destructor noself">
+      </methodref>
+      <methodref name="Wrap" visibility="public" procflags="static overload">
+      </methodref>
+      <methodref name="Wrap" visibility="public" procflags="static overload">
+      </methodref>
+      <propertyref name="JavaClass" visibility="public">
+      </propertyref>
+      <methodref name="Create" visibility="public" procflags="static">
+      </methodref>
+      <methodref name="GetClsID" visibility="public" procflags="static">
+      </methodref>
+      <ancestor name="TObject" namespace="System">
+        <methodref name="Create" visibility="public" procflags="constructor">
+        </methodref>
+        <methodref name="Free" visibility="public">
+        </methodref>
+        <methodref name="DisposeOf" visibility="public" procflags="inline">
+        </methodref>
+        <methodref name="InitInstance" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="CleanupInstance" visibility="public">
+        </methodref>
+        <methodref name="ClassType" visibility="public" procflags="inline">
+        </methodref>
+        <methodref name="ClassName" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="ClassNameIs" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="ClassParent" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="ClassInfo" visibility="public" procflags="class inline">
+        </methodref>
+        <methodref name="InstanceSize" visibility="public" procflags="class inline">
+        </methodref>
+        <methodref name="InheritsFrom" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="MethodAddress" visibility="public" procflags="class overload">
+        </methodref>
+        <methodref name="MethodAddress" visibility="public" procflags="class overload">
+        </methodref>
+        <methodref name="MethodName" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="QualifiedClassName" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="FieldAddress" visibility="public" procflags="overload">
+        </methodref>
+        <methodref name="FieldAddress" visibility="public" procflags="overload">
+        </methodref>
+        <methodref name="GetInterface" visibility="public">
+        </methodref>
+        <methodref name="GetInterfaceEntry" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="GetInterfaceTable" visibility="public" procflags="class inline">
+        </methodref>
+        <methodref name="UnitName" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="UnitScope" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="Equals" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="GetHashCode" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="ToString" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="SafeCallException" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="AfterConstruction" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="BeforeDestruction" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="Dispatch" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="DefaultHandler" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="NewInstance" visibility="public" procflags="class virtual">
+        </methodref>
+        <methodref name="FreeInstance" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="Destroy" visibility="public" procflags="destructor virtual">
+        </methodref>
+        <methodref name="CPP_ABI_1" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="CPP_ABI_2" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="CPP_ABI_3" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="GetDisposed" visibility="protected" procflags="inline">
+        </methodref>
+        <methodref name="CheckDisposed" visibility="protected" procflags="inline">
+        </methodref>
+        <propertyref name="Disposed" visibility="protected">
+        </propertyref>
+      </ancestor>
+    </ancestor>
+  </class>
+  <interface name="JDWCameraCaptureSessionStateCallbackClass" GUID="{D8539E16-3066-4BF1-8483-DA4B95854D39}" ancestor="JCameraCaptureSession_StateCallbackClass">
+    <function name="init" visibility="public" procflags="abstract virtual" callconv="cdecl">
+      <parameters>
+        <parameter name="delegate" type="JDWCameraCaptureSessionStateCallbackDelegate" />
+        <retval type="JDWCameraCaptureSessionStateCallback">
+          <attributes>
+            <attribute name="JavaSignatureAttribute" />
+          </attributes>
+        </retval>
+      </parameters>
+    </function>
+  </interface>
+  <interface name="JDWCameraCaptureSessionStateCallback" GUID="{AB18B118-492E-4ED4-856A-1BC58F655BB3}" ancestor="JCameraCaptureSession_StateCallback">
+    <attributes>
+      <attribute name="JavaSignatureAttribute" />
+    </attributes>
+    <procedure name="onConfigured" visibility="public" procflags="abstract virtual" callconv="cdecl">
+      <parameters>
+        <parameter name="session" type="JCameraCaptureSession" />
+      </parameters>
+    </procedure>
+    <procedure name="onConfigureFailed" visibility="public" procflags="abstract virtual" callconv="cdecl">
+      <parameters>
+        <parameter name="session" type="JCameraCaptureSession" />
+      </parameters>
+    </procedure>
+  </interface>
+  <class name="TJDWCameraCaptureSessionStateCallback">
+    <ancestor name="{Androidapi.JNIBridge}TJavaGenericImport&lt;DW.Androidapi.JNI.DWCameraHelpers.JDWCameraCaptureSessionStateCallbackClass,DW.Androidapi.JNI.DWCameraHelpers.JDWCameraCaptureSessionStateCallback&gt;" namespace="DW.Androidapi.JNI.DWCameraHelpers">
+      <methodref name="GetJavaClass" visibility="class private" procflags="static">
+      </methodref>
+      <methodref name="Alloc" visibility="class private" procflags="static overload">
+      </methodref>
+      <methodref name="Destroy@" visibility="class private" procflags="class destructor noself">
+      </methodref>
+      <methodref name="Wrap" visibility="public" procflags="static overload">
+      </methodref>
+      <methodref name="Wrap" visibility="public" procflags="static overload">
+      </methodref>
+      <propertyref name="JavaClass" visibility="public">
+      </propertyref>
+      <methodref name="Create" visibility="public" procflags="static">
+      </methodref>
+      <methodref name="GetClsID" visibility="public" procflags="static">
+      </methodref>
+      <ancestor name="TObject" namespace="System">
+        <methodref name="Create" visibility="public" procflags="constructor">
+        </methodref>
+        <methodref name="Free" visibility="public">
+        </methodref>
+        <methodref name="DisposeOf" visibility="public" procflags="inline">
+        </methodref>
+        <methodref name="InitInstance" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="CleanupInstance" visibility="public">
+        </methodref>
+        <methodref name="ClassType" visibility="public" procflags="inline">
+        </methodref>
+        <methodref name="ClassName" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="ClassNameIs" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="ClassParent" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="ClassInfo" visibility="public" procflags="class inline">
+        </methodref>
+        <methodref name="InstanceSize" visibility="public" procflags="class inline">
+        </methodref>
+        <methodref name="InheritsFrom" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="MethodAddress" visibility="public" procflags="class overload">
+        </methodref>
+        <methodref name="MethodAddress" visibility="public" procflags="class overload">
+        </methodref>
+        <methodref name="MethodName" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="QualifiedClassName" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="FieldAddress" visibility="public" procflags="overload">
+        </methodref>
+        <methodref name="FieldAddress" visibility="public" procflags="overload">
+        </methodref>
+        <methodref name="GetInterface" visibility="public">
+        </methodref>
+        <methodref name="GetInterfaceEntry" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="GetInterfaceTable" visibility="public" procflags="class inline">
+        </methodref>
+        <methodref name="UnitName" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="UnitScope" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="Equals" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="GetHashCode" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="ToString" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="SafeCallException" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="AfterConstruction" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="BeforeDestruction" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="Dispatch" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="DefaultHandler" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="NewInstance" visibility="public" procflags="class virtual">
+        </methodref>
+        <methodref name="FreeInstance" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="Destroy" visibility="public" procflags="destructor virtual">
+        </methodref>
+        <methodref name="CPP_ABI_1" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="CPP_ABI_2" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="CPP_ABI_3" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="GetDisposed" visibility="protected" procflags="inline">
+        </methodref>
+        <methodref name="CheckDisposed" visibility="protected" procflags="inline">
+        </methodref>
+        <propertyref name="Disposed" visibility="protected">
+        </propertyref>
+      </ancestor>
+    </ancestor>
+  </class>
+  <interface name="JDWCameraCaptureSessionStateCallbackDelegateClass" GUID="{0275BFB6-4DB5-4A8A-B8AC-925A0DA09A69}" ancestor="IJavaClass">
+  </interface>
+  <interface name="JDWCameraCaptureSessionStateCallbackDelegate" GUID="{29110A8F-CD76-443F-9311-BBF17EB82C8A}" ancestor="IJavaInstance">
+    <attributes>
+      <attribute name="JavaSignatureAttribute" />
+    </attributes>
+    <procedure name="Configured" visibility="public" procflags="abstract virtual" callconv="cdecl">
+      <parameters>
+        <parameter name="session" type="JCameraCaptureSession" />
+      </parameters>
+    </procedure>
+    <procedure name="ConfigureFailed" visibility="public" procflags="abstract virtual" callconv="cdecl">
+      <parameters>
+        <parameter name="session" type="JCameraCaptureSession" />
+      </parameters>
+    </procedure>
+  </interface>
+  <class name="TJDWCameraCaptureSessionStateCallbackDelegate">
+    <ancestor name="{Androidapi.JNIBridge}TJavaGenericImport&lt;DW.Androidapi.JNI.DWCameraHelpers.JDWCameraCaptureSessionStateCallbackDelegateClass,DW.Androidapi.JNI.DWCameraHelpers.JDWCameraCaptureSessionStateCallbackDelegate&gt;" namespace="DW.Androidapi.JNI.DWCameraHelpers">
+      <methodref name="GetJavaClass" visibility="class private" procflags="static">
+      </methodref>
+      <methodref name="Alloc" visibility="class private" procflags="static overload">
+      </methodref>
+      <methodref name="Destroy@" visibility="class private" procflags="class destructor noself">
+      </methodref>
+      <methodref name="Wrap" visibility="public" procflags="static overload">
+      </methodref>
+      <methodref name="Wrap" visibility="public" procflags="static overload">
+      </methodref>
+      <propertyref name="JavaClass" visibility="public">
+      </propertyref>
+      <methodref name="Create" visibility="public" procflags="static">
+      </methodref>
+      <methodref name="GetClsID" visibility="public" procflags="static">
+      </methodref>
+      <ancestor name="TObject" namespace="System">
+        <methodref name="Create" visibility="public" procflags="constructor">
+        </methodref>
+        <methodref name="Free" visibility="public">
+        </methodref>
+        <methodref name="DisposeOf" visibility="public" procflags="inline">
+        </methodref>
+        <methodref name="InitInstance" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="CleanupInstance" visibility="public">
+        </methodref>
+        <methodref name="ClassType" visibility="public" procflags="inline">
+        </methodref>
+        <methodref name="ClassName" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="ClassNameIs" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="ClassParent" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="ClassInfo" visibility="public" procflags="class inline">
+        </methodref>
+        <methodref name="InstanceSize" visibility="public" procflags="class inline">
+        </methodref>
+        <methodref name="InheritsFrom" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="MethodAddress" visibility="public" procflags="class overload">
+        </methodref>
+        <methodref name="MethodAddress" visibility="public" procflags="class overload">
+        </methodref>
+        <methodref name="MethodName" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="QualifiedClassName" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="FieldAddress" visibility="public" procflags="overload">
+        </methodref>
+        <methodref name="FieldAddress" visibility="public" procflags="overload">
+        </methodref>
+        <methodref name="GetInterface" visibility="public">
+        </methodref>
+        <methodref name="GetInterfaceEntry" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="GetInterfaceTable" visibility="public" procflags="class inline">
+        </methodref>
+        <methodref name="UnitName" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="UnitScope" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="Equals" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="GetHashCode" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="ToString" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="SafeCallException" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="AfterConstruction" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="BeforeDestruction" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="Dispatch" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="DefaultHandler" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="NewInstance" visibility="public" procflags="class virtual">
+        </methodref>
+        <methodref name="FreeInstance" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="Destroy" visibility="public" procflags="destructor virtual">
+        </methodref>
+        <methodref name="CPP_ABI_1" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="CPP_ABI_2" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="CPP_ABI_3" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="GetDisposed" visibility="protected" procflags="inline">
+        </methodref>
+        <methodref name="CheckDisposed" visibility="protected" procflags="inline">
+        </methodref>
+        <propertyref name="Disposed" visibility="protected">
+        </propertyref>
+      </ancestor>
+    </ancestor>
+  </class>
+  <interface name="JDWCameraCaptureSessionCaptureCallbackClass" GUID="{5DF98741-D7C1-451F-BCD9-767A2AF1F7A7}" ancestor="JCameraCaptureSession_CaptureCallbackClass">
+    <function name="init" visibility="public" procflags="abstract virtual" callconv="cdecl">
+      <parameters>
+        <parameter name="delegate" type="JDWCameraCaptureSessionCaptureCallbackDelegate" />
+        <retval type="JDWCameraCaptureSessionCaptureCallback">
+          <attributes>
+            <attribute name="JavaSignatureAttribute" />
+          </attributes>
+        </retval>
+      </parameters>
+    </function>
+  </interface>
+  <interface name="JDWCameraCaptureSessionCaptureCallback" GUID="{8684B527-A48D-4F16-BBEA-B07336EB3295}" ancestor="JCameraCaptureSession_CaptureCallback">
+    <attributes>
+      <attribute name="JavaSignatureAttribute" />
+    </attributes>
+    <procedure name="onCaptureCompleted" visibility="public" procflags="abstract virtual" callconv="cdecl">
+      <parameters>
+        <parameter name="session" type="JCameraCaptureSession" />
+        <parameter name="request" type="JCaptureRequest" />
+        <parameter name="result" type="JTotalCaptureResult" />
+      </parameters>
+    </procedure>
+    <procedure name="onCaptureProgressed" visibility="public" procflags="abstract virtual" callconv="cdecl">
+      <parameters>
+        <parameter name="session" type="JCameraCaptureSession" />
+        <parameter name="request" type="JCaptureRequest" />
+        <parameter name="partialResult" type="JCaptureResult" />
+      </parameters>
+    </procedure>
+  </interface>
+  <class name="TJDWCameraCaptureSessionCaptureCallback">
+    <ancestor name="{Androidapi.JNIBridge}TJavaGenericImport&lt;DW.Androidapi.JNI.DWCameraHelpers.JDWCameraCaptureSessionCaptureCallbackClass,DW.Androidapi.JNI.DWCameraHelpers.JDWCameraCaptureSessionCaptureCallback&gt;" namespace="DW.Androidapi.JNI.DWCameraHelpers">
+      <methodref name="GetJavaClass" visibility="class private" procflags="static">
+      </methodref>
+      <methodref name="Alloc" visibility="class private" procflags="static overload">
+      </methodref>
+      <methodref name="Destroy@" visibility="class private" procflags="class destructor noself">
+      </methodref>
+      <methodref name="Wrap" visibility="public" procflags="static overload">
+      </methodref>
+      <methodref name="Wrap" visibility="public" procflags="static overload">
+      </methodref>
+      <propertyref name="JavaClass" visibility="public">
+      </propertyref>
+      <methodref name="Create" visibility="public" procflags="static">
+      </methodref>
+      <methodref name="GetClsID" visibility="public" procflags="static">
+      </methodref>
+      <ancestor name="TObject" namespace="System">
+        <methodref name="Create" visibility="public" procflags="constructor">
+        </methodref>
+        <methodref name="Free" visibility="public">
+        </methodref>
+        <methodref name="DisposeOf" visibility="public" procflags="inline">
+        </methodref>
+        <methodref name="InitInstance" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="CleanupInstance" visibility="public">
+        </methodref>
+        <methodref name="ClassType" visibility="public" procflags="inline">
+        </methodref>
+        <methodref name="ClassName" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="ClassNameIs" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="ClassParent" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="ClassInfo" visibility="public" procflags="class inline">
+        </methodref>
+        <methodref name="InstanceSize" visibility="public" procflags="class inline">
+        </methodref>
+        <methodref name="InheritsFrom" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="MethodAddress" visibility="public" procflags="class overload">
+        </methodref>
+        <methodref name="MethodAddress" visibility="public" procflags="class overload">
+        </methodref>
+        <methodref name="MethodName" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="QualifiedClassName" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="FieldAddress" visibility="public" procflags="overload">
+        </methodref>
+        <methodref name="FieldAddress" visibility="public" procflags="overload">
+        </methodref>
+        <methodref name="GetInterface" visibility="public">
+        </methodref>
+        <methodref name="GetInterfaceEntry" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="GetInterfaceTable" visibility="public" procflags="class inline">
+        </methodref>
+        <methodref name="UnitName" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="UnitScope" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="Equals" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="GetHashCode" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="ToString" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="SafeCallException" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="AfterConstruction" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="BeforeDestruction" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="Dispatch" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="DefaultHandler" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="NewInstance" visibility="public" procflags="class virtual">
+        </methodref>
+        <methodref name="FreeInstance" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="Destroy" visibility="public" procflags="destructor virtual">
+        </methodref>
+        <methodref name="CPP_ABI_1" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="CPP_ABI_2" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="CPP_ABI_3" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="GetDisposed" visibility="protected" procflags="inline">
+        </methodref>
+        <methodref name="CheckDisposed" visibility="protected" procflags="inline">
+        </methodref>
+        <propertyref name="Disposed" visibility="protected">
+        </propertyref>
+      </ancestor>
+    </ancestor>
+  </class>
+  <interface name="JDWCameraCaptureSessionCaptureCallbackDelegateClass" GUID="{F672F04E-A294-43A9-A2E2-14D4986E9F66}" ancestor="IJavaClass">
+  </interface>
+  <interface name="JDWCameraCaptureSessionCaptureCallbackDelegate" GUID="{A4783EF9-ABEB-4342-9453-1C6AF15C7E2A}" ancestor="IJavaInstance">
+    <attributes>
+      <attribute name="JavaSignatureAttribute" />
+    </attributes>
+    <procedure name="CaptureCompleted" visibility="public" procflags="abstract virtual" callconv="cdecl">
+      <parameters>
+        <parameter name="session" type="JCameraCaptureSession" />
+        <parameter name="request" type="JCaptureRequest" />
+        <parameter name="result" type="JTotalCaptureResult" />
+      </parameters>
+    </procedure>
+    <procedure name="CaptureProgressed" visibility="public" procflags="abstract virtual" callconv="cdecl">
+      <parameters>
+        <parameter name="session" type="JCameraCaptureSession" />
+        <parameter name="request" type="JCaptureRequest" />
+        <parameter name="partialResult" type="JCaptureResult" />
+      </parameters>
+    </procedure>
+  </interface>
+  <class name="TJDWCameraCaptureSessionCaptureCallbackDelegate">
+    <ancestor name="{Androidapi.JNIBridge}TJavaGenericImport&lt;DW.Androidapi.JNI.DWCameraHelpers.JDWCameraCaptureSessionCaptureCallbackDelegateClass,DW.Androidapi.JNI.DWCameraHelpers.JDWCameraCaptureSessionCaptureCallbackDelegate&gt;" namespace="DW.Androidapi.JNI.DWCameraHelpers">
+      <methodref name="GetJavaClass" visibility="class private" procflags="static">
+      </methodref>
+      <methodref name="Alloc" visibility="class private" procflags="static overload">
+      </methodref>
+      <methodref name="Destroy@" visibility="class private" procflags="class destructor noself">
+      </methodref>
+      <methodref name="Wrap" visibility="public" procflags="static overload">
+      </methodref>
+      <methodref name="Wrap" visibility="public" procflags="static overload">
+      </methodref>
+      <propertyref name="JavaClass" visibility="public">
+      </propertyref>
+      <methodref name="Create" visibility="public" procflags="static">
+      </methodref>
+      <methodref name="GetClsID" visibility="public" procflags="static">
+      </methodref>
+      <ancestor name="TObject" namespace="System">
+        <methodref name="Create" visibility="public" procflags="constructor">
+        </methodref>
+        <methodref name="Free" visibility="public">
+        </methodref>
+        <methodref name="DisposeOf" visibility="public" procflags="inline">
+        </methodref>
+        <methodref name="InitInstance" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="CleanupInstance" visibility="public">
+        </methodref>
+        <methodref name="ClassType" visibility="public" procflags="inline">
+        </methodref>
+        <methodref name="ClassName" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="ClassNameIs" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="ClassParent" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="ClassInfo" visibility="public" procflags="class inline">
+        </methodref>
+        <methodref name="InstanceSize" visibility="public" procflags="class inline">
+        </methodref>
+        <methodref name="InheritsFrom" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="MethodAddress" visibility="public" procflags="class overload">
+        </methodref>
+        <methodref name="MethodAddress" visibility="public" procflags="class overload">
+        </methodref>
+        <methodref name="MethodName" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="QualifiedClassName" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="FieldAddress" visibility="public" procflags="overload">
+        </methodref>
+        <methodref name="FieldAddress" visibility="public" procflags="overload">
+        </methodref>
+        <methodref name="GetInterface" visibility="public">
+        </methodref>
+        <methodref name="GetInterfaceEntry" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="GetInterfaceTable" visibility="public" procflags="class inline">
+        </methodref>
+        <methodref name="UnitName" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="UnitScope" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="Equals" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="GetHashCode" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="ToString" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="SafeCallException" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="AfterConstruction" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="BeforeDestruction" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="Dispatch" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="DefaultHandler" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="NewInstance" visibility="public" procflags="class virtual">
+        </methodref>
+        <methodref name="FreeInstance" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="Destroy" visibility="public" procflags="destructor virtual">
+        </methodref>
+        <methodref name="CPP_ABI_1" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="CPP_ABI_2" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="CPP_ABI_3" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="GetDisposed" visibility="protected" procflags="inline">
+        </methodref>
+        <methodref name="CheckDisposed" visibility="protected" procflags="inline">
+        </methodref>
+        <propertyref name="Disposed" visibility="protected">
+        </propertyref>
+      </ancestor>
+    </ancestor>
+  </class>
+  <interface name="JDWCameraDeviceStateCallbackClass" GUID="{2569DA5F-9292-4F17-8153-E0B657A0A704}" ancestor="JCameraDevice_StateCallbackClass">
+    <function name="init" visibility="public" procflags="abstract virtual" callconv="cdecl">
+      <parameters>
+        <parameter name="delegate" type="JDWCameraDeviceStateCallbackDelegate" />
+        <retval type="JDWCameraDeviceStateCallback">
+          <attributes>
+            <attribute name="JavaSignatureAttribute" />
+          </attributes>
+        </retval>
+      </parameters>
+    </function>
+  </interface>
+  <interface name="JDWCameraDeviceStateCallback" GUID="{E29208A3-94CA-4383-82AF-527090ED2B5B}" ancestor="JCameraDevice_StateCallback">
+    <attributes>
+      <attribute name="JavaSignatureAttribute" />
+    </attributes>
+    <procedure name="onDisconnected" visibility="public" procflags="abstract virtual" callconv="cdecl">
+      <parameters>
+        <parameter name="camera" type="JCameraDevice" />
+      </parameters>
+    </procedure>
+    <procedure name="onError" visibility="public" procflags="abstract virtual" callconv="cdecl">
+      <parameters>
+        <parameter name="camera" type="JCameraDevice" />
+        <parameter name="error" type="Integer" />
+      </parameters>
+    </procedure>
+    <procedure name="onOpened" visibility="public" procflags="abstract virtual" callconv="cdecl">
+      <parameters>
+        <parameter name="camera" type="JCameraDevice" />
+      </parameters>
+    </procedure>
+  </interface>
+  <class name="TJDWCameraDeviceStateCallback">
+    <ancestor name="{Androidapi.JNIBridge}TJavaGenericImport&lt;DW.Androidapi.JNI.DWCameraHelpers.JDWCameraDeviceStateCallbackClass,DW.Androidapi.JNI.DWCameraHelpers.JDWCameraDeviceStateCallback&gt;" namespace="DW.Androidapi.JNI.DWCameraHelpers">
+      <methodref name="GetJavaClass" visibility="class private" procflags="static">
+      </methodref>
+      <methodref name="Alloc" visibility="class private" procflags="static overload">
+      </methodref>
+      <methodref name="Destroy@" visibility="class private" procflags="class destructor noself">
+      </methodref>
+      <methodref name="Wrap" visibility="public" procflags="static overload">
+      </methodref>
+      <methodref name="Wrap" visibility="public" procflags="static overload">
+      </methodref>
+      <propertyref name="JavaClass" visibility="public">
+      </propertyref>
+      <methodref name="Create" visibility="public" procflags="static">
+      </methodref>
+      <methodref name="GetClsID" visibility="public" procflags="static">
+      </methodref>
+      <ancestor name="TObject" namespace="System">
+        <methodref name="Create" visibility="public" procflags="constructor">
+        </methodref>
+        <methodref name="Free" visibility="public">
+        </methodref>
+        <methodref name="DisposeOf" visibility="public" procflags="inline">
+        </methodref>
+        <methodref name="InitInstance" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="CleanupInstance" visibility="public">
+        </methodref>
+        <methodref name="ClassType" visibility="public" procflags="inline">
+        </methodref>
+        <methodref name="ClassName" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="ClassNameIs" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="ClassParent" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="ClassInfo" visibility="public" procflags="class inline">
+        </methodref>
+        <methodref name="InstanceSize" visibility="public" procflags="class inline">
+        </methodref>
+        <methodref name="InheritsFrom" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="MethodAddress" visibility="public" procflags="class overload">
+        </methodref>
+        <methodref name="MethodAddress" visibility="public" procflags="class overload">
+        </methodref>
+        <methodref name="MethodName" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="QualifiedClassName" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="FieldAddress" visibility="public" procflags="overload">
+        </methodref>
+        <methodref name="FieldAddress" visibility="public" procflags="overload">
+        </methodref>
+        <methodref name="GetInterface" visibility="public">
+        </methodref>
+        <methodref name="GetInterfaceEntry" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="GetInterfaceTable" visibility="public" procflags="class inline">
+        </methodref>
+        <methodref name="UnitName" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="UnitScope" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="Equals" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="GetHashCode" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="ToString" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="SafeCallException" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="AfterConstruction" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="BeforeDestruction" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="Dispatch" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="DefaultHandler" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="NewInstance" visibility="public" procflags="class virtual">
+        </methodref>
+        <methodref name="FreeInstance" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="Destroy" visibility="public" procflags="destructor virtual">
+        </methodref>
+        <methodref name="CPP_ABI_1" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="CPP_ABI_2" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="CPP_ABI_3" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="GetDisposed" visibility="protected" procflags="inline">
+        </methodref>
+        <methodref name="CheckDisposed" visibility="protected" procflags="inline">
+        </methodref>
+        <propertyref name="Disposed" visibility="protected">
+        </propertyref>
+      </ancestor>
+    </ancestor>
+  </class>
+  <interface name="JDWCameraDeviceStateCallbackDelegateClass" GUID="{189B3248-8E4F-49DA-ADAF-5B1A2A7569D1}" ancestor="IJavaClass">
+  </interface>
+  <interface name="JDWCameraDeviceStateCallbackDelegate" GUID="{CF9CD6DA-55B3-4EC6-9DC3-84FB2F73722E}" ancestor="IJavaInstance">
+    <attributes>
+      <attribute name="JavaSignatureAttribute" />
+    </attributes>
+    <procedure name="Disconnected" visibility="public" procflags="abstract virtual" callconv="cdecl">
+      <parameters>
+        <parameter name="camera" type="JCameraDevice" />
+      </parameters>
+    </procedure>
+    <procedure name="Error" visibility="public" procflags="abstract virtual" callconv="cdecl">
+      <parameters>
+        <parameter name="camera" type="JCameraDevice" />
+        <parameter name="error" type="Integer" />
+      </parameters>
+    </procedure>
+    <procedure name="Opened" visibility="public" procflags="abstract virtual" callconv="cdecl">
+      <parameters>
+        <parameter name="camera" type="JCameraDevice" />
+      </parameters>
+    </procedure>
+  </interface>
+  <class name="TJDWCameraDeviceStateCallbackDelegate">
+    <ancestor name="{Androidapi.JNIBridge}TJavaGenericImport&lt;DW.Androidapi.JNI.DWCameraHelpers.JDWCameraDeviceStateCallbackDelegateClass,DW.Androidapi.JNI.DWCameraHelpers.JDWCameraDeviceStateCallbackDelegate&gt;" namespace="DW.Androidapi.JNI.DWCameraHelpers">
+      <methodref name="GetJavaClass" visibility="class private" procflags="static">
+      </methodref>
+      <methodref name="Alloc" visibility="class private" procflags="static overload">
+      </methodref>
+      <methodref name="Destroy@" visibility="class private" procflags="class destructor noself">
+      </methodref>
+      <methodref name="Wrap" visibility="public" procflags="static overload">
+      </methodref>
+      <methodref name="Wrap" visibility="public" procflags="static overload">
+      </methodref>
+      <propertyref name="JavaClass" visibility="public">
+      </propertyref>
+      <methodref name="Create" visibility="public" procflags="static">
+      </methodref>
+      <methodref name="GetClsID" visibility="public" procflags="static">
+      </methodref>
+      <ancestor name="TObject" namespace="System">
+        <methodref name="Create" visibility="public" procflags="constructor">
+        </methodref>
+        <methodref name="Free" visibility="public">
+        </methodref>
+        <methodref name="DisposeOf" visibility="public" procflags="inline">
+        </methodref>
+        <methodref name="InitInstance" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="CleanupInstance" visibility="public">
+        </methodref>
+        <methodref name="ClassType" visibility="public" procflags="inline">
+        </methodref>
+        <methodref name="ClassName" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="ClassNameIs" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="ClassParent" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="ClassInfo" visibility="public" procflags="class inline">
+        </methodref>
+        <methodref name="InstanceSize" visibility="public" procflags="class inline">
+        </methodref>
+        <methodref name="InheritsFrom" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="MethodAddress" visibility="public" procflags="class overload">
+        </methodref>
+        <methodref name="MethodAddress" visibility="public" procflags="class overload">
+        </methodref>
+        <methodref name="MethodName" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="QualifiedClassName" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="FieldAddress" visibility="public" procflags="overload">
+        </methodref>
+        <methodref name="FieldAddress" visibility="public" procflags="overload">
+        </methodref>
+        <methodref name="GetInterface" visibility="public">
+        </methodref>
+        <methodref name="GetInterfaceEntry" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="GetInterfaceTable" visibility="public" procflags="class inline">
+        </methodref>
+        <methodref name="UnitName" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="UnitScope" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="Equals" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="GetHashCode" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="ToString" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="SafeCallException" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="AfterConstruction" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="BeforeDestruction" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="Dispatch" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="DefaultHandler" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="NewInstance" visibility="public" procflags="class virtual">
+        </methodref>
+        <methodref name="FreeInstance" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="Destroy" visibility="public" procflags="destructor virtual">
+        </methodref>
+        <methodref name="CPP_ABI_1" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="CPP_ABI_2" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="CPP_ABI_3" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="GetDisposed" visibility="protected" procflags="inline">
+        </methodref>
+        <methodref name="CheckDisposed" visibility="protected" procflags="inline">
+        </methodref>
+        <propertyref name="Disposed" visibility="protected">
+        </propertyref>
+      </ancestor>
+    </ancestor>
+  </class>
+  <interface name="JDWCameraViewClass" GUID="{730B7098-A6C2-4105-B721-7845A76685E7}" ancestor="JTextureViewClass">
+    <function name="init" visibility="public" procflags="abstract virtual" callconv="cdecl">
+      <parameters>
+        <parameter name="context" type="JContext" />
+        <retval type="JDWCameraView">
+          <attributes>
+            <attribute name="JavaSignatureAttribute" />
+          </attributes>
+        </retval>
+      </parameters>
+    </function>
+  </interface>
+  <interface name="JDWCameraView" GUID="{520DC031-2F59-4AFE-BDF0-9DA6C11035B2}" ancestor="JTextureView">
+    <attributes>
+      <attribute name="JavaSignatureAttribute" />
+    </attributes>
+    <function name="getPreviewSize" visibility="public" procflags="abstract virtual" callconv="cdecl">
+      <parameters>
+        <retval type="Jutil_Size">
+          <attributes>
+            <attribute name="JavaSignatureAttribute" />
+          </attributes>
+        </retval>
+      </parameters>
+    </function>
+    <procedure name="onSurfaceTextureAvailable" visibility="public" procflags="abstract virtual" callconv="cdecl">
+      <parameters>
+        <parameter name="texture" type="JSurfaceTexture" />
+        <parameter name="i" type="Integer" />
+        <parameter name="i1" type="Integer" />
+      </parameters>
+    </procedure>
+    <function name="onSurfaceTextureDestroyed" visibility="public" procflags="abstract virtual" callconv="cdecl">
+      <parameters>
+        <parameter name="texture" type="JSurfaceTexture" />
+        <retval type="Boolean" />
+      </parameters>
+    </function>
+    <procedure name="onSurfaceTextureSizeChanged" visibility="public" procflags="abstract virtual" callconv="cdecl">
+      <parameters>
+        <parameter name="texture" type="JSurfaceTexture" />
+        <parameter name="i" type="Integer" />
+        <parameter name="i1" type="Integer" />
+      </parameters>
+    </procedure>
+    <procedure name="onSurfaceTextureUpdated" visibility="public" procflags="abstract virtual" callconv="cdecl">
+      <parameters>
+        <parameter name="texture" type="JSurfaceTexture" />
+      </parameters>
+    </procedure>
+    <procedure name="setMirror" visibility="public" procflags="abstract virtual" callconv="cdecl">
+      <parameters>
+        <parameter name="mirror" type="Boolean" />
+      </parameters>
+    </procedure>
+    <procedure name="setPreviewSize" visibility="public" procflags="abstract virtual" callconv="cdecl">
+      <parameters>
+        <parameter name="previewSize" type="Jutil_Size" />
+      </parameters>
+    </procedure>
+    <procedure name="setStateDelegate" visibility="public" procflags="abstract virtual" callconv="cdecl">
+      <parameters>
+        <parameter name="delegate" type="JDWCameraView_StateDelegate" />
+      </parameters>
+    </procedure>
+  </interface>
+  <class name="TJDWCameraView">
+    <ancestor name="{Androidapi.JNIBridge}TJavaGenericImport&lt;DW.Androidapi.JNI.DWCameraHelpers.JDWCameraViewClass,DW.Androidapi.JNI.DWCameraHelpers.JDWCameraView&gt;" namespace="DW.Androidapi.JNI.DWCameraHelpers">
+      <methodref name="GetJavaClass" visibility="class private" procflags="static">
+      </methodref>
+      <methodref name="Alloc" visibility="class private" procflags="static overload">
+      </methodref>
+      <methodref name="Destroy@" visibility="class private" procflags="class destructor noself">
+      </methodref>
+      <methodref name="Wrap" visibility="public" procflags="static overload">
+      </methodref>
+      <methodref name="Wrap" visibility="public" procflags="static overload">
+      </methodref>
+      <propertyref name="JavaClass" visibility="public">
+      </propertyref>
+      <methodref name="Create" visibility="public" procflags="static">
+      </methodref>
+      <methodref name="GetClsID" visibility="public" procflags="static">
+      </methodref>
+      <ancestor name="TObject" namespace="System">
+        <methodref name="Create" visibility="public" procflags="constructor">
+        </methodref>
+        <methodref name="Free" visibility="public">
+        </methodref>
+        <methodref name="DisposeOf" visibility="public" procflags="inline">
+        </methodref>
+        <methodref name="InitInstance" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="CleanupInstance" visibility="public">
+        </methodref>
+        <methodref name="ClassType" visibility="public" procflags="inline">
+        </methodref>
+        <methodref name="ClassName" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="ClassNameIs" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="ClassParent" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="ClassInfo" visibility="public" procflags="class inline">
+        </methodref>
+        <methodref name="InstanceSize" visibility="public" procflags="class inline">
+        </methodref>
+        <methodref name="InheritsFrom" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="MethodAddress" visibility="public" procflags="class overload">
+        </methodref>
+        <methodref name="MethodAddress" visibility="public" procflags="class overload">
+        </methodref>
+        <methodref name="MethodName" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="QualifiedClassName" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="FieldAddress" visibility="public" procflags="overload">
+        </methodref>
+        <methodref name="FieldAddress" visibility="public" procflags="overload">
+        </methodref>
+        <methodref name="GetInterface" visibility="public">
+        </methodref>
+        <methodref name="GetInterfaceEntry" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="GetInterfaceTable" visibility="public" procflags="class inline">
+        </methodref>
+        <methodref name="UnitName" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="UnitScope" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="Equals" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="GetHashCode" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="ToString" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="SafeCallException" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="AfterConstruction" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="BeforeDestruction" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="Dispatch" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="DefaultHandler" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="NewInstance" visibility="public" procflags="class virtual">
+        </methodref>
+        <methodref name="FreeInstance" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="Destroy" visibility="public" procflags="destructor virtual">
+        </methodref>
+        <methodref name="CPP_ABI_1" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="CPP_ABI_2" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="CPP_ABI_3" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="GetDisposed" visibility="protected" procflags="inline">
+        </methodref>
+        <methodref name="CheckDisposed" visibility="protected" procflags="inline">
+        </methodref>
+        <propertyref name="Disposed" visibility="protected">
+        </propertyref>
+      </ancestor>
+    </ancestor>
+  </class>
+  <interface name="JDWCameraView_StateDelegateClass" GUID="{C817506F-6A64-41EB-85F2-DD63B85C56F4}" ancestor="IJavaClass">
+  </interface>
+  <interface name="JDWCameraView_StateDelegate" GUID="{E11F0129-2DC9-4806-85CF-D9B9C08EA397}" ancestor="IJavaInstance">
+    <attributes>
+      <attribute name="JavaSignatureAttribute" />
+    </attributes>
+    <procedure name="onDestroyed" visibility="public" procflags="abstract virtual" callconv="cdecl">
+      <parameters>
+        <parameter name="view" type="JDWCameraView" />
+      </parameters>
+    </procedure>
+    <procedure name="onReady" visibility="public" procflags="abstract virtual" callconv="cdecl">
+      <parameters>
+        <parameter name="view" type="JDWCameraView" />
+      </parameters>
+    </procedure>
+  </interface>
+  <class name="TJDWCameraView_StateDelegate">
+    <ancestor name="{Androidapi.JNIBridge}TJavaGenericImport&lt;DW.Androidapi.JNI.DWCameraHelpers.JDWCameraView_StateDelegateClass,DW.Androidapi.JNI.DWCameraHelpers.JDWCameraView_StateDelegate&gt;" namespace="DW.Androidapi.JNI.DWCameraHelpers">
+      <methodref name="GetJavaClass" visibility="class private" procflags="static">
+      </methodref>
+      <methodref name="Alloc" visibility="class private" procflags="static overload">
+      </methodref>
+      <methodref name="Destroy@" visibility="class private" procflags="class destructor noself">
+      </methodref>
+      <methodref name="Wrap" visibility="public" procflags="static overload">
+      </methodref>
+      <methodref name="Wrap" visibility="public" procflags="static overload">
+      </methodref>
+      <propertyref name="JavaClass" visibility="public">
+      </propertyref>
+      <methodref name="Create" visibility="public" procflags="static">
+      </methodref>
+      <methodref name="GetClsID" visibility="public" procflags="static">
+      </methodref>
+      <ancestor name="TObject" namespace="System">
+        <methodref name="Create" visibility="public" procflags="constructor">
+        </methodref>
+        <methodref name="Free" visibility="public">
+        </methodref>
+        <methodref name="DisposeOf" visibility="public" procflags="inline">
+        </methodref>
+        <methodref name="InitInstance" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="CleanupInstance" visibility="public">
+        </methodref>
+        <methodref name="ClassType" visibility="public" procflags="inline">
+        </methodref>
+        <methodref name="ClassName" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="ClassNameIs" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="ClassParent" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="ClassInfo" visibility="public" procflags="class inline">
+        </methodref>
+        <methodref name="InstanceSize" visibility="public" procflags="class inline">
+        </methodref>
+        <methodref name="InheritsFrom" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="MethodAddress" visibility="public" procflags="class overload">
+        </methodref>
+        <methodref name="MethodAddress" visibility="public" procflags="class overload">
+        </methodref>
+        <methodref name="MethodName" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="QualifiedClassName" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="FieldAddress" visibility="public" procflags="overload">
+        </methodref>
+        <methodref name="FieldAddress" visibility="public" procflags="overload">
+        </methodref>
+        <methodref name="GetInterface" visibility="public">
+        </methodref>
+        <methodref name="GetInterfaceEntry" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="GetInterfaceTable" visibility="public" procflags="class inline">
+        </methodref>
+        <methodref name="UnitName" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="UnitScope" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="Equals" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="GetHashCode" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="ToString" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="SafeCallException" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="AfterConstruction" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="BeforeDestruction" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="Dispatch" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="DefaultHandler" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="NewInstance" visibility="public" procflags="class virtual">
+        </methodref>
+        <methodref name="FreeInstance" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="Destroy" visibility="public" procflags="destructor virtual">
+        </methodref>
+        <methodref name="CPP_ABI_1" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="CPP_ABI_2" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="CPP_ABI_3" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="GetDisposed" visibility="protected" procflags="inline">
+        </methodref>
+        <methodref name="CheckDisposed" visibility="protected" procflags="inline">
+        </methodref>
+        <propertyref name="Disposed" visibility="protected">
+        </propertyref>
+      </ancestor>
+    </ancestor>
+  </class>
+</namespace>

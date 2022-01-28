@@ -3,7 +3,7 @@ unit FMX.Android.Permissions;
 interface
 
 uses
-  System.SysUtils, System.Classes, System.Types, System.UITypes, System.DateUtils, System.Generics.Collections,
+  System.SysUtils, System.classes, System.Types, System.UITypes, System.DateUtils, System.Generics.Collections,
   FMX.Utils, FMX.Types, FMX.Controls, FMX.Objects, FMX.StdCtrls, FMX.Graphics, FMX.MultiResBitmap, FMX.Dialogs,
   FMX.Ani, FMX.Effects, System.Actions, FMX.ActnList, FMX.Layouts, FMX.Filter.Effects, FMX.DialogService,
  {$IF DEFINED(VER330) OR DEFINED(VER340)}
@@ -911,7 +911,7 @@ end;
 
 Initialization
 
-RegisterFMXClasses([TAndroidPermissions]);
+RegisterFMXclasses([TAndroidPermissions]);
 
 
 

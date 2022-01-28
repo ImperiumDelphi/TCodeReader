@@ -3,7 +3,7 @@ unit FMX.CodeReader;
 interface
 
 uses
-  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  System.SysUtils, System.Types, System.UITypes, System.classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
   FMX.Filter.Effects, FMX.Layouts, FMX.Controls.Presentation, FMX.StdCtrls, FMX.Objects,
 
@@ -12,13 +12,12 @@ uses
   FMX.Media,
   FMX.Surfaces,
   FMX.Platform,
-  DW.Camera,
-  DW.Types,
-  DW.NativeImage,
-  ZXing.ScanManager,
-  ZXing.BarcodeFormat,
-  ZXing.ReadResult,
-
+  CodeReader.DW.Camera,
+  CodeReader.DW.Types,
+  CodeReader.DW.NativeImage,
+  CodeReader.ZXing.ScanManager,
+  CodeReader.ZXing.BarcodeFormat,
+  CodeReader.ZXing.ReadResult,
   FMX.Android.Permissions;
 
 Type
@@ -166,7 +165,7 @@ constructor TCodeReader.Create(aOwner: TComponent);
       LRC        : TResourceStream;
       LAudioPath : String;
    Begin
-   LAudioPath := System.IOUtils.TPath.Combine(System.IOUtils.TPath.GetDocumentsPath, 'beep.wav');
+   LAudioPath := System.IOUtils.TPath.Combine(System.IOUtils.TPath.GetDocumentsPath, 'Beep.wav');
    If Not FileExists(LAudioPath) Then
       Begin
       LRC := TResourceStream.Create(HInstance, 'is_Beep', RT_RCDATA);
@@ -217,7 +216,7 @@ FShowIconTypes   := True;
 FMaxImageWidth   := 2100;
 FValidSamples    := 2;
 FValidCount      := 0;
-IconColor        := TAlphaColors.White;
+IconColor        := TAlphacolors.White;
 FImageStream     := TMemoryStream.Create;
 FScan            := TScanManager .Create(TBarcodeFormat.Auto, Nil);
 FCodeType        := TCodeType.Code1DVertical;
@@ -410,16 +409,16 @@ if FShowMask then
    LStream := TMemoryStream.Create;
    LBitmap := TBitmap.Create;
    LBitmap.SetSize(Trunc(W), Trunc(H));
-   LBitmap.Clear(TalphaColors.Null);
+   LBitmap.Clear(Talphacolors.Null);
    LBitmap.Canvas.BeginScene;
    case FCodeType of
       Code1DVertical   : LRect := TRectF.Create(W/2 - (50*S), 10*S, W/2+(50*S), H-(10*S));
       Code1DHorizontal : LRect := TRectF.Create((10*S), H/2 - (50*S), W-(10*S), H/2+(50*S));
       Code2D           : LRect := TRectF.Create(W/2-(150*S), H/2-(150*S), W/2+(150*S), H/2+(150*S));
       end;
-   LBitmap.Canvas.Fill.Color := TAlphaColors.Black;
+   LBitmap.Canvas.Fill.Color := TAlphacolors.Black;
    LBitmap.Canvas.FillRect(TRectF.Create(0, 0, W, H), 0, 0, [], 0.6);
-   LBitmap.Canvas.Fill.Color := TAlphaColors.White;
+   LBitmap.Canvas.Fill.Color := TAlphacolors.White;
    LBitmap.Canvas.FillRect(LRect, 12*S, 12*S, AllCorners, 1);
    LBitmap.Canvas.EndScene;
    LEffect.ColorKey  := TAlphaColorRec.White;
@@ -548,7 +547,7 @@ if FCamera <> Nil then
 end;
 
 Initialization
-RegisterFMXClasses([TCodeReader]);
+RegisterFMXclasses([TCodeReader]);
 
 end.
 

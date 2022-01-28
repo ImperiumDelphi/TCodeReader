@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<namespace name="DW.Consts.Android" platform="Android">
+  <const name="cPermissionAccessBackgroundLocation" type="string">
+    <value>
+      android.permission.ACCESS_BACKGROUND_LOCATION
+    </value>
+  </const>
+  <const name="cPermissionAccessCoarseLocation" type="string">
+    <value>
+      android.permission.ACCESS_COARSE_LOCATION
+    </value>
+  </const>
+  <const name="cPermissionAccessFineLocation" type="string">
+    <value>
+      android.permission.ACCESS_FINE_LOCATION
+    </value>
+  </const>
+  <const name="cPermissionCamera" type="string">
+    <value>
+      android.permission.CAMERA
+    </value>
+  </const>
+  <const name="cPermissionReadContacts" type="string">
+    <value>
+      android.permission.READ_CONTACTS
+    </value>
+  </const>
+  <const name="cPermissionReadExternalStorage" type="string">
+    <value>
+      android.permission.READ_EXTERNAL_STORAGE
+    </value>
+  </const>
+  <const name="cPermissionReadPhoneState" type="string">
+    <value>
+      android.permission.READ_PHONE_STATE
+    </value>
+  </const>
+  <const name="cPermissionReadSMS" type="string">
+    <value>
+      android.permission.READ_SMS
+    </value>
+  </const>
+  <const name="cPermissionReceiveMMS" type="string">
+    <value>
+      android.permission.RECEIVE_MMS
+    </value>
+  </const>
+  <const name="cPermissionReceiveSMS" type="string">
+    <value>
+      android.permission.RECEIVE_SMS
+    </value>
+  </const>
+  <const name="cPermissionReceiveWAPPush" type="string">
+    <value>
+      android.permission.RECEIVE_WAP_PUSH
+    </value>
+  </const>
+  <const name="cPermissionRecordAudio" type="string">
+    <value>
+      android.permission.RECORD_AUDIO
+    </value>
+  </const>
+  <const name="cPermissionSendSMS" type="string">
+    <value>
+      android.permission.SEND_SMS
+    </value>
+  </const>
+  <const name="cPermissionUseFingerprint" type="string">
+    <value>
+      android.permission.USE_FINGERPRINT
+    </value>
+  </const>
+  <const name="cPermissionWriteContacts" type="string">
+    <value>
+      android.permission.WRITE_CONTACTS
+    </value>
+  </const>
+  <const name="cPermissionWriteExternalStorage" type="string">
+    <value>
+      android.permission.WRITE_EXTERNAL_STORAGE
+    </value>
+  </const>
+  <const name="cMetadataFCMDefaultChannelId" type="string">
+    <value>
+      com.google.firebase.messaging.default_notification_channel_id
+    </value>
+  </const>
+  <const name="cLocationPriorityBalancedPowerAccuracy" type="Integer">
+    <value>
+      $66
+    </value>
+  </const>
+  <const name="cLocationPriorityHighAccuracy" type="Integer">
+    <value>
+      $64
+    </value>
+  </const>
+  <const name="cLocationPriorityLowPower" type="Integer">
+    <value>
+      $68
+    </value>
+  </const>
+  <const name="cLocationPriorityNoPower" type="Integer">
+    <value>
+      $69
+    </value>
+  </const>
+  <const name="cLocationBroadcastAction" type="string">
+    <value>
+      com.delphiworlds.kastri.LOCATION_BROADCAST_ACTION
+    </value>
+  </const>
+  <const name="cLocationBroadcastExtraLatitude" type="string">
+    <value>
+      Latitude
+    </value>
+  </const>
+  <const name="cLocationBroadcastExtraLongitude" type="string">
+    <value>
+      Longitude
+    </value>
+  </const>
+  <const name="cLocationBroadcastExtraAccuracy" type="string">
+    <value>
+      Accuracy
+    </value>
+  </const>
+  <const name="cLocationBroadcastExtraSource" type="string">
+    <value>
+      Source
+    </value>
+  </const>
+  <const name="cDWBroadcastReceiverName" type="string">
+    <value>
+      com.delphiworlds.kastri.DWMultiBroadcastReceiver
+    </value>
+  </const>
+  <const name="cDWBroadcastReceiverActionAlarmTimer" type="string">
+    <value>
+      com.delphiworlds.kastri.DWMultiBroadcastReceiver.ACTION_ALARM_TIMER
+    </value>
+  </const>
+  <const name="cDWBroadcastReceiverActionServiceAlarm" type="string">
+    <value>
+      com.delphiworlds.kastri.DWMultiBroadcastReceiver.ACTION_SERVICE_ALARM
+    </value>
+  </const>
+  <const name="cDWBroadcastReceiverActionServiceRestart" type="string">
+    <value>
+      com.delphiworlds.kastri.DWMultiBroadcastReceiver.ACTION_SERVICE_RESTART
+    </value>
+  </const>
+  <const name="cDWBroadcastReceiverExtraServiceRestart" type="string">
+    <value>
+      com.delphiworlds.kastri.DWMultiBroadcastReceiver.EXTRA_SERVICE_RESTART
+    </value>
+  </const>
+  <const name="cServiceCommandAction" type="string">
+    <value>
+      com.delphiworlds.action.SERVICE_COMMAND
+    </value>
+  </const>
+  <const name="cServiceBroadcastParamCommand" type="string">
+    <value>
+      COMMAND
+    </value>
+  </const>
+  <const name="cServiceCommandAppBecameActive" type="Integer">
+    <value>
+      $1
+    </value>
+  </const>
+  <const name="cServiceCommandAppEnteredBackground" type="Integer">
+    <value>
+      $2
+    </value>
+  </const>
+  <const name="cServiceCommandAppWillTerminate" type="Integer">
+    <value>
+      $3
+    </value>
+  </const>
+  <const name="cEMBTJavaServicePrefix" type="string">
+    <value>
+      com.embarcadero.services.
+    </value>
+  </const>
+</namespace>
