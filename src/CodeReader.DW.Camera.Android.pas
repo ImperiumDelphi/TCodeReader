@@ -49,12 +49,10 @@ type
     FSession: JCameraCaptureSession;
     FStillImageAvailableListener: JImageReader_OnImageAvailableListener;
     FStillImageReader: JImageReader;
-    FStillImageOrientation: Integer;
     FSurfaceTexture: JSurfaceTexture;
     FSurfaceTextureListener: JTextureView_SurfaceTextureListener;
     FThread: JHandlerThread;
     FFirst : Boolean;
-    FPreviewSize : TSizeF;
     FMaxImageWidth: Integer;
     FCapturedWidth: Integer;
     FCapturedHeight: Integer;
@@ -112,7 +110,6 @@ type
     FHandler: JHandler;
     FViewSize: Jutil_Size;
     FCaptureSize : TSize;
-    FLensDistance : Integer;
     procedure DoOpenCamera;
     procedure UpdateViewSize;
     function GetIsSwapping: Boolean;
@@ -136,7 +133,6 @@ type
     procedure RequestPermission; override;
     procedure StartCapture; override;
     procedure StopCapture; override;
-    Procedure DoFocus;
     procedure StillCaptureFailed;
     function SizeFitsInPreview(const ASize: Jutil_Size): Boolean;
     property CameraDevice: JCameraDevice read FCameraDevice;
@@ -145,6 +141,7 @@ type
     property ViewSize: Jutil_Size read FViewSize;
   public
     constructor Create(const ACamera: TCamera); override;
+    procedure DoFocus; override;
     destructor Destroy; override;
   end;
 
@@ -464,7 +461,6 @@ end;
 
 procedure TCameraCaptureSession.UpdatePreview;
 var
-   LScale,
    LScreenScale : Single;
    LSize        : TSizeF;
    LViewSize,
@@ -651,7 +647,6 @@ if FCaptureRequest <> TCaptureMode.None then
       var
          LImage      : JImage;
          LStream     : TStream;
-         LRotation   : Integer;
          LYSize      : Integer;
          LYBuffer    : JByteBuffer;
          LBuffer     : TJavaArray<Byte>;

@@ -271,9 +271,8 @@ var
 {$ENDIF}
 {$IFDEF ANDROID}
 var
-  T    : Cardinal;
   W, H : Integer;
-  X, Y : Integer;
+  Y : Integer;
   Off  : Integer;
   Buf  : TArray<Byte>;
   Lums : TArray<Byte>;
@@ -287,9 +286,9 @@ FImageWidth  := FCamera.CapturedWidth;
 FImageHeight := FCamera.CapturedHeight;
 
 {$IFDEF ANDROID}
+W := 0;
 If FCamera.CameraOrientation = 90 Then
    Begin
-   T := AImageStream.Size;
    H := FCamera.CapturedHeight;
    AImageStream.Position := 0;
    SetLength(Buf,  AImageStream.Size);

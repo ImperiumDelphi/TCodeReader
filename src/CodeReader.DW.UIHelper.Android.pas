@@ -19,6 +19,8 @@ uses
   System.Types,
   // FMX
   FMX.Types, FMX.Forms,
+  // Android
+  Androidapi.Jni.App,
   // DW
   CodeReader.DW.UIHelper;
 
