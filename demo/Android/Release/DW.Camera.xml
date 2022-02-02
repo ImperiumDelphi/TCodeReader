@@ -1,0 +1,615 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<namespace name="DW.Camera" platform="Android">
+  <enum name="TFaceDetectMode">
+    <element value="0" name="None" />
+    <element value="1" name="Simple" />
+    <element value="2" name="Full" />
+  </enum>
+  <set name="TFaceDetectModes" type="TFaceDetectMode">
+    <element name="None" />
+    <element name="Simple" />
+    <element name="Full" />
+  </set>
+  <struct name="TFace" size="44">
+    <field name="Bounds" type="TRectF" visibility="public" size="16" offset="0" />
+    <field name="LeftEyePosition" type="TPointF" visibility="public" size="8" offset="16" />
+    <field name="MouthPosition" type="TPointF" visibility="public" size="8" offset="24" />
+    <field name="RightEyePosition" type="TPointF" visibility="public" size="8" offset="32" />
+    <field name="Score" type="Integer" visibility="public" size="4" offset="40" />
+  </struct>
+  <array name="TFaces">
+    <element type="TFace" />
+  </array>
+  <class name="TCustomPlatformCamera">
+    <ancestor name="TObject" namespace="System">
+      <methodref name="Create" visibility="public" procflags="constructor">
+      </methodref>
+      <methodref name="Free" visibility="public">
+      </methodref>
+      <methodref name="DisposeOf" visibility="public" procflags="inline">
+      </methodref>
+      <methodref name="InitInstance" visibility="public" procflags="class">
+      </methodref>
+      <methodref name="CleanupInstance" visibility="public">
+      </methodref>
+      <methodref name="ClassType" visibility="public" procflags="inline">
+      </methodref>
+      <methodref name="ClassName" visibility="public" procflags="class">
+      </methodref>
+      <methodref name="ClassNameIs" visibility="public" procflags="class">
+      </methodref>
+      <methodref name="ClassParent" visibility="public" procflags="class">
+      </methodref>
+      <methodref name="ClassInfo" visibility="public" procflags="class inline">
+      </methodref>
+      <methodref name="InstanceSize" visibility="public" procflags="class inline">
+      </methodref>
+      <methodref name="InheritsFrom" visibility="public" procflags="class">
+      </methodref>
+      <methodref name="MethodAddress" visibility="public" procflags="class overload">
+      </methodref>
+      <methodref name="MethodAddress" visibility="public" procflags="class overload">
+      </methodref>
+      <methodref name="MethodName" visibility="public" procflags="class">
+      </methodref>
+      <methodref name="QualifiedClassName" visibility="public" procflags="class">
+      </methodref>
+      <methodref name="FieldAddress" visibility="public" procflags="overload">
+      </methodref>
+      <methodref name="FieldAddress" visibility="public" procflags="overload">
+      </methodref>
+      <methodref name="GetInterface" visibility="public">
+      </methodref>
+      <methodref name="GetInterfaceEntry" visibility="public" procflags="class">
+      </methodref>
+      <methodref name="GetInterfaceTable" visibility="public" procflags="class inline">
+      </methodref>
+      <methodref name="UnitName" visibility="public" procflags="class">
+      </methodref>
+      <methodref name="UnitScope" visibility="public" procflags="class">
+      </methodref>
+      <methodref name="Equals" visibility="public" procflags="virtual">
+      </methodref>
+      <methodref name="GetHashCode" visibility="public" procflags="virtual">
+      </methodref>
+      <methodref name="ToString" visibility="public" procflags="virtual">
+      </methodref>
+      <methodref name="SafeCallException" visibility="public" procflags="virtual">
+      </methodref>
+      <methodref name="AfterConstruction" visibility="public" procflags="virtual">
+      </methodref>
+      <methodref name="BeforeDestruction" visibility="public" procflags="virtual">
+      </methodref>
+      <methodref name="Dispatch" visibility="public" procflags="virtual">
+      </methodref>
+      <methodref name="DefaultHandler" visibility="public" procflags="virtual">
+      </methodref>
+      <methodref name="NewInstance" visibility="public" procflags="class virtual">
+      </methodref>
+      <methodref name="FreeInstance" visibility="public" procflags="virtual">
+      </methodref>
+      <methodref name="Destroy" visibility="public" procflags="destructor virtual">
+      </methodref>
+      <methodref name="CPP_ABI_1" visibility="public" procflags="virtual">
+      </methodref>
+      <methodref name="CPP_ABI_2" visibility="public" procflags="virtual">
+      </methodref>
+      <methodref name="CPP_ABI_3" visibility="public" procflags="virtual">
+      </methodref>
+      <methodref name="GetDisposed" visibility="protected" procflags="inline">
+      </methodref>
+      <methodref name="CheckDisposed" visibility="protected" procflags="inline">
+      </methodref>
+      <propertyref name="Disposed" visibility="protected">
+      </propertyref>
+    </ancestor>
+    <members>
+      <field name="FCamera" type="TCamera" visibility="private" size="4" offset="4" />
+      <field name="FCameraPosition" type="TDevicePosition" visibility="private" size="1" offset="8" />
+      <field name="FFaceDetectMode" type="TFaceDetectMode" visibility="private" size="1" offset="9" />
+      <field name="FFlashMode" type="TFlashMode" visibility="private" size="1" offset="10" />
+      <field name="FWasActive" type="Boolean" visibility="private" size="1" offset="11" />
+      <procedure name="ApplicationEventMessageHandler" visibility="private">
+        <parameters>
+          <parameter name="Sender" type="TObject" paramflags="const" />
+          <parameter name="M" type="TMessageBase" paramflags="const" />
+        </parameters>
+      </procedure>
+      <function name="GetIsActive" visibility="private">
+        <parameters>
+          <retval type="Boolean" />
+        </parameters>
+      </function>
+      <function name="GetCameraPosition" visibility="private">
+        <parameters>
+          <retval type="TDevicePosition" />
+        </parameters>
+      </function>
+      <procedure name="ResetCamera" visibility="private">
+      </procedure>
+      <procedure name="ResignCamera" visibility="private">
+      </procedure>
+      <procedure name="RestoreCamera" visibility="private">
+      </procedure>
+      <procedure name="SetCameraPosition" visibility="private">
+        <parameters>
+          <parameter name="Value" type="TDevicePosition" paramflags="const" />
+        </parameters>
+      </procedure>
+      <procedure name="SetIsActive" visibility="private">
+        <parameters>
+          <parameter name="Value" type="Boolean" paramflags="const" />
+        </parameters>
+      </procedure>
+      <field name="FAvailableFaceDetectModes" type="TFaceDetectModes" visibility="protected" size="1" offset="12" />
+      <field name="FIsActive" type="Boolean" visibility="protected" size="1" offset="13" />
+      <field name="FIsCapturing" type="Boolean" visibility="protected" size="1" offset="14" />
+      <field name="FIsFaceDetectActive" type="Boolean" visibility="protected" size="1" offset="15" />
+      <field name="FIsSwapping" type="Boolean" visibility="protected" size="1" offset="16" />
+      <field name="FMaxImageWidth" type="Integer" visibility="protected" size="4" offset="20" />
+      <field name="FMaxPreviewWidth" type="Integer" visibility="protected" size="4" offset="24" />
+      <procedure name="SetMaxImageWidth" visibility="protected" procflags="virtual">
+        <parameters>
+          <parameter name="Value" type="Integer" paramflags="const" />
+        </parameters>
+      </procedure>
+      <procedure name="CaptureImage" visibility="protected">
+      </procedure>
+      <procedure name="CloseCamera" visibility="protected" procflags="virtual">
+      </procedure>
+      <procedure name="ContinuousCaptureChanged" visibility="protected" procflags="virtual">
+      </procedure>
+      <procedure name="DoAuthorizationStatus" visibility="protected">
+        <parameters>
+          <parameter name="AStatus" type="TAuthorizationStatus" paramflags="const" />
+        </parameters>
+      </procedure>
+      <procedure name="DoCaptureImage" visibility="protected" procflags="virtual">
+      </procedure>
+      <procedure name="DoCapturedImage" visibility="protected">
+        <parameters>
+          <parameter name="AImageStream" type="TStream" paramflags="const" />
+        </parameters>
+      </procedure>
+      <procedure name="DoDetectedFaces" visibility="protected">
+        <parameters>
+          <parameter name="AImageStream" type="TStream" paramflags="const" />
+          <parameter name="AFaces" type="TFaces" paramflags="const" />
+        </parameters>
+      </procedure>
+      <procedure name="DoStatusChange" visibility="protected">
+      </procedure>
+      <function name="GetFlashMode" visibility="protected">
+        <parameters>
+          <retval type="TFlashMode" />
+        </parameters>
+      </function>
+      <function name="GetPreviewControl" visibility="protected" procflags="virtual">
+        <parameters>
+          <retval type="TControl" />
+        </parameters>
+      </function>
+      <function name="GetResolutionHeight" visibility="protected" procflags="virtual">
+        <parameters>
+          <retval type="Integer" />
+        </parameters>
+      </function>
+      <function name="GetResolutionWidth" visibility="protected" procflags="virtual">
+        <parameters>
+          <retval type="Integer" />
+        </parameters>
+      </function>
+      <function name="GetCapturedHeight" visibility="protected" procflags="virtual">
+        <parameters>
+          <retval type="Integer" />
+        </parameters>
+      </function>
+      <function name="GetCapturedWidth" visibility="protected" procflags="virtual">
+        <parameters>
+          <retval type="Integer" />
+        </parameters>
+      </function>
+      <function name="GetCameraOrientation" visibility="protected" procflags="virtual">
+        <parameters>
+          <retval type="Integer" />
+        </parameters>
+      </function>
+      <procedure name="InternalSetActive" visibility="protected">
+        <parameters>
+          <parameter name="AValue" type="Boolean" paramflags="const" />
+        </parameters>
+      </procedure>
+      <procedure name="OpenCamera" visibility="protected" procflags="virtual">
+      </procedure>
+      <procedure name="QueueAuthorizationStatus" visibility="protected">
+        <parameters>
+          <parameter name="AStatus" type="TAuthorizationStatus" paramflags="const" />
+        </parameters>
+      </procedure>
+      <procedure name="RequestPermission" visibility="protected" procflags="abstract virtual">
+      </procedure>
+      <procedure name="SetFaceDetectMode" visibility="protected" procflags="virtual">
+        <parameters>
+          <parameter name="Value" type="TFaceDetectMode" paramflags="const" />
+        </parameters>
+      </procedure>
+      <procedure name="SetFlashMode" visibility="protected">
+        <parameters>
+          <parameter name="Value" type="TFlashMode" paramflags="const" />
+        </parameters>
+      </procedure>
+      <procedure name="StartCapture" visibility="protected" procflags="virtual">
+      </procedure>
+      <procedure name="StopCapture" visibility="protected" procflags="virtual">
+      </procedure>
+      <property name="IsActive" visibility="protected" read="GetIsActive" write="SetIsActive" type="Boolean" />
+      <property name="Camera" visibility="protected" read="FCamera" type="TCamera" />
+      <property name="CameraPosition" visibility="protected" read="GetCameraPosition" write="SetCameraPosition" type="TDevicePosition" />
+      <property name="FaceDetectMode" visibility="protected" read="FFaceDetectMode" write="SetFaceDetectMode" type="TFaceDetectMode" />
+      <property name="FlashMode" visibility="protected" read="GetFlashMode" write="SetFlashMode" type="TFlashMode" />
+      <constructor name="Create" visibility="public">
+        <parameters>
+          <parameter name="ACamera" type="TCamera" paramflags="const" />
+        </parameters>
+      </constructor>
+      <destructor name="Destroy" visibility="public">
+        <parameters>
+        </parameters>
+      </destructor>
+      <procedure name="DoFocus" visibility="public" procflags="abstract virtual">
+      </procedure>
+      <property name="PreviewControl" visibility="public" read="GetPreviewControl" type="TControl" />
+      <property name="MaxImageWidth" visibility="public" read="FMaxImageWidth" write="SetMaxImageWidth" type="Integer" />
+      <property name="CameraOrientation" visibility="public" read="GetCameraOrientation" type="Integer" />
+      <property name="MaxPreviewWidth" visibility="public" read="FMaxPreviewWidth" write="FMaxPreviewWidth" type="Integer" />
+    </members>
+  </class>
+  <class name="TCamera">
+    <ancestor name="TObject" namespace="System">
+      <methodref name="Create" visibility="public" procflags="constructor">
+      </methodref>
+      <methodref name="Free" visibility="public">
+      </methodref>
+      <methodref name="DisposeOf" visibility="public" procflags="inline">
+      </methodref>
+      <methodref name="InitInstance" visibility="public" procflags="class">
+      </methodref>
+      <methodref name="CleanupInstance" visibility="public">
+      </methodref>
+      <methodref name="ClassType" visibility="public" procflags="inline">
+      </methodref>
+      <methodref name="ClassName" visibility="public" procflags="class">
+      </methodref>
+      <methodref name="ClassNameIs" visibility="public" procflags="class">
+      </methodref>
+      <methodref name="ClassParent" visibility="public" procflags="class">
+      </methodref>
+      <methodref name="ClassInfo" visibility="public" procflags="class inline">
+      </methodref>
+      <methodref name="InstanceSize" visibility="public" procflags="class inline">
+      </methodref>
+      <methodref name="InheritsFrom" visibility="public" procflags="class">
+      </methodref>
+      <methodref name="MethodAddress" visibility="public" procflags="class overload">
+      </methodref>
+      <methodref name="MethodAddress" visibility="public" procflags="class overload">
+      </methodref>
+      <methodref name="MethodName" visibility="public" procflags="class">
+      </methodref>
+      <methodref name="QualifiedClassName" visibility="public" procflags="class">
+      </methodref>
+      <methodref name="FieldAddress" visibility="public" procflags="overload">
+      </methodref>
+      <methodref name="FieldAddress" visibility="public" procflags="overload">
+      </methodref>
+      <methodref name="GetInterface" visibility="public">
+      </methodref>
+      <methodref name="GetInterfaceEntry" visibility="public" procflags="class">
+      </methodref>
+      <methodref name="GetInterfaceTable" visibility="public" procflags="class inline">
+      </methodref>
+      <methodref name="UnitName" visibility="public" procflags="class">
+      </methodref>
+      <methodref name="UnitScope" visibility="public" procflags="class">
+      </methodref>
+      <methodref name="Equals" visibility="public" procflags="virtual">
+      </methodref>
+      <methodref name="GetHashCode" visibility="public" procflags="virtual">
+      </methodref>
+      <methodref name="ToString" visibility="public" procflags="virtual">
+      </methodref>
+      <methodref name="SafeCallException" visibility="public" procflags="virtual">
+      </methodref>
+      <methodref name="AfterConstruction" visibility="public" procflags="virtual">
+      </methodref>
+      <methodref name="BeforeDestruction" visibility="public" procflags="virtual">
+      </methodref>
+      <methodref name="Dispatch" visibility="public" procflags="virtual">
+      </methodref>
+      <methodref name="DefaultHandler" visibility="public" procflags="virtual">
+      </methodref>
+      <methodref name="NewInstance" visibility="public" procflags="class virtual">
+      </methodref>
+      <methodref name="FreeInstance" visibility="public" procflags="virtual">
+      </methodref>
+      <methodref name="Destroy" visibility="public" procflags="destructor virtual">
+      </methodref>
+      <methodref name="CPP_ABI_1" visibility="public" procflags="virtual">
+      </methodref>
+      <methodref name="CPP_ABI_2" visibility="public" procflags="virtual">
+      </methodref>
+      <methodref name="CPP_ABI_3" visibility="public" procflags="virtual">
+      </methodref>
+      <methodref name="GetDisposed" visibility="protected" procflags="inline">
+      </methodref>
+      <methodref name="CheckDisposed" visibility="protected" procflags="inline">
+      </methodref>
+      <propertyref name="Disposed" visibility="protected">
+      </propertyref>
+    </ancestor>
+    <members>
+      <field name="FAuthorizationStatus" type="TAuthorizationStatus" visibility="private" size="1" offset="4" />
+      <field name="FIncludeLocation" type="Boolean" visibility="private" size="1" offset="5" />
+      <field name="FLocation" type="TLocationCoord2D" visibility="private" size="16" offset="8" />
+      <field name="FPlatformCamera" type="TCustomPlatformCamera" visibility="private" size="4" offset="24" />
+      <field name="FOnAuthorizationStatus" type="TAuthorizationStatusEvent" visibility="private" size="8" offset="28" />
+      <field name="FOnDetectedFaces" type="TDetectedFacesEvent" visibility="private" size="8" offset="36" />
+      <field name="FOnImageCaptured" type="TImageAvailableEvent" visibility="private" size="8" offset="44" />
+      <field name="FOnStatusChange" type="TNotifyEvent" visibility="private" size="8" offset="52" />
+      <field name="FMaxImageWidth" type="Integer" visibility="private" size="4" offset="60" />
+      <field name="FMaxPreviewWidth" type="Integer" visibility="private" size="4" offset="64" />
+      <function name="GetIsActive" visibility="private">
+        <parameters>
+          <retval type="Boolean" />
+        </parameters>
+      </function>
+      <function name="GetAvailableFaceDetectModes" visibility="private">
+        <parameters>
+          <retval type="TFaceDetectModes" />
+        </parameters>
+      </function>
+      <function name="GetCameraPosition" visibility="private">
+        <parameters>
+          <retval type="TDevicePosition" />
+        </parameters>
+      </function>
+      <function name="GetFaceDetectMode" visibility="private">
+        <parameters>
+          <retval type="TFaceDetectMode" />
+        </parameters>
+      </function>
+      <function name="GetFlashMode" visibility="private">
+        <parameters>
+          <retval type="TFlashMode" />
+        </parameters>
+      </function>
+      <function name="GetPreviewControl" visibility="private">
+        <parameters>
+          <retval type="TControl" />
+        </parameters>
+      </function>
+      <function name="GetResolutionHeight" visibility="private">
+        <parameters>
+          <retval type="Integer" />
+        </parameters>
+      </function>
+      <function name="GetResolutionWidth" visibility="private">
+        <parameters>
+          <retval type="Integer" />
+        </parameters>
+      </function>
+      <procedure name="SetIsActive" visibility="private">
+        <parameters>
+          <parameter name="Value" type="Boolean" paramflags="const" />
+        </parameters>
+      </procedure>
+      <procedure name="SetCameraPosition" visibility="private">
+        <parameters>
+          <parameter name="Value" type="TDevicePosition" paramflags="const" />
+        </parameters>
+      </procedure>
+      <procedure name="SetFaceDetectMode" visibility="private">
+        <parameters>
+          <parameter name="Value" type="TFaceDetectMode" paramflags="const" />
+        </parameters>
+      </procedure>
+      <procedure name="SetFlashMode" visibility="private">
+        <parameters>
+          <parameter name="Value" type="TFlashMode" paramflags="const" />
+        </parameters>
+      </procedure>
+      <procedure name="SetMaxImageWidth" visibility="private">
+        <parameters>
+          <parameter name="Value" type="Integer" paramflags="const" />
+        </parameters>
+      </procedure>
+      <function name="GetCapturedHeight" visibility="private">
+        <parameters>
+          <retval type="Integer" />
+        </parameters>
+      </function>
+      <function name="GetCapturedWidth" visibility="private">
+        <parameters>
+          <retval type="Integer" />
+        </parameters>
+      </function>
+      <procedure name="SetMaxPreviewWidth" visibility="private">
+        <parameters>
+          <parameter name="Value" type="Integer" paramflags="const" />
+        </parameters>
+      </procedure>
+      <function name="GetCameraOrientation" visibility="private">
+        <parameters>
+          <retval type="Integer" />
+        </parameters>
+      </function>
+      <procedure name="DoAuthorizationStatus" visibility="protected">
+        <parameters>
+          <parameter name="AStatus" type="TAuthorizationStatus" paramflags="const" />
+        </parameters>
+      </procedure>
+      <procedure name="DoCapturedImage" visibility="protected">
+        <parameters>
+          <parameter name="AImageStream" type="TStream" paramflags="const" />
+        </parameters>
+      </procedure>
+      <procedure name="DoDetectedFaces" visibility="protected">
+        <parameters>
+          <parameter name="AImageStream" type="TStream" paramflags="const" />
+          <parameter name="AFaces" type="TFaces" paramflags="const" />
+        </parameters>
+      </procedure>
+      <procedure name="DoStatusChange" visibility="protected">
+      </procedure>
+      <constructor name="Create" visibility="public">
+        <parameters>
+        </parameters>
+      </constructor>
+      <procedure name="DoFocus" visibility="public">
+      </procedure>
+      <destructor name="Destroy" visibility="public">
+        <parameters>
+        </parameters>
+      </destructor>
+      <procedure name="CaptureImage" visibility="public">
+        <devnotes>
+           <summary>
+             Captures a still image, returned in OnImageCaptured
+           </summary>
+        </devnotes>
+      </procedure>
+      <procedure name="RequestPermission" visibility="public">
+        <devnotes>
+           <summary>
+             Requests camera permissions, returned in OnAuthorizationStatus
+           </summary>
+        </devnotes>
+      </procedure>
+      <property name="MaxImageWidth" visibility="public" read="FMaxImageWidth" write="SetMaxImageWidth" type="Integer">
+        <devnotes>
+           <summary>
+             Maximum image width on CaptureImage
+           </summary>
+        </devnotes>
+      </property>
+      <property name="MaxPreviewWidth" visibility="public" read="FMaxPreviewWidth" write="SetMaxPreviewWidth" type="Integer">
+        <devnotes>
+           <summary>
+             Maximum image width on preview
+           </summary>
+        </devnotes>
+      </property>
+      <property name="AvailableFaceDetectModes" visibility="public" read="GetAvailableFaceDetectModes" type="TFaceDetectModes">
+        <devnotes>
+           <summary>
+             Modes that are available for face detection
+           </summary>
+        </devnotes>
+      </property>
+      <property name="AuthorizationStatus" visibility="public" read="FAuthorizationStatus" type="TAuthorizationStatus">
+        <devnotes>
+           <summary>
+             Current authorization status
+           </summary>
+        </devnotes>
+      </property>
+      <property name="CameraPosition" visibility="public" read="GetCameraPosition" write="SetCameraPosition" type="TDevicePosition">
+        <devnotes>
+           <summary>
+             Position of the currently selected camera, i.e. Front or Back
+           </summary>
+        </devnotes>
+      </property>
+      <property name="FaceDetectMode" visibility="public" read="GetFaceDetectMode" write="SetFaceDetectMode" type="TFaceDetectMode">
+        <devnotes>
+           <summary>
+             Currently selected mode of face detection
+           </summary>
+        </devnotes>
+      </property>
+      <property name="FlashMode" visibility="public" read="GetFlashMode" write="SetFlashMode" type="TFlashMode">
+        <devnotes>
+           <summary>
+             Currently selected flash mode
+           </summary>
+        </devnotes>
+      </property>
+      <property name="IncludeLocation" visibility="public" read="FIncludeLocation" write="FIncludeLocation" type="Boolean">
+        <devnotes>
+           <summary>
+             Include location data with the captured image. See also Location property
+           </summary>
+        </devnotes>
+      </property>
+      <property name="Location" visibility="public" read="FLocation" write="FLocation" type="TLocationCoord2D">
+        <devnotes>
+           <summary>
+             Location data to be included with the captured image.
+           </summary>
+           <remarks>
+             Set this value before calling CaptureImage
+           </remarks>
+        </devnotes>
+      </property>
+      <property name="IsActive" visibility="public" read="GetIsActive" write="SetIsActive" type="Boolean">
+        <devnotes>
+           <summary>
+             Signifies whether or not the camera is active
+           </summary>
+        </devnotes>
+      </property>
+      <property name="PreviewControl" visibility="public" read="GetPreviewControl" type="TControl">
+        <devnotes>
+           <summary>
+             The control in which to show the camera preview
+           </summary>
+        </devnotes>
+      </property>
+      <property name="ResolutionHeight" visibility="public" read="GetResolutionHeight" type="Integer">
+        <devnotes>
+           <summary>
+             Vertical resolution
+           </summary>      
+        </devnotes>
+      </property>
+      <property name="ResolutionWidth" visibility="public" read="GetResolutionWidth" type="Integer">
+        <devnotes>
+           <summary>
+             Horizontal resolution
+           </summary>   
+        </devnotes>
+      </property>
+      <event name="OnAuthorizationStatus" visibility="public" read="FOnAuthorizationStatus" write="FOnAuthorizationStatus" type="TAuthorizationStatusEvent">
+        <devnotes>
+           <summary>
+             Event fired when an authorization request has returned
+           </summary>
+        </devnotes>
+      </event>
+      <event name="OnDetectedFaces" visibility="public" read="FOnDetectedFaces" write="FOnDetectedFaces" type="TDetectedFacesEvent">
+        <devnotes>
+           <summary>
+             Event fired when faces are detected
+           </summary>
+        </devnotes>
+      </event>
+      <event name="OnImageCaptured" visibility="public" read="FOnImageCaptured" write="FOnImageCaptured" type="TImageAvailableEvent">
+        <devnotes>
+           <summary>
+             Event fired when a still image is captured
+           </summary>
+        </devnotes>
+      </event>
+      <event name="OnStatusChange" visibility="public" read="FOnStatusChange" write="FOnStatusChange" type="TNotifyEvent">
+        <devnotes>
+           <summary>
+             Event fired when the status of the camera changes
+           </summary>
+        </devnotes>
+      </event>
+      <property name="CapturedWidth" visibility="public" read="GetCapturedWidth" type="Integer" />
+      <property name="CapturedHeight" visibility="public" read="GetCapturedHeight" type="Integer" />
+      <property name="CameraOrientation" visibility="public" read="GetCameraOrientation" type="Integer" />
+    </members>
+  </class>
+</namespace>

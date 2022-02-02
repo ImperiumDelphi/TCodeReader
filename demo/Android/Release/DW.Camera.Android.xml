@@ -1,0 +1,497 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<namespace name="DW.Camera.Android" platform="Android">
+  <enum name="TCaptureMode">
+    <element value="0" name="None" />
+    <element value="1" name="Still" />
+    <element value="2" name="Faces" />
+  </enum>
+  <class name="TCameraCaptureSession">
+    <ancestor name="TObject" namespace="System">
+      <methodref name="Create" visibility="public" procflags="constructor">
+      </methodref>
+      <methodref name="Free" visibility="public">
+      </methodref>
+      <methodref name="DisposeOf" visibility="public" procflags="inline">
+      </methodref>
+      <methodref name="InitInstance" visibility="public" procflags="class">
+      </methodref>
+      <methodref name="CleanupInstance" visibility="public">
+      </methodref>
+      <methodref name="ClassType" visibility="public" procflags="inline">
+      </methodref>
+      <methodref name="ClassName" visibility="public" procflags="class">
+      </methodref>
+      <methodref name="ClassNameIs" visibility="public" procflags="class">
+      </methodref>
+      <methodref name="ClassParent" visibility="public" procflags="class">
+      </methodref>
+      <methodref name="ClassInfo" visibility="public" procflags="class inline">
+      </methodref>
+      <methodref name="InstanceSize" visibility="public" procflags="class inline">
+      </methodref>
+      <methodref name="InheritsFrom" visibility="public" procflags="class">
+      </methodref>
+      <methodref name="MethodAddress" visibility="public" procflags="class overload">
+      </methodref>
+      <methodref name="MethodAddress" visibility="public" procflags="class overload">
+      </methodref>
+      <methodref name="MethodName" visibility="public" procflags="class">
+      </methodref>
+      <methodref name="QualifiedClassName" visibility="public" procflags="class">
+      </methodref>
+      <methodref name="FieldAddress" visibility="public" procflags="overload">
+      </methodref>
+      <methodref name="FieldAddress" visibility="public" procflags="overload">
+      </methodref>
+      <methodref name="GetInterface" visibility="public">
+      </methodref>
+      <methodref name="GetInterfaceEntry" visibility="public" procflags="class">
+      </methodref>
+      <methodref name="GetInterfaceTable" visibility="public" procflags="class inline">
+      </methodref>
+      <methodref name="UnitName" visibility="public" procflags="class">
+      </methodref>
+      <methodref name="UnitScope" visibility="public" procflags="class">
+      </methodref>
+      <methodref name="Equals" visibility="public" procflags="virtual">
+      </methodref>
+      <methodref name="GetHashCode" visibility="public" procflags="virtual">
+      </methodref>
+      <methodref name="ToString" visibility="public" procflags="virtual">
+      </methodref>
+      <methodref name="SafeCallException" visibility="public" procflags="virtual">
+      </methodref>
+      <methodref name="AfterConstruction" visibility="public" procflags="virtual">
+      </methodref>
+      <methodref name="BeforeDestruction" visibility="public" procflags="virtual">
+      </methodref>
+      <methodref name="Dispatch" visibility="public" procflags="virtual">
+      </methodref>
+      <methodref name="DefaultHandler" visibility="public" procflags="virtual">
+      </methodref>
+      <methodref name="NewInstance" visibility="public" procflags="class virtual">
+      </methodref>
+      <methodref name="FreeInstance" visibility="public" procflags="virtual">
+      </methodref>
+      <methodref name="Destroy" visibility="public" procflags="destructor virtual">
+      </methodref>
+      <methodref name="CPP_ABI_1" visibility="public" procflags="virtual">
+      </methodref>
+      <methodref name="CPP_ABI_2" visibility="public" procflags="virtual">
+      </methodref>
+      <methodref name="CPP_ABI_3" visibility="public" procflags="virtual">
+      </methodref>
+      <methodref name="GetDisposed" visibility="protected" procflags="inline">
+      </methodref>
+      <methodref name="CheckDisposed" visibility="protected" procflags="inline">
+      </methodref>
+      <propertyref name="Disposed" visibility="protected">
+      </propertyref>
+    </ancestor>
+    <members>
+      <field name="FCameraView" type="JDWCameraView" visibility="private" size="4" offset="4" />
+      <field name="FCaptureRequest" type="TCaptureMode" visibility="private" size="1" offset="8" />
+      <field name="FCaptureSessionCaptureCallback" type="JDWCameraCaptureSessionCaptureCallback" visibility="private" size="4" offset="12" />
+      <field name="FCaptureSessionCaptureCallbackDelegate" type="JDWCameraCaptureSessionCaptureCallbackDelegate" visibility="private" size="4" offset="16" />
+      <field name="FCaptureSessionStateCallback" type="JDWCameraCaptureSessionStateCallback" visibility="private" size="4" offset="20" />
+      <field name="FCaptureSessionStateCallbackDelegate" type="JDWCameraCaptureSessionStateCallbackDelegate" visibility="private" size="4" offset="24" />
+      <field name="FIsCapturing" type="Boolean" visibility="private" size="1" offset="28" />
+      <field name="FIsStarting" type="Boolean" visibility="private" size="1" offset="29" />
+      <field name="FDoFocus" type="Boolean" visibility="private" size="1" offset="30" />
+      <field name="FHandler" type="JHandler" visibility="private" size="4" offset="32" />
+      <field name="FPlatformCamera" type="TPlatformCamera" visibility="private" size="4" offset="36" />
+      <field name="FPreview" type="TCameraPreview" visibility="private" size="4" offset="40" />
+      <field name="FPreviewSurface" type="JSurface" visibility="private" size="4" offset="44" />
+      <field name="FRequestedOrientation" type="Integer" visibility="private" size="4" offset="48" />
+      <field name="FRequestHelper" type="JDWCaptureRequestBuilderHelper" visibility="private" size="4" offset="52" />
+      <field name="FSession" type="JCameraCaptureSession" visibility="private" size="4" offset="56" />
+      <field name="FStillImageAvailableListener" type="JImageReader_OnImageAvailableListener" visibility="private" size="4" offset="60" />
+      <field name="FStillImageReader" type="JImageReader" visibility="private" size="4" offset="64" />
+      <field name="FStillImageOrientation" type="Integer" visibility="private" size="4" offset="68" />
+      <field name="FSurfaceTexture" type="JSurfaceTexture" visibility="private" size="4" offset="72" />
+      <field name="FSurfaceTextureListener" type="JTextureView_SurfaceTextureListener" visibility="private" size="4" offset="76" />
+      <field name="FThread" type="JHandlerThread" visibility="private" size="4" offset="80" />
+      <field name="FFirst" type="Boolean" visibility="private" size="1" offset="84" />
+      <field name="FPreviewSize" type="TSizeF" visibility="private" size="8" offset="88" />
+      <field name="FMaxImageWidth" type="Integer" visibility="private" size="4" offset="96" />
+      <field name="FCapturedWidth" type="Integer" visibility="private" size="4" offset="100" />
+      <field name="FCapturedHeight" type="Integer" visibility="private" size="4" offset="104" />
+      <procedure name="AddLocation" visibility="private">
+        <parameters>
+          <parameter name="AStream" type="TMemoryStream" paramflags="const" />
+        </parameters>
+      </procedure>
+      <procedure name="CaptureCompleted" visibility="private" procflags="virtual">
+        <parameters>
+          <parameter name="session" type="JCameraCaptureSession" />
+          <parameter name="request" type="JCaptureRequest" />
+          <parameter name="result" type="JTotalCaptureResult" />
+        </parameters>
+      </procedure>
+      <procedure name="CaptureProgressed" visibility="private" procflags="virtual">
+        <parameters>
+          <parameter name="session" type="JCameraCaptureSession" />
+          <parameter name="request" type="JCaptureRequest" />
+          <parameter name="partialResult" type="JCaptureResult" />
+        </parameters>
+      </procedure>
+      <procedure name="CaptureSessionConfigured" visibility="private" procflags="virtual">
+        <parameters>
+          <parameter name="session" type="JCameraCaptureSession" />
+        </parameters>
+      </procedure>
+      <procedure name="CaptureSessionConfigureFailed" visibility="private" procflags="virtual">
+        <parameters>
+          <parameter name="session" type="JCameraCaptureSession" />
+        </parameters>
+      </procedure>
+      <procedure name="CheckFaces" visibility="private">
+        <parameters>
+          <parameter name="AHelper" type="JDWCaptureResultHelper" paramflags="const" />
+        </parameters>
+      </procedure>
+      <procedure name="CreatePreviewSurface" visibility="private">
+      </procedure>
+      <procedure name="CreateStillReader" visibility="private">
+      </procedure>
+      <function name="GetOrientation" visibility="private">
+        <parameters>
+          <parameter name="ARotation" type="Integer" paramflags="const" />
+          <retval type="Integer" />
+        </parameters>
+      </function>
+      <function name="GetPreviewControl" visibility="private">
+        <parameters>
+          <retval type="TControl" />
+        </parameters>
+      </function>
+      <procedure name="InternalStartSession" visibility="private">
+      </procedure>
+      <procedure name="OrientationChangeHandler" visibility="private">
+        <parameters>
+          <parameter name="Sender" type="TObject" />
+        </parameters>
+      </procedure>
+      <procedure name="SizeChangeHandler" visibility="private">
+        <parameters>
+          <parameter name="Sender" type="TObject" />
+        </parameters>
+      </procedure>
+      <procedure name="StartThread" visibility="private">
+      </procedure>
+      <procedure name="StopThread" visibility="private">
+      </procedure>
+      <procedure name="UpdateFlashMode" visibility="private">
+      </procedure>
+      <procedure name="UpdatePreview" visibility="private">
+      </procedure>
+      <procedure name="SetMaxImageWidth" visibility="private">
+        <parameters>
+          <parameter name="Value" type="Integer" paramflags="const" />
+        </parameters>
+      </procedure>
+      <procedure name="CaptureImage" visibility="protected">
+        <parameters>
+          <parameter name="ACaptureRequest" type="TCaptureMode" paramflags="const" />
+        </parameters>
+      </procedure>
+      <procedure name="ImageAvailable" visibility="protected">
+        <parameters>
+          <parameter name="reader" type="JImageReader" />
+        </parameters>
+      </procedure>
+      <procedure name="StartSession" visibility="protected">
+      </procedure>
+      <procedure name="StopSession" visibility="protected">
+      </procedure>
+      <procedure name="SurfaceTextureAvailable" visibility="protected">
+        <parameters>
+          <parameter name="surface" type="JSurfaceTexture" />
+          <parameter name="width" type="Integer" />
+          <parameter name="height" type="Integer" />
+        </parameters>
+      </procedure>
+      <procedure name="SurfaceTextureDestroyed" visibility="protected">
+        <parameters>
+          <parameter name="surface" type="JSurfaceTexture" />
+        </parameters>
+      </procedure>
+      <procedure name="DoFocus" visibility="protected">
+      </procedure>
+      <property name="IsCapturing" visibility="protected" read="FIsCapturing" type="Boolean" />
+      <property name="PreviewControl" visibility="protected" read="GetPreviewControl" type="TControl" />
+      <property name="Handler" visibility="protected" read="FHandler" type="JHandler" />
+      <property name="PlatformCamera" visibility="protected" read="FPlatformCamera" type="TPlatformCamera" />
+      <property name="Session" visibility="protected" read="FSession" type="JCameraCaptureSession" />
+      <constructor name="Create" visibility="public">
+        <parameters>
+          <parameter name="APlatformCamera" type="TPlatformCamera" paramflags="const" />
+        </parameters>
+      </constructor>
+      <destructor name="Destroy" visibility="public">
+        <parameters>
+        </parameters>
+      </destructor>
+      <property name="MaxImageWidth" visibility="public" read="FMaxImageWidth" write="SetMaxImageWidth" type="Integer" />
+      <property name="CapturedWidth" visibility="public" read="FCapturedWidth" type="Integer" />
+      <property name="CapturedHeight" visibility="public" read="FCapturedHeight" type="Integer" />
+    </members>
+  </class>
+  <class name="TPlatformCamera">
+    <ancestor name="TCustomPlatformCamera" namespace="DW.Camera">
+      <methodref name="ApplicationEventMessageHandler" visibility="private" />
+      <methodref name="GetIsActive" visibility="private" />
+      <methodref name="GetCameraPosition" visibility="private" />
+      <methodref name="ResetCamera" visibility="private" />
+      <methodref name="ResignCamera" visibility="private" />
+      <methodref name="RestoreCamera" visibility="private" />
+      <methodref name="SetCameraPosition" visibility="private" />
+      <methodref name="SetIsActive" visibility="private" />
+      <methodref name="SetMaxImageWidth" visibility="protected" procflags="virtual" />
+      <methodref name="CaptureImage" visibility="protected" />
+      <methodref name="CloseCamera" visibility="protected" procflags="virtual" />
+      <methodref name="ContinuousCaptureChanged" visibility="protected" procflags="virtual" />
+      <methodref name="DoAuthorizationStatus" visibility="protected" />
+      <methodref name="DoCaptureImage" visibility="protected" procflags="virtual" />
+      <methodref name="DoCapturedImage" visibility="protected" />
+      <methodref name="DoDetectedFaces" visibility="protected" />
+      <methodref name="DoStatusChange" visibility="protected" />
+      <methodref name="GetFlashMode" visibility="protected" />
+      <methodref name="GetPreviewControl" visibility="protected" procflags="virtual" />
+      <methodref name="GetResolutionHeight" visibility="protected" procflags="virtual" />
+      <methodref name="GetResolutionWidth" visibility="protected" procflags="virtual" />
+      <methodref name="GetCapturedHeight" visibility="protected" procflags="virtual" />
+      <methodref name="GetCapturedWidth" visibility="protected" procflags="virtual" />
+      <methodref name="GetCameraOrientation" visibility="protected" procflags="virtual" />
+      <methodref name="InternalSetActive" visibility="protected" />
+      <methodref name="OpenCamera" visibility="protected" procflags="virtual" />
+      <methodref name="QueueAuthorizationStatus" visibility="protected" />
+      <methodref name="RequestPermission" visibility="protected" procflags="abstract virtual" />
+      <methodref name="SetFaceDetectMode" visibility="protected" procflags="virtual" />
+      <methodref name="SetFlashMode" visibility="protected" />
+      <methodref name="StartCapture" visibility="protected" procflags="virtual" />
+      <methodref name="StopCapture" visibility="protected" procflags="virtual" />
+      <propertyref name="IsActive" visibility="protected" />
+      <propertyref name="Camera" visibility="protected" />
+      <propertyref name="CameraPosition" visibility="protected" />
+      <propertyref name="FaceDetectMode" visibility="protected" />
+      <propertyref name="FlashMode" visibility="protected" />
+      <methodref name="Create" visibility="public" procflags="constructor virtual" />
+      <methodref name="Destroy" visibility="public" procflags="destructor override" />
+      <methodref name="DoFocus" visibility="public" procflags="abstract virtual" />
+      <propertyref name="PreviewControl" visibility="public" />
+      <propertyref name="MaxImageWidth" visibility="public" />
+      <propertyref name="CameraOrientation" visibility="public" />
+      <propertyref name="MaxPreviewWidth" visibility="public" />
+      <ancestor name="TObject" namespace="System">
+        <methodref name="Create" visibility="public" procflags="constructor">
+        </methodref>
+        <methodref name="Free" visibility="public">
+        </methodref>
+        <methodref name="DisposeOf" visibility="public" procflags="inline">
+        </methodref>
+        <methodref name="InitInstance" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="CleanupInstance" visibility="public">
+        </methodref>
+        <methodref name="ClassType" visibility="public" procflags="inline">
+        </methodref>
+        <methodref name="ClassName" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="ClassNameIs" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="ClassParent" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="ClassInfo" visibility="public" procflags="class inline">
+        </methodref>
+        <methodref name="InstanceSize" visibility="public" procflags="class inline">
+        </methodref>
+        <methodref name="InheritsFrom" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="MethodAddress" visibility="public" procflags="class overload">
+        </methodref>
+        <methodref name="MethodAddress" visibility="public" procflags="class overload">
+        </methodref>
+        <methodref name="MethodName" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="QualifiedClassName" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="FieldAddress" visibility="public" procflags="overload">
+        </methodref>
+        <methodref name="FieldAddress" visibility="public" procflags="overload">
+        </methodref>
+        <methodref name="GetInterface" visibility="public">
+        </methodref>
+        <methodref name="GetInterfaceEntry" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="GetInterfaceTable" visibility="public" procflags="class inline">
+        </methodref>
+        <methodref name="UnitName" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="UnitScope" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="Equals" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="GetHashCode" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="ToString" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="SafeCallException" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="AfterConstruction" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="BeforeDestruction" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="Dispatch" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="DefaultHandler" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="NewInstance" visibility="public" procflags="class virtual">
+        </methodref>
+        <methodref name="FreeInstance" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="Destroy" visibility="public" procflags="destructor virtual">
+        </methodref>
+        <methodref name="CPP_ABI_1" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="CPP_ABI_2" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="CPP_ABI_3" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="GetDisposed" visibility="protected" procflags="inline">
+        </methodref>
+        <methodref name="CheckDisposed" visibility="protected" procflags="inline">
+        </methodref>
+        <propertyref name="Disposed" visibility="protected">
+        </propertyref>
+      </ancestor>
+    </ancestor>
+    <members>
+      <field name="FAvailableViewSizes" type="TJavaObjectArray&lt;Androidapi.JNI.Util.Jutil_Size&gt;" visibility="private" size="4" offset="28" />
+      <field name="FCameraDevice" type="JCameraDevice" visibility="private" size="4" offset="32" />
+      <field name="FCameraManager" type="JCameraManager" visibility="private" size="4" offset="36" />
+      <field name="FCameraOrientation" type="Integer" visibility="private" size="4" offset="40" />
+      <field name="FCaptureSession" type="TCameraCaptureSession" visibility="private" size="4" offset="44" />
+      <field name="FDetectionDateTime" type="TDateTime" visibility="private" size="8" offset="48" />
+      <field name="FFaces" type="TFaces" visibility="private" size="4" offset="56" />
+      <field name="FFacesDetected" type="Boolean" visibility="private" size="1" offset="60" />
+      <field name="FDeviceStateCallback" type="JDWCameraDeviceStateCallback" visibility="private" size="4" offset="64" />
+      <field name="FDeviceStateCallbackDelegate" type="JDWCameraDeviceStateCallbackDelegate" visibility="private" size="4" offset="68" />
+      <field name="FHandler" type="JHandler" visibility="private" size="4" offset="72" />
+      <field name="FViewSize" type="Jutil_Size" visibility="private" size="4" offset="76" />
+      <field name="FCaptureSize" type="TSize" visibility="private" size="8" offset="80" />
+      <field name="FLensDistance" type="Integer" visibility="private" size="4" offset="88" />
+      <procedure name="DoOpenCamera" visibility="private">
+      </procedure>
+      <procedure name="UpdateViewSize" visibility="private">
+      </procedure>
+      <function name="GetIsSwapping" visibility="private">
+        <parameters>
+          <retval type="Boolean" />
+        </parameters>
+      </function>
+      <procedure name="SetMaxImageWidth" visibility="protected" procflags="override">
+        <parameters>
+          <parameter name="Value" type="Integer" paramflags="const" />
+        </parameters>
+      </procedure>
+      <procedure name="CameraDisconnected" visibility="protected">
+        <parameters>
+          <parameter name="camera" type="JCameraDevice" />
+        </parameters>
+      </procedure>
+      <procedure name="CameraError" visibility="protected">
+        <parameters>
+          <parameter name="camera" type="JCameraDevice" />
+          <parameter name="error" type="Integer" />
+        </parameters>
+      </procedure>
+      <procedure name="CameraOpened" visibility="protected">
+        <parameters>
+          <parameter name="camera" type="JCameraDevice" />
+        </parameters>
+      </procedure>
+      <procedure name="CapturedStillImage" visibility="protected">
+        <parameters>
+          <parameter name="AImageStream" type="TStream" paramflags="const" />
+          <parameter name="ACaptureRequest" type="TCaptureMode" paramflags="const" />
+        </parameters>
+      </procedure>
+      <procedure name="CloseCamera" visibility="protected" procflags="override">
+      </procedure>
+      <procedure name="DetectedFaces" visibility="protected">
+        <parameters>
+          <parameter name="AFaces" type="TJavaObjectArray&lt;DW.Androidapi.JNI.Hardware.Camera2.JFace&gt;" paramflags="const" />
+        </parameters>
+      </procedure>
+      <procedure name="DoCaptureImage" visibility="protected" procflags="override">
+      </procedure>
+      <function name="GetHighestFaceDetectMode" visibility="protected">
+        <parameters>
+          <retval type="TFaceDetectMode" />
+        </parameters>
+      </function>
+      <function name="GetPreviewControl" visibility="protected" procflags="override">
+        <parameters>
+          <retval type="TControl" />
+        </parameters>
+      </function>
+      <function name="GetResolutionHeight" visibility="protected" procflags="override">
+        <parameters>
+          <retval type="Integer" />
+        </parameters>
+      </function>
+      <function name="GetResolutionWidth" visibility="protected" procflags="override">
+        <parameters>
+          <retval type="Integer" />
+        </parameters>
+      </function>
+      <function name="GetCapturedHeight" visibility="protected" procflags="override">
+        <parameters>
+          <retval type="Integer" />
+        </parameters>
+      </function>
+      <function name="GetCapturedWidth" visibility="protected" procflags="override">
+        <parameters>
+          <retval type="Integer" />
+        </parameters>
+      </function>
+      <function name="GetCameraOrientation" visibility="protected" procflags="override">
+        <parameters>
+          <retval type="Integer" />
+        </parameters>
+      </function>
+      <procedure name="OpenCamera" visibility="protected" procflags="override">
+      </procedure>
+      <procedure name="RequestPermission" visibility="protected" procflags="override">
+      </procedure>
+      <procedure name="StartCapture" visibility="protected" procflags="override">
+      </procedure>
+      <procedure name="StopCapture" visibility="protected" procflags="override">
+      </procedure>
+      <procedure name="DoFocus" visibility="protected">
+      </procedure>
+      <procedure name="StillCaptureFailed" visibility="protected">
+      </procedure>
+      <function name="SizeFitsInPreview" visibility="protected">
+        <parameters>
+          <parameter name="ASize" type="Jutil_Size" paramflags="const" />
+          <retval type="Boolean" />
+        </parameters>
+      </function>
+      <property name="CameraDevice" visibility="protected" read="FCameraDevice" type="JCameraDevice" />
+      <property name="CameraOrientation" visibility="protected" read="FCameraOrientation" type="Integer" />
+      <property name="IsSwapping" visibility="protected" read="GetIsSwapping" type="Boolean" />
+      <property name="ViewSize" visibility="protected" read="FViewSize" type="Jutil_Size" />
+      <constructor name="Create" visibility="public">
+        <parameters>
+          <parameter name="ACamera" type="TCamera" paramflags="const" />
+        </parameters>
+      </constructor>
+      <destructor name="Destroy" visibility="public">
+        <parameters>
+        </parameters>
+      </destructor>
+    </members>
+  </class>
+</namespace>

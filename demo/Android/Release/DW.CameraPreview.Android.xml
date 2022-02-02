@@ -1,0 +1,391 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<namespace name="DW.CameraPreview.Android" platform="Android">
+  <class name="TDWCameraViewStateDelegate">
+    <ancestor name="TJavaLocal" namespace="Androidapi.JNIBridge">
+      <interfaces>
+        <implements name="IJava" />
+        <implements name="ILocalObject" />
+      </interfaces>
+      <methodref name="Create@" visibility="class private" procflags="class constructor noself">
+      </methodref>
+      <methodref name="GetProxyInterfaceNameFromContext" visibility="private" procflags="static">
+      </methodref>
+      <methodref name="GetObjectID" visibility="protected">
+      </methodref>
+      <methodref name="Create" visibility="public" procflags="constructor">
+      </methodref>
+      <methodref name="Destroy" visibility="public" procflags="destructor override">
+      </methodref>
+      <methodref name="hashCode" visibility="public">
+      </methodref>
+      <methodref name="equals" visibility="public" procflags="overload">
+      </methodref>
+      <methodref name="toString" visibility="public" procflags="overload">
+      </methodref>
+      <methodref name="getName" visibility="public">
+      </methodref>
+      <ancestor name="TJInterfacedObject" namespace="Androidapi.JNIBridge">
+        <methodref name="AfterConstruction" visibility="public" procflags="override">
+        </methodref>
+        <methodref name="BeforeDestruction" visibility="public" procflags="override">
+        </methodref>
+        <ancestor name="TInterfacedObject" namespace="System">
+          <interfaces>
+            <implements name="IInterface" />
+          </interfaces>
+          <methodref name="GetRefCount" visibility="private" procflags="inline">
+          </methodref>
+          <methodref name="__MarkDestroying" visibility="protected" procflags="static inline">
+          </methodref>
+          <methodref name="QueryInterface" visibility="protected">
+          </methodref>
+          <methodref name="_AddRef" visibility="protected">
+          </methodref>
+          <methodref name="_Release" visibility="protected">
+          </methodref>
+          <methodref name="AfterConstruction" visibility="public" procflags="override">
+          </methodref>
+          <methodref name="BeforeDestruction" visibility="public" procflags="override">
+          </methodref>
+          <methodref name="NewInstance" visibility="public" procflags="class override">
+          </methodref>
+          <propertyref name="RefCount" visibility="public">
+          </propertyref>
+          <ancestor name="TObject" namespace="System">
+            <methodref name="Create" visibility="public" procflags="constructor">
+            </methodref>
+            <methodref name="Free" visibility="public">
+            </methodref>
+            <methodref name="DisposeOf" visibility="public" procflags="inline">
+            </methodref>
+            <methodref name="InitInstance" visibility="public" procflags="class">
+            </methodref>
+            <methodref name="CleanupInstance" visibility="public">
+            </methodref>
+            <methodref name="ClassType" visibility="public" procflags="inline">
+            </methodref>
+            <methodref name="ClassName" visibility="public" procflags="class">
+            </methodref>
+            <methodref name="ClassNameIs" visibility="public" procflags="class">
+            </methodref>
+            <methodref name="ClassParent" visibility="public" procflags="class">
+            </methodref>
+            <methodref name="ClassInfo" visibility="public" procflags="class inline">
+            </methodref>
+            <methodref name="InstanceSize" visibility="public" procflags="class inline">
+            </methodref>
+            <methodref name="InheritsFrom" visibility="public" procflags="class">
+            </methodref>
+            <methodref name="MethodAddress" visibility="public" procflags="class overload">
+            </methodref>
+            <methodref name="MethodAddress" visibility="public" procflags="class overload">
+            </methodref>
+            <methodref name="MethodName" visibility="public" procflags="class">
+            </methodref>
+            <methodref name="QualifiedClassName" visibility="public" procflags="class">
+            </methodref>
+            <methodref name="FieldAddress" visibility="public" procflags="overload">
+            </methodref>
+            <methodref name="FieldAddress" visibility="public" procflags="overload">
+            </methodref>
+            <methodref name="GetInterface" visibility="public">
+            </methodref>
+            <methodref name="GetInterfaceEntry" visibility="public" procflags="class">
+            </methodref>
+            <methodref name="GetInterfaceTable" visibility="public" procflags="class inline">
+            </methodref>
+            <methodref name="UnitName" visibility="public" procflags="class">
+            </methodref>
+            <methodref name="UnitScope" visibility="public" procflags="class">
+            </methodref>
+            <methodref name="Equals" visibility="public" procflags="virtual">
+            </methodref>
+            <methodref name="GetHashCode" visibility="public" procflags="virtual">
+            </methodref>
+            <methodref name="ToString" visibility="public" procflags="virtual">
+            </methodref>
+            <methodref name="SafeCallException" visibility="public" procflags="virtual">
+            </methodref>
+            <methodref name="AfterConstruction" visibility="public" procflags="virtual">
+            </methodref>
+            <methodref name="BeforeDestruction" visibility="public" procflags="virtual">
+            </methodref>
+            <methodref name="Dispatch" visibility="public" procflags="virtual">
+            </methodref>
+            <methodref name="DefaultHandler" visibility="public" procflags="virtual">
+            </methodref>
+            <methodref name="NewInstance" visibility="public" procflags="class virtual">
+            </methodref>
+            <methodref name="FreeInstance" visibility="public" procflags="virtual">
+            </methodref>
+            <methodref name="Destroy" visibility="public" procflags="destructor virtual">
+            </methodref>
+            <methodref name="CPP_ABI_1" visibility="public" procflags="virtual">
+            </methodref>
+            <methodref name="CPP_ABI_2" visibility="public" procflags="virtual">
+            </methodref>
+            <methodref name="CPP_ABI_3" visibility="public" procflags="virtual">
+            </methodref>
+            <methodref name="GetDisposed" visibility="protected" procflags="inline">
+            </methodref>
+            <methodref name="CheckDisposed" visibility="protected" procflags="inline">
+            </methodref>
+            <propertyref name="Disposed" visibility="protected">
+            </propertyref>
+          </ancestor>
+        </ancestor>
+      </ancestor>
+    </ancestor>
+    <interfaces>
+      <implements name="JDWCameraView_StateDelegate" />
+    </interfaces>
+    <members>
+      <field name="FPreview" type="TAndroidCameraPreview" visibility="private" size="4" offset="24" />
+      <procedure name="onDestroyed" visibility="public" callconv="cdecl">
+        <parameters>
+          <parameter name="view" type="JDWCameraView" />
+        </parameters>
+      </procedure>
+      <procedure name="onReady" visibility="public" callconv="cdecl">
+        <parameters>
+          <parameter name="view" type="JDWCameraView" />
+        </parameters>
+      </procedure>
+      <constructor name="Create" visibility="public">
+        <parameters>
+          <parameter name="APreview" type="TAndroidCameraPreview" paramflags="const" />
+        </parameters>
+      </constructor>
+    </members>
+  </class>
+  <class name="TAndroidCameraPreview">
+    <ancestor name="TAndroidNativeView" namespace="FMX.Presentation.Android">
+      <methodref name="GetObservers" visibility="private">
+      </methodref>
+      <methodref name="GetZOrderManager" visibility="private">
+      </methodref>
+      <methodref name="BeforeDestroyHandleListener" visibility="private">
+      </methodref>
+      <methodref name="AfterCreateHandleListener" visibility="private">
+      </methodref>
+      <methodref name="SetSize" visibility="protected" procflags="virtual">
+      </methodref>
+      <methodref name="IsActiveGesture" visibility="protected">
+      </methodref>
+      <methodref name="FindGesturedControl" visibility="protected">
+      </methodref>
+      <methodref name="ProcessTouch" visibility="protected" procflags="virtual">
+      </methodref>
+      <methodref name="ProcessLongTap" visibility="protected" procflags="virtual">
+      </methodref>
+      <methodref name="ProcessDoubleTap" visibility="protected" procflags="virtual">
+      </methodref>
+      <methodref name="ProcessPan" visibility="protected">
+      </methodref>
+      <methodref name="ProcessScale" visibility="protected">
+      </methodref>
+      <methodref name="RotationGestureHandler" visibility="protected">
+      </methodref>
+      <methodref name="PointInside" visibility="protected" procflags="virtual">
+      </methodref>
+      <methodref name="UpdateVisible" visibility="protected">
+      </methodref>
+      <methodref name="PMGetNativeObject" visibility="protected" procflags="message">
+      </methodref>
+      <methodref name="PMSetAbsoluteEnabled" visibility="protected" procflags="message">
+      </methodref>
+      <methodref name="PMSetVisible" visibility="protected" procflags="message">
+      </methodref>
+      <methodref name="PMGetVisible" visibility="protected" procflags="message">
+      </methodref>
+      <methodref name="PMSetAlpha" visibility="protected" procflags="message">
+      </methodref>
+      <methodref name="PMGetAlpha" visibility="protected" procflags="message">
+      </methodref>
+      <methodref name="PMSetSize" visibility="protected" procflags="message">
+      </methodref>
+      <methodref name="PMGetSize" visibility="protected" procflags="message">
+      </methodref>
+      <methodref name="PMIsFocused" visibility="protected" procflags="message">
+      </methodref>
+      <methodref name="PMDoExit" visibility="protected" procflags="message">
+      </methodref>
+      <methodref name="PMDoEnter" visibility="protected" procflags="message">
+      </methodref>
+      <methodref name="PMResetFocus" visibility="protected" procflags="message">
+      </methodref>
+      <methodref name="PMSetClipChildren" visibility="protected" procflags="message">
+      </methodref>
+      <methodref name="PMAncestorVisibleChanged" visibility="protected" procflags="message">
+      </methodref>
+      <methodref name="PMAncestorPresentationLoaded" visibility="protected" procflags="message">
+      </methodref>
+      <methodref name="PMAncestorPresentationUnloading" visibility="protected" procflags="message">
+      </methodref>
+      <methodref name="PMUnload" visibility="protected" procflags="message">
+      </methodref>
+      <methodref name="PMRefreshParent" visibility="protected" procflags="message">
+      </methodref>
+      <methodref name="PMAbsoluteChanged" visibility="protected" procflags="message">
+      </methodref>
+      <methodref name="PMPointInObject" visibility="protected" procflags="message">
+      </methodref>
+      <methodref name="PMChangeOrder" visibility="protected" procflags="message">
+      </methodref>
+      <methodref name="PMRootChanged" visibility="protected" procflags="message">
+      </methodref>
+      <methodref name="GetView" visibility="protected" procflags="overload">
+      </methodref>
+      <methodref name="UpdateFrame" visibility="protected">
+      </methodref>
+      <methodref name="RefreshNativeParent" visibility="protected" procflags="virtual">
+      </methodref>
+      <methodref name="DefineModelClass" visibility="protected" procflags="virtual">
+      </methodref>
+      <methodref name="GetModel" visibility="protected">
+      </methodref>
+      <methodref name="CreateView" visibility="protected" procflags="virtual">
+      </methodref>
+      <methodref name="CreateLayout" visibility="protected" procflags="virtual">
+      </methodref>
+      <methodref name="CreateChildrenLayout" visibility="protected" procflags="virtual">
+      </methodref>
+      <methodref name="InitView" visibility="protected" procflags="virtual">
+      </methodref>
+      <methodref name="Create" visibility="public" procflags="constructor overload virtual">
+      </methodref>
+      <methodref name="Create" visibility="public" procflags="constructor overload">
+      </methodref>
+      <methodref name="Destroy" visibility="public" procflags="destructor override">
+      </methodref>
+      <methodref name="HasZOrderManager" visibility="public">
+      </methodref>
+      <methodref name="SetFocus" visibility="public" procflags="virtual">
+      </methodref>
+      <methodref name="ResetFocus" visibility="public" procflags="virtual">
+      </methodref>
+      <propertyref name="Form" visibility="public">
+      </propertyref>
+      <propertyref name="ZOrderManager" visibility="public">
+      </propertyref>
+      <propertyref name="Model" visibility="public">
+      </propertyref>
+      <propertyref name="ChildrenLayout" visibility="public">
+      </propertyref>
+      <propertyref name="Control" visibility="public">
+      </propertyref>
+      <propertyref name="Observers" visibility="public">
+      </propertyref>
+      <propertyref name="ScreenScale" visibility="public">
+      </propertyref>
+      <propertyref name="Size" visibility="public">
+      </propertyref>
+      <propertyref name="Layout" visibility="public">
+      </propertyref>
+      <propertyref name="View" visibility="public">
+      </propertyref>
+      <propertyref name="Visible" visibility="public">
+      </propertyref>
+      <ancestor name="TObject" namespace="System">
+        <methodref name="Create" visibility="public" procflags="constructor">
+        </methodref>
+        <methodref name="Free" visibility="public">
+        </methodref>
+        <methodref name="DisposeOf" visibility="public" procflags="inline">
+        </methodref>
+        <methodref name="InitInstance" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="CleanupInstance" visibility="public">
+        </methodref>
+        <methodref name="ClassType" visibility="public" procflags="inline">
+        </methodref>
+        <methodref name="ClassName" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="ClassNameIs" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="ClassParent" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="ClassInfo" visibility="public" procflags="class inline">
+        </methodref>
+        <methodref name="InstanceSize" visibility="public" procflags="class inline">
+        </methodref>
+        <methodref name="InheritsFrom" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="MethodAddress" visibility="public" procflags="class overload">
+        </methodref>
+        <methodref name="MethodAddress" visibility="public" procflags="class overload">
+        </methodref>
+        <methodref name="MethodName" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="QualifiedClassName" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="FieldAddress" visibility="public" procflags="overload">
+        </methodref>
+        <methodref name="FieldAddress" visibility="public" procflags="overload">
+        </methodref>
+        <methodref name="GetInterface" visibility="public">
+        </methodref>
+        <methodref name="GetInterfaceEntry" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="GetInterfaceTable" visibility="public" procflags="class inline">
+        </methodref>
+        <methodref name="UnitName" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="UnitScope" visibility="public" procflags="class">
+        </methodref>
+        <methodref name="Equals" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="GetHashCode" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="ToString" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="SafeCallException" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="AfterConstruction" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="BeforeDestruction" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="Dispatch" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="DefaultHandler" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="NewInstance" visibility="public" procflags="class virtual">
+        </methodref>
+        <methodref name="FreeInstance" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="Destroy" visibility="public" procflags="destructor virtual">
+        </methodref>
+        <methodref name="CPP_ABI_1" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="CPP_ABI_2" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="CPP_ABI_3" visibility="public" procflags="virtual">
+        </methodref>
+        <methodref name="GetDisposed" visibility="protected" procflags="inline">
+        </methodref>
+        <methodref name="CheckDisposed" visibility="protected" procflags="inline">
+        </methodref>
+        <propertyref name="Disposed" visibility="protected">
+        </propertyref>
+      </ancestor>
+    </ancestor>
+    <members>
+      <field name="FStateDelegate" type="JDWCameraView_StateDelegate" visibility="private" size="4" offset="176" />
+      <field name="FView" type="JDWCameraView" visibility="private" size="4" offset="180" />
+      <function name="CreateView" visibility="protected" procflags="override">
+        <parameters>
+          <retval type="JView">
+            <attributes>
+              <attribute name="JavaSignatureAttribute" />
+            </attributes>
+          </retval>
+        </parameters>
+      </function>
+      <constructor name="Create" visibility="public">
+        <parameters>
+        </parameters>
+      </constructor>
+      <property name="View" visibility="public" read="FView" type="JDWCameraView" />
+    </members>
+  </class>
+</namespace>
