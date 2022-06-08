@@ -1,4 +1,4 @@
-unit CodeReader.CodeReader.DW.CameraPreview.iOS;
+unit CodeReader.DW.CameraPreview.iOS;
 
 {*******************************************************}
 {                                                       }

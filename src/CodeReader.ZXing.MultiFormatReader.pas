@@ -67,7 +67,6 @@ type
     FHints: TDictionary<TDecodeHintType, TObject>;
     readers: TList<IReader>;
     FEnableQRCode: Boolean;
-    FThCount    : Integer;
     FRead       : TReadResult;
 
     function DecodeInternal(image: TBinaryBitmap): TReadResult;

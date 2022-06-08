@@ -25,7 +25,7 @@ uses
   // FMX
   FMX.Controls, FMX.Graphics,
   // DW
-  CodeReader.DW.Camera, CodeReader.DW.CameraPreview, CodeReader.CodeReader.DW.CameraPreview.iOS, DW.iOSapi.Vision, CodeReader.DW.Types;
+  CodeReader.DW.Camera, CodeReader.DW.CameraPreview, CodeReader.DW.CameraPreview.iOS, DW.iOSapi.Vision, CodeReader.DW.Types;
 
 type
   // Filling in some blanks
@@ -44,7 +44,6 @@ type
     FDetectionRequest: VNDetectFaceLandmarksRequest;
     FFaces: TFaces;
     FImage: CIImage;
-    FRequestHandler: VNImageRequestHandler;
     FOnDetectComplete: TNotifyEvent;
     procedure DetectionRequestCompletionHandler(request: VNRequest; error: NSError);
     procedure DoDetectComplete;
@@ -293,7 +292,6 @@ end;
 function TPlatformCamera.GetCorrectedImage(const AImage: CIImage): CIImage;
 var
   LRotation: Double;
-  LOrientation: CGImagePropertyOrientation;
 begin
   Result := AImage;
   // NOTE: The following will work ONLY on iOS 11+. If you need support for lower, please find an alternate algorithm
@@ -316,8 +314,6 @@ end;
 
 procedure TPlatformCamera.CaptureStillImageCompletionHandler(buffer: CMSampleBufferRef; error: NSError);
 var
-  LMetadata: CFDictionaryRef;
-  LMetadataMutable: CFMutableDictionaryRef;
   LImageBuffer: CVPixelBufferRef;
   LCIImage: CIImage;
   LStream: TMemoryStream;
