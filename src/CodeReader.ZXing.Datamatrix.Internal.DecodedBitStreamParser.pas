@@ -71,14 +71,12 @@ implementation
 
 { TDecodedBitStreamParser }
 
-class function TDecodedBitStreamParser.decode(bytes: TArray<Byte>)
-  : TDecoderResult;
+class function TDecodedBitStreamParser.decode(bytes: TArray<Byte>): TDecoderResult;
 var
   bits: TBitSource;
   res, resultTrailer: TStringBuilder;
   byteSegments: IByteSegments;
   mode: TMode;
-
 begin
   bits := TBitSource.Create(bytes);
   res := TStringBuilder.Create(100);
@@ -86,15 +84,13 @@ begin
   byteSegments :=  ByteSegmentsCreate;
 
   try
-
     byteSegments.Add(TArray<Byte>.Create()); // TODO (KG): Validation
     mode := TMode.ASCII_ENCODE;
     while ((mode <> TMode.PAD_ENCODE) and (bits.available() > 0)) do
     begin
       if (mode = TMode.ASCII_ENCODE) then
       begin
-        if (not TDecodedBitStreamParser.decodeAsciiSegment(bits, res,
-          resultTrailer, mode)) then
+        if (not TDecodedBitStreamParser.decodeAsciiSegment(bits, res, resultTrailer, mode)) then
              result := nil;  // this line was totally missing. I assume the correct thing is to set result = nil.
       end
       else

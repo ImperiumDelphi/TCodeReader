@@ -181,7 +181,6 @@ end;
 
 procedure TMultiFormatReader.Set_Hints(const Value: TDictionary<TDecodeHintType, TObject>);
 var
-   tryHarder,
    useCode39CheckDigit,
    useCode39ExtendedMode: Boolean;
    formats: TList<TBarcodeFormat>;

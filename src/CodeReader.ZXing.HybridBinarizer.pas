@@ -103,9 +103,7 @@ begin
     Exit;
   end;
 
-  newMatrix := nil;
   try
-
     source := self.LuminanceSource;
     width := source.width;
     height := source.height;
@@ -134,7 +132,6 @@ begin
     end;
 
   finally
-    newMatrix := nil;
     SetLength(blackPoints,0);
     blackPoints := nil;
     luminances := nil;

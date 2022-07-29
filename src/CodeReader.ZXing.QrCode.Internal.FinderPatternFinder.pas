@@ -501,8 +501,7 @@ end;
 function TFinderPatternFinder.find(
   const hints: TDictionary<TDecodeHintType, TObject>): TFinderPatternInfo;
 var
-  tryHarder, pureBarcode,
-  done, confirmed: Boolean;
+  tryHarder, done, confirmed: Boolean;
   maxI, maxJ, iSkip,
   i, currentState, j, rowSkip: Integer;
   stateCount: TArray<Integer>;
@@ -512,7 +511,6 @@ begin
   Result := nil;
 
   tryHarder := (hints <> nil) and (hints.ContainsKey(CodeReader.ZXing.DecodeHintType.TRY_HARDER));
-  pureBarcode := (hints <> nil) and (hints.ContainsKey(CodeReader.ZXing.DecodeHintType.PURE_BARCODE));
   maxI := Self.image.Height;
   maxJ := Self.image.Width;
   // We are looking for black/white/black/white/black modules in
@@ -522,8 +520,7 @@ begin
   // number of pixels the center could be, so skip this often. When trying harder, look for all
   // QR versions regardless of how dense they are.
   iSkip := (3 * maxI) div (4 * MAX_MODULES);
-  if (iSkip < MIN_SKIP) or (tryHarder)
-  then
+  if (iSkip < MIN_SKIP) or (tryHarder) then
      iSkip := MIN_SKIP;
 
   done := false;
