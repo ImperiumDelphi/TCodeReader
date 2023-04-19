@@ -179,11 +179,8 @@ begin
     Result := TDecodedBitStreamParser.decode(resultBytes);
 
   finally
-
     if Assigned(DataBlock) then
       DataBlock.Free;
-
-    DataBlock := nil;
     resultBytes := nil;
     codewordBytes := nil;
     parser.Free;

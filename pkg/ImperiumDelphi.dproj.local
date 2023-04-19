@@ -22,8 +22,8 @@
     <Transaction>2021/01/18 15:28:57.000.531,=D:\Carnival\TCodeReader\src\FMX.Android.Permissions.pas</Transaction>
     <Transaction>2021/01/18 15:28:57.000.556,=D:\Carnival\TCodeReader\src\FMX.CodeReader.pas</Transaction>
     <Transaction>2022/01/28 08:45:21.000.701,=C:\Componentes\TCodeReader\src\CodeReader.DW.Android.Helpers.pas</Transaction>
-    <Transaction>2022/01/28 08:45:22.000.396,=C:\Componentes\TCodeReader\src\CodeReader.DW.Androidapi.JNI.App.pas</Transaction>
     <Transaction>2022/01/28 08:45:22.000.947,=C:\Componentes\TCodeReader\src\CodeReader.DW.Androidapi.JNI.DWCameraHelpers.pas</Transaction>
+    <Transaction>2022/01/28 08:45:22.000.396,=C:\Componentes\TCodeReader\src\CodeReader.DW.Androidapi.JNI.App.pas</Transaction>
     <Transaction>2022/01/28 08:45:23.000.273,=C:\Componentes\TCodeReader\src\CodeReader.DW.Androidapi.JNI.Hardware.Camera2.pas</Transaction>
     <Transaction>2022/01/28 08:45:23.000.547,=C:\Componentes\TCodeReader\src\CodeReader.DW.Androidapi.JNI.Os.pas</Transaction>
     <Transaction>2022/01/28 08:45:24.000.999,=C:\Componentes\TCodeReader\src\CodeReader.DW.Camera.iOS.pas</Transaction>
@@ -66,10 +66,10 @@
     <Transaction>2022/01/28 08:45:28.000.909,=C:\Componentes\TCodeReader\src\CodeReader.ZXing.Datamatrix.Internal.Decoder.pas</Transaction>
     <Transaction>2022/01/28 08:45:28.000.498,=C:\Componentes\TCodeReader\src\CodeReader.DW.UIHelper.pas</Transaction>
     <Transaction>2022/01/28 08:45:28.000.943,=C:\Componentes\TCodeReader\src\CodeReader.ZXing.Datamatrix.Internal.Version.pas</Transaction>
-    <Transaction>2022/01/28 08:45:28.000.685,=C:\Componentes\TCodeReader\src\CodeReader.ZXing.Common.BitArray.pas</Transaction>
-    <Transaction>2022/01/28 08:45:28.000.715,=C:\Componentes\TCodeReader\src\CodeReader.ZXing.Common.BitMatrix.pas</Transaction>
     <Transaction>2022/01/28 08:45:28.000.771,=C:\Componentes\TCodeReader\src\CodeReader.ZXing.Common.GridSampler.pas</Transaction>
     <Transaction>2022/01/28 08:45:28.000.669,=C:\Componentes\TCodeReader\src\CodeReader.ZXing.CharacterSetECI.pas</Transaction>
+    <Transaction>2022/01/28 08:45:28.000.685,=C:\Componentes\TCodeReader\src\CodeReader.ZXing.Common.BitArray.pas</Transaction>
+    <Transaction>2022/01/28 08:45:28.000.715,=C:\Componentes\TCodeReader\src\CodeReader.ZXing.Common.BitMatrix.pas</Transaction>
     <Transaction>2022/01/28 08:45:28.000.728,=C:\Componentes\TCodeReader\src\CodeReader.ZXing.Common.Detector.MathUtils.pas</Transaction>
     <Transaction>2022/01/28 08:45:28.000.157,=C:\Componentes\TCodeReader\src\CodeReader.DW.UIHelper.Android.pas</Transaction>
     <Transaction>2022/01/28 08:45:29.000.829,=C:\Componentes\TCodeReader\src\CodeReader.ZXing.Reader.pas</Transaction>
@@ -77,9 +77,9 @@
     <Transaction>2022/01/28 08:45:29.000.983,=C:\Componentes\TCodeReader\src\CodeReader.ZXing.StringUtils.pas</Transaction>
     <Transaction>2022/01/28 08:45:29.000.663,=C:\Componentes\TCodeReader\src\CodeReader.ZXing.QrCode.Internal.FinderPatternFinder.pas</Transaction>
     <Transaction>2022/01/28 08:45:29.000.280,=C:\Componentes\TCodeReader\src\CodeReader.ZXing.OneD.OneDReader.pas</Transaction>
-    <Transaction>2022/01/28 08:45:29.000.478,=C:\Componentes\TCodeReader\src\CodeReader.ZXing.QrCode.Internal.AlignmentPatternImplementation.pas</Transaction>
-    <Transaction>2022/01/28 08:45:29.000.369,=C:\Componentes\TCodeReader\src\CodeReader.ZXing.OneD.UPCEANReader.pas</Transaction>
     <Transaction>2022/01/28 08:45:29.000.594,=C:\Componentes\TCodeReader\src\CodeReader.ZXing.QrCode.Internal.Detector.pas</Transaction>
+    <Transaction>2022/01/28 08:45:29.000.369,=C:\Componentes\TCodeReader\src\CodeReader.ZXing.OneD.UPCEANReader.pas</Transaction>
+    <Transaction>2022/01/28 08:45:29.000.478,=C:\Componentes\TCodeReader\src\CodeReader.ZXing.QrCode.Internal.AlignmentPatternImplementation.pas</Transaction>
     <Transaction>2022/01/28 08:45:29.000.895,=C:\Componentes\TCodeReader\src\CodeReader.ZXing.ResultPoint.pas</Transaction>
     <Transaction>2022/01/28 08:45:29.000.703,=C:\Componentes\TCodeReader\src\CodeReader.ZXing.QrCode.Internal.FinderPatternInfo.pas</Transaction>
     <Transaction>2022/01/28 08:45:29.000.723,=C:\Componentes\TCodeReader\src\CodeReader.ZXing.QrCode.Internal.FormatInformation.pas</Transaction>
@@ -171,11 +171,11 @@
     <Transaction>2022/01/28 08:45:43.000.603,C:\Componentes\TCodeReader\src\CodeReader.ZXing.OneD.Code39Reader.pas=</Transaction>
     <Transaction>2022/01/28 08:45:43.000.641,C:\Componentes\TCodeReader\src\CodeReader.ZXing.OneD.EANManufacturerOrgSupport.pas=</Transaction>
     <Transaction>2022/01/28 08:45:43.000.041,C:\Componentes\TCodeReader\src\CodeReader.DW.NativeImage.Android.pas=</Transaction>
-    <Transaction>2022/01/28 08:45:43.000.300,C:\Componentes\TCodeReader\src\CodeReader.ZXing.Common.BitArray.pas=</Transaction>
+    <Transaction>2022/01/28 08:45:43.000.367,C:\Componentes\TCodeReader\src\CodeReader.ZXing.Common.GridSampler.pas=</Transaction>
     <Transaction>2022/01/28 08:45:43.000.409,C:\Componentes\TCodeReader\src\CodeReader.ZXing.Datamatrix.DataMatrixReader.pas=</Transaction>
     <Transaction>2022/01/28 08:45:43.000.869,C:\Componentes\TCodeReader\src\CodeReader.ZXing.QrCode.Internal.FormatInformation.pas=</Transaction>
-    <Transaction>2022/01/28 08:45:43.000.267,C:\Componentes\TCodeReader\src\CodeReader.ZXing.BitSource.pas=</Transaction>
     <Transaction>2022/01/28 08:45:43.000.814,C:\Componentes\TCodeReader\src\CodeReader.ZXing.QrCode.Internal.Detector.pas=</Transaction>
+    <Transaction>2022/01/28 08:45:43.000.267,C:\Componentes\TCodeReader\src\CodeReader.ZXing.BitSource.pas=</Transaction>
     <Transaction>2022/01/28 08:45:43.000.860,C:\Componentes\TCodeReader\src\CodeReader.ZXing.QrCode.Internal.FinderPatternInfo.pas=</Transaction>
     <Transaction>2022/01/28 08:45:43.000.220,C:\Componentes\TCodeReader\src\CodeReader.ZXing.BarcodeFormat.pas=</Transaction>
     <Transaction>2022/01/28 08:45:43.000.209,C:\Componentes\TCodeReader\src\CodeReader.FMX.Register.pas=</Transaction>
@@ -185,11 +185,11 @@
     <Transaction>2022/01/28 08:45:43.000.460,C:\Componentes\TCodeReader\src\CodeReader.ZXing.Datamatrix.Internal.Detector.pas=</Transaction>
     <Transaction>2022/01/28 08:45:43.000.787,C:\Componentes\TCodeReader\src\CodeReader.ZXing.QrCode.Internal.DataMask.pas=</Transaction>
     <Transaction>2022/01/28 08:45:43.000.956,C:\Componentes\TCodeReader\src\CodeReader.ZXing.RGBLuminanceSource.pas=</Transaction>
-    <Transaction>2022/01/28 08:45:43.000.323,C:\Componentes\TCodeReader\src\CodeReader.ZXing.Common.BitMatrix.pas=</Transaction>
     <Transaction>2022/01/28 08:45:43.000.289,C:\Componentes\TCodeReader\src\CodeReader.ZXing.CharacterSetECI.pas=</Transaction>
+    <Transaction>2022/01/28 08:45:43.000.323,C:\Componentes\TCodeReader\src\CodeReader.ZXing.Common.BitMatrix.pas=</Transaction>
     <Transaction>2022/01/28 08:45:43.000.388,C:\Componentes\TCodeReader\src\CodeReader.ZXing.Common.ReedSolomon.GenericGF.pas=</Transaction>
     <Transaction>2022/01/28 08:45:43.000.904,C:\Componentes\TCodeReader\src\CodeReader.ZXing.QrCode.QRCodeReader.pas=</Transaction>
-    <Transaction>2022/01/28 08:45:43.000.367,C:\Componentes\TCodeReader\src\CodeReader.ZXing.Common.GridSampler.pas=</Transaction>
+    <Transaction>2022/01/28 08:45:43.000.300,C:\Componentes\TCodeReader\src\CodeReader.ZXing.Common.BitArray.pas=</Transaction>
     <Transaction>2022/01/28 08:45:43.000.500,C:\Componentes\TCodeReader\src\CodeReader.ZXing.DefaultGridSampler.pas=</Transaction>
     <Transaction>2022/01/28 08:45:43.000.779,C:\Componentes\TCodeReader\src\CodeReader.ZXing.QrCode.Internal.DataBlock.pas=</Transaction>
     <Transaction>2022/01/28 08:45:43.000.231,C:\Componentes\TCodeReader\src\CodeReader.ZXing.BaseLuminanceSource.pas=</Transaction>
@@ -230,7 +230,7 @@
     <Transaction>2022/01/28 08:46:52.000.349,C:\Componentes\TCodeReader\src\CodeReader.FMX.Android.Permissions.pas=C:\Componentes\TCodeReader\src\FMX.Android.Permissions.pas</Transaction>
     <Transaction>2022/01/28 08:46:57.000.459,C:\Componentes\TCodeReader\src\CodeReader.FMX.CodeReader.pas=C:\Componentes\TCodeReader\src\FMX.CodeReader.pas</Transaction>
     <Transaction>2022/01/28 08:47:00.000.834,C:\Componentes\TCodeReader\src\CodeReader.FMX.Register.pas=C:\Componentes\TCodeReader\src\FMX.Register.pas</Transaction>
-    <Transaction>2022/01/28 10:25:48.001,C:\Componentes\TCodeReader\src\FMX.Android.Permissions.pas=</Transaction>
+    <Transaction>2022/01/28 10:25:48.000.001,C:\Componentes\TCodeReader\src\FMX.Android.Permissions.pas=</Transaction>
   </Transactions>
 	<ProjectSortOrder AutoSort="0" SortType="0">
     <File Path="..\..\TCodeReader"/>

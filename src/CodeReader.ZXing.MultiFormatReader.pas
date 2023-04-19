@@ -67,7 +67,6 @@ type
     FHints: TDictionary<TDecodeHintType, TObject>;
     readers: TList<IReader>;
     FEnableQRCode: Boolean;
-    FThCount    : Integer;
     FRead       : TReadResult;
 
     function DecodeInternal(image: TBinaryBitmap): TReadResult;
@@ -182,7 +181,6 @@ end;
 
 procedure TMultiFormatReader.Set_Hints(const Value: TDictionary<TDecodeHintType, TObject>);
 var
-   tryHarder,
    useCode39CheckDigit,
    useCode39ExtendedMode: Boolean;
    formats: TList<TBarcodeFormat>;
